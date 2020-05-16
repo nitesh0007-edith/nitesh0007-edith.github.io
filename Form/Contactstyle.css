@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+
+*{
+	margin:0;
+	padding:0;
+	box-sizing :border-box;
+	outline:none;
+}
+
+body{
+	background-color:rgb(255,150,0);
+	font-family: 'Baloo 2', cursive;
+}
+
+.wrapper{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	max-width:400px;
+	width:100%;
+	background-color:rgb(255,255,255);
+	padding:25px;
+	box-shadow:5px 5px 3px rgba(240,220,155,1);
+}
+
+.wrapper h2{
+	text-align:center;
+	margin-bottom:20px;
+	text-transform:uppercase;
+	letter-spacing:3px;
+	color:black;
+}
+
+.wrapper .input{
+	margin-bottom:10px;
+}
+
+.wrapper .input input[type="text"],
+.wrapper textarea{
+	
+		width:100%;
+		border:1px solid #e0e0e0;
+		padding:10px;
+		font-family: 'Baloo 2', cursive;
+}
+.wrapper textarea{
+	height:80px;
+	resize:none;
+}
+
+.wrapper .btn input[type="submit"]{
+	border:0;
+	margin-top:15px;
+	padding:10px;
+	width:100%;
+	background-color:rgb(255,200,0);
+	color:black;
+	text-transform:uppercase;
+	letter-spacing:5px;
+	font-weight:bold;
+	border-radius:25px;
+	font-family: 'Baloo 2', cursive;
+	cursor:pointer;
+}
+
+.wrapper #error{
+	margin-bottom:20px;
+	padding:0px;
+	background-color:rgb(255,0,0);
+	text-align:center;
+	font-size:14px;
+	transition:all 0.5s ease;
+	font-family: 'Baloo 2', cursive;
+	
+	
+}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+
+	

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Contact us</title>
+	<link rel="stylesheet" type="text/css" href="Contactstyle.css">
+	<script src="contactscript.js"></script>
+</head>
+<body>
+
+	<div class="wrapper">
+		<h2> Contact us</h2>
+		<div id="error"></div>
+			<form id="contactusform" onsubmit="return validation()">
+				<div class="input">
+					<input type="text" placeholder="Name" id="name">
+				</div>
+				<div class="input">
+					<input type="text" placeholder="Subject" id="subject">
+				</div>
+				<div class="input">
+					<input type="text" placeholder="Phone no." id="phone">
+				</div>
+				<div class="input">
+					<input type="text" placeholder="Email" id="email">
+				</div>
+				<div class="input">
+					<input type="text" placeholder="Address" id="address">
+				</div>
+				<div class="input">
+					<textarea type="text" placeholder="Message" id="message"></textarea>
+				</div>
+				<div class="btn">
+					<input type="submit">
+				</div>
+			</form>
+	
+	</div>
+</body>
+</html>
