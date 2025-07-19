@@ -6,17 +6,37 @@
   <title>Nitesh Ranjan Singh | MSc Data Science</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      --bg-color: #f9f9f9;
+      --text-color: #333;
+      --primary-color: #0d3b66;
+      --nav-color: #133b5c;
+    }
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #f1f1f1;
+      --primary-color: #1e90ff;
+      --nav-color: #1c1c1c;
+    }
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s, color 0.3s;
     }
     header {
-      background-color: #0d3b66;
+      background-color: var(--primary-color);
       color: #fff;
       padding: 2rem 1rem;
       text-align: center;
+    }
+    header img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      object-fit: cover;
     }
     header h1 {
       margin: 0;
@@ -27,7 +47,7 @@
       font-size: 1rem;
     }
     nav {
-      background-color: #133b5c;
+      background-color: var(--nav-color);
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -44,6 +64,14 @@
     nav a:hover {
       text-decoration: underline;
     }
+    .theme-toggle {
+      background: none;
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
     .content {
       max-width: 800px;
       margin: 2rem auto;
@@ -57,13 +85,29 @@
       display: block;
     }
     .section h2 {
-      color: #0d3b66;
-      border-bottom: 2px solid #0d3b66;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--primary-color);
       padding-bottom: 0.3rem;
       font-size: 1.4rem;
     }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+    }
+    .contact-form button {
+      background-color: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
     footer {
-      background-color: #0d3b66;
+      background-color: var(--primary-color);
       color: #fff;
       text-align: center;
       padding: 1rem;
@@ -89,6 +133,7 @@
 </head>
 <body>
   <header>
+    <img src="Passport%20Size.jpg" alt="Nitesh Ranjan Singh">
     <h1>Nitesh Ranjan Singh</h1>
     <p>MSc Data Science @ University of Glasgow | Data Engineer | Azure | PySpark</p>
   </header>
@@ -98,42 +143,31 @@
     <a onclick="showSection('about')">About</a>
     <a onclick="showSection('experience')">Work Experience</a>
     <a onclick="showSection('projects')">Projects</a>
+    <a onclick="showSection('contact')">Contact</a>
     <a href="resume.pdf">Resume</a>
     <a href="https://github.com/nitesh0007-edith" target="_blank">GitHub</a>
     <a href="https://www.linkedin.com/in/nitesh0007/" target="_blank">LinkedIn</a>
+    <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
   </nav>
 
   <div class="content">
     <section class="section active" id="welcome">
       <h2>Welcome!</h2>
-      <p>
-        I’m a data engineer with 3+ years of experience building scalable pipelines in Azure and Python. I’m currently enhancing my capabilities through an MSc in Data Science at the University of Glasgow.
-        This portfolio highlights my academic journey, professional work, and data projects.
-      </p>
+      <p>I’m a data engineer with 3+ years of experience building scalable pipelines in Azure and Python. I’m currently enhancing my capabilities through an MSc in Data Science at the University of Glasgow. This portfolio highlights my academic journey, professional work, and data projects.</p>
     </section>
 
     <section class="section" id="about">
       <h2>About Me</h2>
       <p>Hello! I'm <strong>Nitesh Ranjan Singh</strong>, a passionate and driven data professional currently pursuing an <strong>MSc in Data Science</strong> at the <strong>University of Glasgow</strong>. With over <strong>three years of experience as a Data Engineer</strong> in the pharmaceutical and healthcare analytics industry, I’ve designed and optimized large-scale ETL pipelines using technologies like <strong>Azure Data Factory</strong>, <strong>Databricks</strong>, <strong>PySpark</strong>, and <strong>Snowflake</strong>.</p>
-
-      <p><strong>Why Data Science?</strong><br>
-      My fascination with data began during my undergraduate studies in Computer Science, where I explored machine learning and built AI-based systems like <em>DigiAttendance</em> — a facial recognition attendance tracker. Over time, working at organizations like <strong>IQVIA</strong> and <strong>Axtria</strong>, I witnessed how impactful data can be in driving real-world decisions — especially in healthcare.
-      This blend of technology, business context, and data-driven insight led me to pursue data science more deeply. I enjoy building systems that not only process data efficiently but also unlock hidden patterns and empower decision-makers.</p>
-
-      <p><strong>Why the UK and the University of Glasgow?</strong><br>
-      I chose the UK for its strong alignment with industry-focused academic programs, access to a vibrant tech ecosystem, and excellent post-study work opportunities. The University of Glasgow’s <strong>Data Science MSc program</strong> stood out to me for its well-balanced curriculum in big data analytics, cloud computing, and applied machine learning, backed by global faculty and research standards. Receiving a <strong>£10,000 Excellence Scholarship</strong> was both a recognition and a motivation to invest my full potential into this transformative journey.</p>
-
-      <p><strong>Career Goals</strong><br>
-      My short-term goal is to secure a <strong>data engineering internship in the UK</strong> during the summer of 2026, where I can apply my skills in Azure, Spark, and data pipeline design in a real-world setting.
-      Long-term, I aspire to become a <strong>Data Engineering Lead or Solutions Architect</strong>, working at the intersection of cloud infrastructure, machine learning, and AI Ops — building scalable data products that serve both technical and business outcomes.</p>
-
-      <p>If you’d like to connect or collaborate, feel free to reach out via <a href="https://www.linkedin.com/in/nitesh0007/" target="_blank">LinkedIn</a> or explore my work on <a href="https://github.com/nitesh0007-edith" target="_blank">GitHub</a>.</p>
+      <p><strong>Why Data Science?</strong><br>My fascination with data began during my undergraduate studies in Computer Science, where I explored machine learning and built AI-based systems like <em>DigiAttendance</em> — a facial recognition attendance tracker. Over time, working at organizations like <strong>IQVIA</strong> and <strong>Axtria</strong>, I witnessed how impactful data can be in driving real-world decisions — especially in healthcare. This blend of technology, business context, and data-driven insight led me to pursue data science more deeply. I enjoy building systems that not only process data efficiently but also unlock hidden patterns and empower decision-makers.</p>
+      <p><strong>Why the UK and the University of Glasgow?</strong><br>I chose the UK for its strong alignment with industry-focused academic programs, access to a vibrant tech ecosystem, and excellent post-study work opportunities. The University of Glasgow’s <strong>Data Science MSc program</strong> stood out to me for its well-balanced curriculum in big data analytics, cloud computing, and applied machine learning, backed by global faculty and research standards. Receiving a <strong>£10,000 Excellence Scholarship</strong> was both a recognition and a motivation to invest my full potential into this transformative journey.</p>
+      <p><strong>Career Goals</strong><br>My short-term goal is to secure a <strong>data engineering internship in the UK</strong> during the summer of 2026, where I can apply my skills in Azure, Spark, and data pipeline design in a real-world setting. Long-term, I aspire to become a <strong>Data Engineering Lead or Solutions Architect</strong>, working at the intersection of cloud infrastructure, machine learning, and AI Ops — building scalable data products that serve both technical and business outcomes.</p>
     </section>
 
     <section class="section" id="experience">
       <h2>Work Experience</h2>
       <ul>
-        <li><strong>Data Engineer – IQVIA, Gurgaon, India</strong><br>Jul 2022 – Aug 2025<br>Built and maintained ETL pipelines using Azure Data Factory, Databricks, and ADLS. Migrated 1B+ records to Snowflake, optimized performance, and enabled ML pipelines. Received IQVIA Impact Awards (2023–2025).</li>
+        <li><strong>Data Engineer – IQVIA, Gurgaon, India</strong><br>Jul 2022 – Apr 2025<br>Built and maintained ETL pipelines using Azure Data Factory, Databricks, and ADLS. Migrated 1B+ records to Snowflake, optimized performance, and enabled ML pipelines. Received IQVIA Impact Awards (2023–2025).</li>
         <li><strong>Analyst – Axtria, India</strong><br>Jan 2022 – Dec 2022<br>Created SQL dashboards and ad-hoc Power BI solutions for pharma sales analytics. Improved ETL efficiency by optimizing SQL processes.</li>
       </ul>
     </section>
@@ -145,6 +179,16 @@
         <li><strong>WaveSort</strong>: A custom sorting algorithm benchmarked against MergeSort & TimSort.</li>
         <li><strong>Apache Kafka in Pharma</strong>: Real-time ingestion pipeline using Azure and Kafka.</li>
       </ul>
+    </section>
+
+    <section class="section" id="contact">
+      <h2>Contact Me</h2>
+      <form class="contact-form" action="https://formspree.io/f/mqalezed" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
     </section>
   </div>
 
@@ -158,6 +202,11 @@
         section.classList.remove('active');
       });
       document.getElementById(id).classList.add('active');
+    }
+
+    function toggleTheme() {
+      const theme = document.documentElement.getAttribute("data-theme");
+      document.documentElement.setAttribute("data-theme", theme === "dark" ? "light" : "dark");
     }
   </script>
 </body>
