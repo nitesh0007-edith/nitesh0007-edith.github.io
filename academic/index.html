@@ -37,6 +37,7 @@
       color: #fff;
       text-decoration: none;
       font-weight: 500;
+      cursor: pointer;
     }
     nav a:hover {
       text-decoration: underline;
@@ -48,6 +49,10 @@
     }
     .section {
       margin-bottom: 2.5rem;
+      display: none;
+    }
+    .section.active {
+      display: block;
     }
     .section h2 {
       color: #0d3b66;
@@ -70,16 +75,17 @@
   </header>
 
   <nav>
-    <a href="#welcome">Welcome</a>
-    <a href="#about">About</a>
+    <a onclick="showSection('welcome')">Welcome</a>
+    <a onclick="showSection('about')">About</a>
+    <a onclick="showSection('experience')">Work Experience</a>
+    <a onclick="showSection('projects')">Projects</a>
     <a href="resume.pdf">Resume</a>
     <a href="https://github.com/nitesh0007-edith" target="_blank">GitHub</a>
     <a href="https://www.linkedin.com/in/nitesh0007/" target="_blank">LinkedIn</a>
-    <a href="../dev-portfolio/">Projects</a>
   </nav>
 
   <div class="content">
-    <section class="section" id="welcome">
+    <section class="section active" id="welcome">
       <h2>Welcome!</h2>
       <p>
         I’m a data engineer with 3+ years of experience building scalable pipelines in Azure and Python. I’m currently enhancing my capabilities through an MSc in Data Science at the University of Glasgow.
@@ -105,7 +111,15 @@
       <p>If you’d like to connect or collaborate, feel free to reach out via <a href="https://www.linkedin.com/in/nitesh0007/" target="_blank">LinkedIn</a> or explore my work on <a href="https://github.com/nitesh0007-edith" target="_blank">GitHub</a>.</p>
     </section>
 
-    <section class="section">
+    <section class="section" id="experience">
+      <h2>Work Experience</h2>
+      <ul>
+        <li><strong>Data Engineer – IQVIA, Gurgaon, India</strong><br>Jul 2022 – Apr 2025<br>Built and maintained ETL pipelines using Azure Data Factory, Databricks, and ADLS. Migrated 1B+ records to Snowflake, optimized performance, and enabled ML pipelines. Received IQVIA Impact Awards (2023–2025).</li>
+        <li><strong>Analyst – Axtria, India</strong><br>Jan 2022 – Dec 2022<br>Created SQL dashboards and ad-hoc Power BI solutions for pharma sales analytics. Improved ETL efficiency by optimizing SQL processes.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="projects">
       <h2>Latest Projects</h2>
       <ul>
         <li><strong>AutoPipelineAI</strong>: LLM-driven framework for autonomous ETL workflows.</li>
@@ -118,5 +132,14 @@
   <footer>
     &copy; 2025 Nitesh Ranjan Singh | Glasgow, UK
   </footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
 </body>
 </html>
