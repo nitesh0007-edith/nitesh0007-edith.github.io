@@ -18,6 +18,9 @@
       --primary-color: #1e90ff;
       --nav-color: #1c1c1c;
     }
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
@@ -54,12 +57,13 @@
       gap: 1rem;
       padding: 1rem;
     }
-    nav a {
+    nav a, .theme-toggle {
       color: #fff;
       text-decoration: none;
       font-weight: 500;
       cursor: pointer;
       font-size: 0.95rem;
+      padding: 0.4rem 0.6rem;
     }
     nav a:hover {
       text-decoration: underline;
@@ -67,19 +71,17 @@
     .theme-toggle {
       background: none;
       border: 1px solid #fff;
-      color: #fff;
-      padding: 0.3rem 0.6rem;
       border-radius: 4px;
-      cursor: pointer;
     }
     .content {
-      max-width: 800px;
+      max-width: 900px;
       margin: 2rem auto;
-      padding: 0 1rem;
+      padding: 0 1.5rem;
     }
     .section {
       margin-bottom: 2.5rem;
       display: none;
+      text-align: justify;
     }
     .section.active {
       display: block;
@@ -88,7 +90,7 @@
       color: var(--primary-color);
       border-bottom: 2px solid var(--primary-color);
       padding-bottom: 0.3rem;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
     }
     .contact-form input, .contact-form textarea {
       width: 100%;
@@ -114,6 +116,9 @@
       margin-top: 3rem;
       font-size: 0.9rem;
     }
+    ul {
+      padding-left: 1.2rem;
+    }
     @media (max-width: 600px) {
       header h1 {
         font-size: 1.6rem;
@@ -128,9 +133,13 @@
       nav a {
         font-size: 0.85rem;
       }
+      .content {
+        padding: 0 1rem;
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
     <img src="Passport%20Size.jpg" alt="Nitesh Ranjan Singh">
