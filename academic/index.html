@@ -29,11 +29,23 @@
       transition: background 0.3s, color 0.3s;
     }
     header {
-      background-color: var(--primary-color);
-      color: #fff;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
+  background: url('cover.jpeg') no-repeat center center;
+  background-size: cover;
+  color: #fff;
+  padding: 4rem 1rem 3rem;
+  text-align: center;
+  position: relative;
+}
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 59, 102, 0.6); /* overlay to keep text readable */
+}
+header * {
+  position: relative; /* ensure image/text stays above overlay */
+}
+
     header img {
       width: 100px;
       height: 100px;
