@@ -190,6 +190,12 @@
         font-size: 0.8rem;
         font-weight: 500;
     }
+    .workflow-image {
+        width: 100%;
+        border-radius: 6px;
+        margin-top: 1rem;
+        border: 1px solid var(--card-border);
+      
     /* === END OF NEW STYLES === */
 
     @media (max-width: 600px) {
@@ -341,6 +347,7 @@
             <li><b>LLM Integration:</b> The framework leverages a locally-hosted Llama3 model via Ollama to interpret the prompt and generate production-quality, executable PySpark code for the required transformations.</li>
             <li><b>Automated Orchestration:</b> The generated script is then automatically packaged into a container and integrated into a dynamic Azure Data Factory pipeline, ready for immediate execution or scheduling. This showcases a practical application of AI in automating cloud infrastructure and MLOps.</li>
         </ul>
+        <img src="image_autopipelineAI.jpg" alt="AutoPipelineAI Workflow" class="workflow-image">
         <div class="project-tech">
             <span class="tech-tag">Python</span>
             <span class="tech-tag">Generative AI</span>
