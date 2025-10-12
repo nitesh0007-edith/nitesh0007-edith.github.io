@@ -334,8 +334,13 @@
       <div class="project-card">
         <h3 class="project-title"><a href="https://github.com/nitesh0007-edith" target="_blank">AutoPipelineAI</a></h3>
         <p class="project-description">
-          Developed an LLM-driven autonomous ETL and Data-Ops framework that automates data ingestion, transformation, and insight generation using local open-source models. Integrated Streamlit dashboard, Ollama-based Llama3 querying, and smart data visualization for seamless end-to-end analytics.
+          This project addresses a key bottleneck in data operations: the time and expertise required to build custom ETL pipelines. AutoPipelineAI is a proof-of-concept Data-Ops framework that empowers users to generate and deploy data workflows using natural language, effectively democratizing data engineering tasks.
         </p>
+        <ul>
+            <li><b>Core Functionality:</b> Users input data transformation requirements (e.g., "load the customer CSV, filter for UK clients, and aggregate sales by city") into a Streamlit-based web interface.</li>
+            <li><b>LLM Integration:</b> The framework leverages a locally-hosted Llama3 model via Ollama to interpret the prompt and generate production-quality, executable PySpark code for the required transformations.</li>
+            <li><b>Automated Orchestration:</b> The generated script is then automatically packaged into a container and integrated into a dynamic Azure Data Factory pipeline, ready for immediate execution or scheduling. This showcases a practical application of AI in automating cloud infrastructure and MLOps.</li>
+        </ul>
         <div class="project-tech">
             <span class="tech-tag">Python</span>
             <span class="tech-tag">Generative AI</span>
@@ -343,14 +348,20 @@
             <span class="tech-tag">Ollama</span>
             <span class="tech-tag">Llama3</span>
             <span class="tech-tag">Data-Ops</span>
+            <span class="tech-tag">Azure</span>
         </div>
       </div>
 
       <div class="project-card">
         <h3 class="project-title"><a href="https://github.com/nitesh0007-edith" target="_blank">Digi-Attendance</a></h3>
         <p class="project-description">
-          Developed an automated IoT-based attendance system for real-time facial recognition. Designed a GUI to clock in/out employees, record timestamps in CSV files, and calculate total working hours. Implemented live video feed processing and face encoding to ensure accurate, contactless attendance tracking.
+          A complete, end-to-end facial recognition system designed to automate workplace attendance, eliminating the need for manual check-ins or physical ID cards. The system was built with efficiency and accuracy as primary goals, capable of running on low-cost edge devices.
         </p>
+        <ul>
+            <li><b>Real-Time Video Processing:</b> The application uses OpenCV to capture a live video stream, identifying and isolating faces in each frame in real-time.</li>
+            <li><b>Face Encoding & Recognition:</b> For each detected face, the `face_recognition` library generates a unique 128-d numerical encoding. This encoding is then compared against a pre-computed database of known employee faces to find a match with high accuracy.</li>
+            <li><b>User Interface & Data Logging:</b> A user-friendly GUI built with PyQt5 allows for easy management of the system. All successful recognitions are logged to a CSV file with a precise timestamp, which is then used to automatically calculate total working hours.</li>
+        </ul>
         <div class="project-tech">
             <span class="tech-tag">Python</span>
             <span class="tech-tag">OpenCV</span>
@@ -363,13 +374,19 @@
       <div class="project-card">
         <h3 class="project-title"><a href="https://github.com/nitesh0007-edith" target="_blank">Mathematical Model for Linear Data</a></h3>
         <p class="project-description">
-          Built a regression-based root cause analysis tool on US Crime Data using only NumPy for mathematical modeling, without external ML libraries. Achieved an MSE of 0.0452 and R² of 0.9835, demonstrating high model accuracy through a fully manual implementation of linear regression.
+          This project demonstrates a foundational mastery of machine learning principles by building a complete linear regression model from scratch to analyze the factors influencing crime rates in the US. By avoiding high-level libraries like Scikit-learn, this work showcases a deep understanding of the underlying mathematics.
         </p>
+        <ul>
+            <li><b>Manual Implementation:</b> Implemented the entire gradient descent algorithm using only NumPy to train the model, including manual calculation of the cost function (MSE), derivatives, and iterative weight updates.</li>
+            <li><b>Data Analysis & Feature Engineering:</b> Performed exploratory data analysis on the US Crime Data dataset to identify and select relevant predictive features, preparing the data for the model without relying on automated tools.</li>
+            <li><b>Exceptional Performance:</b> The final model achieved a Mean Squared Error (MSE) of <b>0.0452</b> and an R-squared (R²) value of <b>0.9835</b>, indicating an extremely high level of accuracy and predictive power, validating the correctness of the from-scratch implementation.</li>
+        </ul>
         <div class="project-tech">
             <span class="tech-tag">Python</span>
             <span class="tech-tag">NumPy</span>
             <span class="tech-tag">Linear Regression</span>
             <span class="tech-tag">Data Analysis</span>
+            <span class="tech-tag">Statistics</span>
         </div>
       </div>
 
