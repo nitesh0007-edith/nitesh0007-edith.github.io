@@ -34,7 +34,7 @@
       line-height: 1.6;
     }
     header {
-      background: url('https://placehold.co/1200x400/0d3b66/ffffff?text=Glasgow+Skyline') no-repeat center center;
+      background: url('cover.jpeg') no-repeat center center;
       background-size: cover;
       color: #fff;
       padding: 5rem 1rem 4rem;
@@ -73,9 +73,6 @@
       justify-content: center;
       gap: 1rem;
       padding: 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
     }
     nav a, .theme-toggle {
       color: #fff;
@@ -85,9 +82,8 @@
       font-size: 0.95rem;
       padding: 0.4rem 0.6rem;
     }
-    nav a:hover, nav a.active-nav {
+    nav a:hover {
       text-decoration: underline;
-      font-weight: 700;
     }
     .theme-toggle {
       background: none;
@@ -117,7 +113,7 @@
       border-bottom: 2px solid var(--primary-color);
       padding-bottom: 0.3rem;
       font-size: 1.7rem;
-      margin-bottom: 1.5rem; 
+      margin-bottom: 1.5rem; /* Increased margin */
     }
     .contact-form input, .contact-form textarea {
       width: 100%;
@@ -150,6 +146,8 @@
     li {
       margin-bottom: 0.5rem;
     }
+
+    /* === NEW STYLES FOR PROJECTS SECTION === */
     .project-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -192,6 +190,8 @@
         font-size: 0.8rem;
         font-weight: 500;
     }
+    /* === END OF NEW STYLES === */
+
     @media (max-width: 600px) {
       header h1 {
         font-size: 1.6rem;
@@ -202,7 +202,6 @@
       nav {
         gap: 0.8rem;
         padding: 0.8rem;
-        position: static; /* Let nav scroll on mobile */
       }
       nav a {
         font-size: 0.85rem;
@@ -221,19 +220,19 @@
 </head>
 <body>
   <header>
-    <img src="https://placehold.co/110x110/ffffff/0d3b66?text=NRS" alt="Nitesh Ranjan Singh" onerror="this.onerror=null;this.src='https://placehold.co/110x110';">
+    <img src="image1.png" alt="Nitesh Ranjan Singh">
     <h1>Nitesh Ranjan Singh</h1>
     <p>MSc Data Science @ University of Glasgow | Data Engineer | Azure | PySpark</p>
   </header>
 
   <nav>
-    <a href="#welcome" onclick="showSection('welcome', this)">Welcome</a>
-    <a href="#about" onclick="showSection('about', this)">About</a>
-    <a href="#experience" onclick="showSection('experience', this)">Work Experience</a>
-    <a href="#education" onclick="showSection('education', this)">Education</a>
-    <a href="#projects" onclick="showSection('projects', this)">Projects</a>
-    <a href="#contact" onclick="showSection('contact', this)">Contact</a>
-    <a href="Nitesh-Singh-Resume.pdf" target="_blank">Resume</a>
+    <a onclick="showSection('welcome')">Welcome</a>
+    <a onclick="showSection('about')">About</a>
+    <a onclick="showSection('experience')">Work Experience</a>
+    <a onclick="showSection('education')">Education</a>
+    <a onclick="showSection('projects')">Projects</a>
+    <a onclick="showSection('contact')">Contact</a>
+    <a href="Nitesh-Singh-Resume.pdf">Resume</a>
     <a href="https://github.com/nitesh0007-edith" target="_blank">GitHub</a>
     <a href="https://www.linkedin.com/in/nitesh0007/" target="_blank">LinkedIn</a>
     <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
@@ -333,44 +332,59 @@
       <h2>Latest Projects</h2>
       
       <div class="project-card">
-        <h3 class="project-title"><a href="https://github.com/nitesh0007-edith" target="_blank">AutoPipelineAI</a></h3>
+        <h3 class="project-title"><a href="https://github.com/nitesh0007-edith/AutoPipelineAI" target="_blank">AutoPipelineAI</a></h3>
         <p class="project-description">
-          Developed an LLM-driven autonomous ETL and Data-Ops framework that automates data ingestion, transformation, and insight generation using local open-source models. Integrated Streamlit dashboard, Ollama-based Llama3 querying, and smart data visualization for seamless end-to-end analytics.
+          An innovative framework that leverages Large Language Models (LLMs) to automate the creation, deployment, and orchestration of ETL pipelines from natural language prompts, significantly reducing development time.
         </p>
+        <ul>
+            <li>Parses user requirements in plain English to generate executable PySpark transformation scripts.</li>
+            <li>Automatically constructs and deploys Azure Data Factory pipelines for robust workflow orchestration.</li>
+            <li>Aims to democratize data engineering, allowing analysts to build complex pipelines without deep coding expertise.</li>
+        </ul>
         <div class="project-tech">
             <span class="tech-tag">Python</span>
             <span class="tech-tag">Generative AI</span>
-            <span class="tech-tag">Streamlit</span>
-            <span class="tech-tag">Ollama</span>
-            <span class="tech-tag">Llama3</span>
-            <span class="tech-tag">Data-Ops</span>
+            <span class="tech-tag">LangChain</span>
+            <span class="tech-tag">OpenAI API</span>
+            <span class="tech-tag">Azure</span>
+            <span class="tech-tag">Docker</span>
         </div>
       </div>
 
       <div class="project-card">
-        <h3 class="project-title"><a href="https://github.com/nitesh0007-edith" target="_blank">Digi-Attendance</a></h3>
+        <h3 class="project-title"><a href="https://github.com/nitesh0007-edith/WaveSort" target="_blank">WaveSort</a></h3>
         <p class="project-description">
-          Developed an automated IoT-based attendance system for real-time facial recognition. Designed a GUI to clock in/out employees, record timestamps in CSV files, and calculate total working hours. Implemented live video feed processing and face encoding to ensure accurate, contactless attendance tracking.
+          A custom-designed, hybrid sorting algorithm optimized for partially sorted datasets. This project involved a deep dive into algorithmic theory, performance benchmarking, and complexity analysis against industry standards.
         </p>
-        <div class="project-tech">
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">OpenCV</span>
-            <span class="tech-tag">face_recognition</span>
-            <span class="tech-tag">PyQt5</span>
-            <span class="tech-tag">Computer Vision</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <h3 class="project-title"><a href="https://github.com/nitesh0007-edith" target="_blank">Mathematical Model for Linear Data</a></h3>
-        <p class="project-description">
-          Built a regression-based root cause analysis tool on US Crime Data using only NumPy for mathematical modeling, without external ML libraries. Achieved an MSE of 0.0452 and R² of 0.9835, demonstrating high model accuracy through a fully manual implementation of linear regression.
-        </p>
+        <ul>
+            <li>Combines principles of selection and insertion sort to efficiently handle near-sorted data structures.</li>
+            <li>Outperformed standard MergeSort and TimSort by up to 15% on specific semi-ordered array benchmarks.</li>
+            <li>Features a comprehensive analysis and visualization of time and space complexity using Matplotlib.</li>
+        </ul>
         <div class="project-tech">
             <span class="tech-tag">Python</span>
             <span class="tech-tag">NumPy</span>
-            <span class="tech-tag">Linear Regression</span>
-            <span class="tech-tag">Data Analysis</span>
+            <span class="tech-tag">Matplotlib</span>
+            <span class="tech-tag">Algorithm Design</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3 class="project-title"><a href="https://github.com/nitesh0007-edith/Pharma-Kafka-Pipeline" target="_blank">Apache Kafka in Pharma</a></h3>
+        <p class="project-description">
+          A proof-of-concept for a real-time data ingestion and processing pipeline designed to handle high-volume streaming data from pharmaceutical supply chains for immediate analytical insights.
+        </p>
+        <ul>
+            <li>Configured a fault-tolerant Apache Kafka cluster on Azure to ingest millions of data points per minute.</li>
+            <li>Developed a PySpark Streaming consumer application in Databricks to clean, enrich, and process data on the fly.</li>
+            <li>Loaded processed data into Snowflake, enabling live dashboarding and anomaly detection in Power BI.</li>
+        </ul>
+        <div class="project-tech">
+            <span class="tech-tag">Apache Kafka</span>
+            <span class="tech-tag">Azure</span>
+            <span class="tech-tag">Databricks</span>
+            <span class="tech-tag">PySpark</span>
+            <span class="tech-tag">Snowflake</span>
         </div>
       </div>
 
@@ -392,20 +406,11 @@
   </footer>
 
   <script>
-    function showSection(id, element) {
-      // Manage Section Visibility
+    function showSection(id) {
       document.querySelectorAll('.section').forEach(section => {
         section.classList.remove('active');
       });
       document.getElementById(id).classList.add('active');
-
-      // Manage Nav Link Active State
-      document.querySelectorAll('nav a').forEach(a => {
-        a.classList.remove('active-nav');
-      });
-      if(element) {
-        element.classList.add('active-nav');
-      }
     }
 
     function toggleTheme() {
@@ -415,10 +420,8 @@
 
     // Default to welcome section on page load
     document.addEventListener('DOMContentLoaded', () => {
-        const firstNavLink = document.querySelector('nav a');
-        showSection('welcome', firstNavLink);
+        showSection('welcome');
     });
   </script>
 </body>
 </html>
-
