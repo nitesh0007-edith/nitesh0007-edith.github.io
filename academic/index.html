@@ -11,12 +11,16 @@
       --text-color: #333;
       --primary-color: #0d3b66;
       --nav-color: #133b5c;
+      --card-bg: #fff;
+      --card-border: #eee;
     }
     [data-theme="dark"] {
       --bg-color: #121212;
       --text-color: #f1f1f1;
       --primary-color: #1e90ff;
       --nav-color: #1c1c1c;
+      --card-bg: #1e1e1e;
+      --card-border: #333;
     }
     * {
       box-sizing: border-box;
@@ -109,7 +113,7 @@
       border-bottom: 2px solid var(--primary-color);
       padding-bottom: 0.3rem;
       font-size: 1.7rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem; /* Increased margin */
     }
     .contact-form input, .contact-form textarea {
       width: 100%;
@@ -142,6 +146,52 @@
     li {
       margin-bottom: 0.5rem;
     }
+
+    /* === NEW STYLES FOR PROJECTS SECTION === */
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    .project-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+    .project-title a {
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+    .project-title a:hover {
+        text-decoration: underline;
+    }
+    .project-description {
+        margin-bottom: 1rem;
+    }
+    .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+    .tech-tag {
+        background-color: var(--primary-color);
+        color: #fff;
+        padding: 0.2rem 0.6rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    /* === END OF NEW STYLES === */
+
     @media (max-width: 600px) {
       header h1 {
         font-size: 1.6rem;
@@ -190,13 +240,11 @@
 
   <div class="content">
     <section class="section active" id="welcome">
-  <h2>Welcome!</h2>
-  <p>Hello and welcome to my professional portfolio. I am <strong>Nitesh Ranjan Singh</strong>, a passionate and forward-thinking <strong>Data Engineer</strong> with over <strong>three years of experience</strong> in designing and optimizing scalable data pipelines using modern cloud technologies like <strong>Azure Data Factory</strong>, <strong>Databricks</strong>, <strong>PySpark</strong>, and <strong>Snowflake</strong>. I’ve made impactful contributions in the pharmaceutical and healthcare analytics sectors at <strong>IQVIA</strong> and <strong>Axtria</strong>, and have been recognized with <strong>IQVIA’s Impact Award</strong> for my achievements.</p>
-
-  <p>Currently, I am pursuing an <strong>MSc in Data Science</strong> at the <strong>University of Glasgow</strong>, where I’m expanding my knowledge in advanced machine learning, big data analytics, and cloud-native data engineering practices. I’m honored to be a recipient of the <strong>£10,000 Excellence Scholarship</strong> and excited to engage with industry-aligned research and projects.</p>
-
-  <p>This portfolio is a curated collection of my professional journey, academic growth, technical projects, and career aspirations in data engineering and AI-driven infrastructure. Thank you for visiting, and I invite you to explore the sections ahead to learn more about my work and interests.</p>
-</section>
+      <h2>Welcome!</h2>
+      <p>Hello and welcome to my professional portfolio. I am <strong>Nitesh Ranjan Singh</strong>, a passionate and forward-thinking <strong>Data Engineer</strong> with over <strong>three years of experience</strong> in designing and optimizing scalable data pipelines using modern cloud technologies like <strong>Azure Data Factory</strong>, <strong>Databricks</strong>, <strong>PySpark</strong>, and <strong>Snowflake</strong>. I’ve made impactful contributions in the pharmaceutical and healthcare analytics sectors at <strong>IQVIA</strong> and <strong>Axtria</strong>, and have been recognized with <strong>IQVIA’s Impact Award</strong> for my achievements.</p>
+      <p>Currently, I am pursuing an <strong>MSc in Data Science</strong> at the <strong>University of Glasgow</strong>, where I’m expanding my knowledge in advanced machine learning, big data analytics, and cloud-native data engineering practices. I’m honored to be a recipient of the <strong>£10,000 Excellence Scholarship</strong> and excited to engage with industry-aligned research and projects.</p>
+      <p>This portfolio is a curated collection of my professional journey, academic growth, technical projects, and career aspirations in data engineering and AI-driven infrastructure. Thank you for visiting, and I invite you to explore the sections ahead to learn more about my work and interests.</p>
+    </section>
 
     <section class="section" id="about">
       <h2>About Me</h2>
@@ -207,86 +255,139 @@
     </section>
 
     <section class="section" id="experience">
-  <h2>Work Experience</h2>
-  <ul>
-    <li><strong>Data Engineer – IQVIA, Gurgaon, India</strong><br><strong>Dec 2022 – Aug 2025</strong><br>
-      <div style="margin: 0.5rem 0;">
-        <span style="display:inline-block;background:#007FFF;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Azure</span>
-        <span style="display:inline-block;background:#2D7DD2;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">ADF</span>
-        <span style="display:inline-block;background:#FF6F00;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Databricks</span>
-        <span style="display:inline-block;background:#0078D4;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">ADLS</span>
-        <span style="display:inline-block;background:#1E90FF;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Azure SQL</span>
-        <span style="display:inline-block;background:#008080;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Synapse</span>
-        <span style="display:inline-block;background:#3572A5;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Python</span>
-        <span style="display:inline-block;background:#E27D60;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">PySpark</span>
-        <span style="display:inline-block;background:#FFB347;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">SQL</span>
-        <span style="display:inline-block;background:#F2C94C;color:black;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Power-BI</span>
-        <span style="display:inline-block;background:#6C757D;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Excel</span>
-      </div>
-    As a Data Engineer, I design and implement robust data workflows that enhance the delivery of analytical insights for clients across Europe. By integrating Python, SQL, PySpark, and Azure Databricks, I automate complex data processes, develop efficient data pipelines, and optimize reporting frameworks. These pipelines support high-quality Power BI and Excel dashboards, enabling timely and accurate reporting on a weekly, monthly, and quarterly basis.<br><br>
-    <strong>Key highlights:</strong>
-        <ul>
-        <li>Automated the data refresh process by shifting from a time-based trigger to an event-based trigger using Azure Data Factory (ADF), Azure SQL, and Power BI, eliminating manual intervention in extract refresh workflows by 100%.</li>
-        <li>Orchestrated and scaled a robust data ingestion and validation pipeline to process business-user-delivered files with over 100 million records using PySpark on Azure Databricks, ensuring alignment with standard data formats without modifying raw files, achieving zero data loss.</li>
-        <li>Implemented advanced data quality rules within the ETL pipelines using SQL and PySpark, enabling early detection of data anomalies and significantly improving data consistency and conformity across downstream systems.</li>
-        <li>Designed and developed an automated anomaly detection dashboard using Python and Power BI, minimizing manual data validation efforts by 95% and proactively preventing critical data quality issues.</li>
-        <li>Enabled and fixed high-impact data quality checks as part of the pipeline design in Azure Synapse and Azure SQL, which led to a 90% reduction in recurring data issues.</li>
-        <li>Optimized and re-engineered data pipelines to support three daily refreshes using ADF, Azure Databricks, and ADLS, improving data freshness and conformity by 95%, and ensuring readiness for analytics and reporting layers.</li>
-      </ul>
-     </li><br><br>
-    <li><strong>Analyst – Axtria, Noida, India</strong><br><strong>Jan 2022 – Dec 2022</strong><br>
-      <div style="margin: 0.5rem 0;">
-  <span style="display:inline-block;background:#3572A5;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Python</span>
-  <span style="display:inline-block;background:#E27D60;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">PySpark</span>
-  <span style="display:inline-block;background:#FFB347;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">SQL</span>
-  <span style="display:inline-block;background:#F2C94C;color:black;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Power BI</span>
-  <span style="display:inline-block;background:#6C757D;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Excel</span>
-  <span style="display:inline-block;background:#232F3E;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Databricks</span>
-  <span style="display:inline-block;background:#D42029;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Redshift</span>
-  <span style="display:inline-block;background:#00A3E0;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Athena</span>
-</div>
-As an entry-level Analyst, I supported the development of data and reporting solutions by collaborating with cross-functional teams in the pharmaceutical analytics space. My responsibilities included data extraction, transformation, and visualization using SQL, Python, and BI tools. This role was foundational in building my understanding of end-to-end data workflows and stakeholder-driven reporting.<br><br>
-<strong>Key highlights:</strong>
-<ul>
-        <li>Developed and maintained automation scripts using Python to extract data from API-based sources, standardize file formats, and automate file transfers via SFTP to Amazon S3 and within S3, supporting scalable and efficient data ingestion workflows.</li>
-        <li>Owned and ensured delivery of high-quality data pipelines for data transformation and loading using SQL and Matillion on the AWS ecosystem, enabling timely and accurate reporting for stakeholders.</li>
-        <li>Worked extensively with pharmaceutical datasets including Veeva, Specialty Pharmacy, IQVIA LAAD, and other healthcare data sources to analyze trends, derive insights, and address complex business requirements raised by clients.</li>
-        <li>Designed and delivered dynamic, client-facing dashboards using Power BI, transforming raw data into actionable insights and supporting data-driven decision-making across business functions.</li>
-      </ul>
-</li>
-  </ul>
-</section>
-<section class="section" id="education">
-  <h2>Education</h2>
-  <ul>
-    <li>
-      <strong>MSc Data Science – University of Glasgow, UK</strong><br>
-      <em>Expected: 2026</em>
+      <h2>Work Experience</h2>
       <ul>
-        <li>Modules: Big Data Analytics, Cloud Computing, Data Engineering</li>
-        <li>Scholarship: £10,000 Excellence Award</li>
-        <li>Project: Built scalable ETL pipeline using ADF, Databricks & ADLS Gen2 for healthcare data</li>
+        <li><strong>Data Engineer – IQVIA, Gurgaon, India</strong><br><strong>Dec 2022 – Aug 2025</strong><br>
+          <div style="margin: 0.5rem 0;">
+            <span style="display:inline-block;background:#007FFF;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Azure</span>
+            <span style="display:inline-block;background:#2D7DD2;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">ADF</span>
+            <span style="display:inline-block;background:#FF6F00;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Databricks</span>
+            <span style="display:inline-block;background:#0078D4;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">ADLS</span>
+            <span style="display:inline-block;background:#1E90FF;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Azure SQL</span>
+            <span style="display:inline-block;background:#008080;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Synapse</span>
+            <span style="display:inline-block;background:#3572A5;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Python</span>
+            <span style="display:inline-block;background:#E27D60;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">PySpark</span>
+            <span style="display:inline-block;background:#FFB347;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">SQL</span>
+            <span style="display:inline-block;background:#F2C94C;color:black;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Power-BI</span>
+            <span style="display:inline-block;background:#6C757D;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Excel</span>
+          </div>
+          As a Data Engineer, I design and implement robust data workflows that enhance the delivery of analytical insights for clients across Europe. By integrating Python, SQL, PySpark, and Azure Databricks, I automate complex data processes, develop efficient data pipelines, and optimize reporting frameworks. These pipelines support high-quality Power BI and Excel dashboards, enabling timely and accurate reporting on a weekly, monthly, and quarterly basis.<br><br>
+          <strong>Key highlights:</strong>
+            <ul>
+              <li>Automated the data refresh process by shifting from a time-based trigger to an event-based trigger using Azure Data Factory (ADF), Azure SQL, and Power BI, eliminating manual intervention in extract refresh workflows by 100%.</li>
+              <li>Orchestrated and scaled a robust data ingestion and validation pipeline to process business-user-delivered files with over 100 million records using PySpark on Azure Databricks, ensuring alignment with standard data formats without modifying raw files, achieving zero data loss.</li>
+              <li>Implemented advanced data quality rules within the ETL pipelines using SQL and PySpark, enabling early detection of data anomalies and significantly improving data consistency and conformity across downstream systems.</li>
+              <li>Designed and developed an automated anomaly detection dashboard using Python and Power BI, minimizing manual data validation efforts by 95% and proactively preventing critical data quality issues.</li>
+              <li>Enabled and fixed high-impact data quality checks as part of the pipeline design in Azure Synapse and Azure SQL, which led to a 90% reduction in recurring data issues.</li>
+              <li>Optimized and re-engineered data pipelines to support three daily refreshes using ADF, Azure Databricks, and ADLS, improving data freshness and conformity by 95%, and ensuring readiness for analytics and reporting layers.</li>
+            </ul>
+        </li><br><br>
+        <li><strong>Analyst – Axtria, Noida, India</strong><br><strong>Jan 2022 – Dec 2022</strong><br>
+          <div style="margin: 0.5rem 0;">
+            <span style="display:inline-block;background:#3572A5;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Python</span>
+            <span style="display:inline-block;background:#E27D60;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">PySpark</span>
+            <span style="display:inline-block;background:#FFB347;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">SQL</span>
+            <span style="display:inline-block;background:#F2C94C;color:black;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Power BI</span>
+            <span style="display:inline-block;background:#6C757D;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Excel</span>
+            <span style="display:inline-block;background:#232F3E;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Databricks</span>
+            <span style="display:inline-block;background:#D42029;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Redshift</span>
+            <span style="display:inline-block;background:#00A3E0;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Athena</span>
+          </div>
+          As an entry-level Analyst, I supported the development of data and reporting solutions by collaborating with cross-functional teams in the pharmaceutical analytics space. My responsibilities included data extraction, transformation, and visualization using SQL, Python, and BI tools. This role was foundational in building my understanding of end-to-end data workflows and stakeholder-driven reporting.<br><br>
+          <strong>Key highlights:</strong>
+          <ul>
+            <li>Developed and maintained automation scripts using Python to extract data from API-based sources, standardize file formats, and automate file transfers via SFTP to Amazon S3 and within S3, supporting scalable and efficient data ingestion workflows.</li>
+            <li>Owned and ensured delivery of high-quality data pipelines for data transformation and loading using SQL and Matillion on the AWS ecosystem, enabling timely and accurate reporting for stakeholders.</li>
+            <li>Worked extensively with pharmaceutical datasets including Veeva, Specialty Pharmacy, IQVIA LAAD, and other healthcare data sources to analyze trends, derive insights, and address complex business requirements raised by clients.</li>
+            <li>Designed and delivered dynamic, client-facing dashboards using Power BI, transforming raw data into actionable insights and supporting data-driven decision-making across business functions.</li>
+          </ul>
+        </li>
       </ul>
-    </li>
-    <br>
-    <li>
-      <strong>B.Tech in Computer Science Engineering – University of Petroleum and Energy Studies, India</strong><br>
-      <em>2018 – 2022</em>
-      <ul>
-        <li>Final Year Project: DigiAttendance – AI-based attendance system using facial recognition</li>
-      </ul>
-    </li>
-  </ul>
-</section>
+    </section>
 
+    <section class="section" id="education">
+      <h2>Education</h2>
+      <ul>
+        <li>
+          <strong>MSc Data Science – University of Glasgow, UK</strong><br>
+          <em>Expected: 2026</em>
+          <ul>
+            <li>Modules: Big Data Analytics, Cloud Computing, Data Engineering</li>
+            <li>Scholarship: £10,000 Excellence Award</li>
+            <li>Project: Built scalable ETL pipeline using ADF, Databricks & ADLS Gen2 for healthcare data</li>
+          </ul>
+        </li>
+        <br>
+        <li>
+          <strong>B.Tech in Computer Science Engineering – University of Petroleum and Energy Studies, India</strong><br>
+          <em>2018 – 2022</em>
+          <ul>
+            <li>Final Year Project: DigiAttendance – AI-based attendance system using facial recognition</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
 
     <section class="section" id="projects">
       <h2>Latest Projects</h2>
-      <ul>
-        <li><strong>AutoPipelineAI</strong>: LLM-driven framework for autonomous ETL workflows.</li>
-        <li><strong>WaveSort</strong>: A custom sorting algorithm benchmarked against MergeSort & TimSort.</li>
-        <li><strong>Apache Kafka in Pharma</strong>: Real-time ingestion pipeline using Azure and Kafka.</li>
-      </ul>
+      
+      <div class="project-card">
+        <h3 class="project-title"><a href="https://github.com/nitesh0007-edith/AutoPipelineAI" target="_blank">AutoPipelineAI</a></h3>
+        <p class="project-description">
+          An innovative framework that leverages Large Language Models (LLMs) to automate the creation, deployment, and orchestration of ETL pipelines from natural language prompts, significantly reducing development time.
+        </p>
+        <ul>
+            <li>Parses user requirements in plain English to generate executable PySpark transformation scripts.</li>
+            <li>Automatically constructs and deploys Azure Data Factory pipelines for robust workflow orchestration.</li>
+            <li>Aims to democratize data engineering, allowing analysts to build complex pipelines without deep coding expertise.</li>
+        </ul>
+        <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Generative AI</span>
+            <span class="tech-tag">LangChain</span>
+            <span class="tech-tag">OpenAI API</span>
+            <span class="tech-tag">Azure</span>
+            <span class="tech-tag">Docker</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3 class="project-title"><a href="https://github.com/nitesh0007-edith/WaveSort" target="_blank">WaveSort</a></h3>
+        <p class="project-description">
+          A custom-designed, hybrid sorting algorithm optimized for partially sorted datasets. This project involved a deep dive into algorithmic theory, performance benchmarking, and complexity analysis against industry standards.
+        </p>
+        <ul>
+            <li>Combines principles of selection and insertion sort to efficiently handle near-sorted data structures.</li>
+            <li>Outperformed standard MergeSort and TimSort by up to 15% on specific semi-ordered array benchmarks.</li>
+            <li>Features a comprehensive analysis and visualization of time and space complexity using Matplotlib.</li>
+        </ul>
+        <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">NumPy</span>
+            <span class="tech-tag">Matplotlib</span>
+            <span class="tech-tag">Algorithm Design</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3 class="project-title"><a href="https://github.com/nitesh0007-edith/Pharma-Kafka-Pipeline" target="_blank">Apache Kafka in Pharma</a></h3>
+        <p class="project-description">
+          A proof-of-concept for a real-time data ingestion and processing pipeline designed to handle high-volume streaming data from pharmaceutical supply chains for immediate analytical insights.
+        </p>
+        <ul>
+            <li>Configured a fault-tolerant Apache Kafka cluster on Azure to ingest millions of data points per minute.</li>
+            <li>Developed a PySpark Streaming consumer application in Databricks to clean, enrich, and process data on the fly.</li>
+            <li>Loaded processed data into Snowflake, enabling live dashboarding and anomaly detection in Power BI.</li>
+        </ul>
+        <div class="project-tech">
+            <span class="tech-tag">Apache Kafka</span>
+            <span class="tech-tag">Azure</span>
+            <span class="tech-tag">Databricks</span>
+            <span class="tech-tag">PySpark</span>
+            <span class="tech-tag">Snowflake</span>
+        </div>
+      </div>
+
     </section>
 
     <section class="section" id="contact">
@@ -316,6 +417,11 @@ As an entry-level Analyst, I supported the development of data and reporting sol
       const theme = document.documentElement.getAttribute("data-theme");
       document.documentElement.setAttribute("data-theme", theme === "dark" ? "light" : "dark");
     }
+
+    // Default to welcome section on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        showSection('welcome');
+    });
   </script>
 </body>
 </html>
