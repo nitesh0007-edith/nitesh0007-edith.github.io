@@ -1,436 +1,378 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nitesh Ranjan Singh | MSc Data Science</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nitesh Ranjan Singh — Data Engineer | MSc Data Science (Glasgow)</title>
+  <meta name="description" content="Nitesh Ranjan Singh — Data Engineer (Azure, Databricks, PySpark) and MSc Data Science student at the University of Glasgow. Portfolio, projects, resume, and contact." />
+  <meta name="author" content="Nitesh Ranjan Singh" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://nitesh0007-edith.github.io/academic/" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Nitesh Ranjan Singh — Data Engineer | MSc Data Science" />
+  <meta property="og:description" content="Azure, Databricks, PySpark. Portfolio, projects, resume, and contact." />
+  <meta property="og:image" content="cover.jpeg" />
+  <meta property="og:url" content="https://nitesh0007-edith.github.io/academic/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
+
   <style>
     :root {
-      --bg-color: #f9f9f9;
-      --text-color: #333;
-      --primary-color: #0d3b66;
-      --nav-color: #133b5c;
-      --card-bg: #fff;
-      --card-border: #eee;
+      --bg: #f9fafb;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #0d3b66;
+      --primary-600:#0b3257;
+      --nav: #102a43;
+      --card: #ffffff;
+      --card-border: #e5e7eb;
+      --chip-bg: #e6eef8;
+      --chip-text:#0d3b66;
+      --focus: #1e90ff;
     }
     [data-theme="dark"] {
-      --bg-color: #121212;
-      --text-color: #f1f1f1;
-      --primary-color: #1e90ff;
-      --nav-color: #1c1c1c;
-      --card-bg: #1e1e1e;
-      --card-border: #333;
+      --bg: #0b0f14;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --primary: #1e90ff;
+      --primary-600:#197bd8;
+      --nav: #0a0e13;
+      --card: #111827;
+      --card-border: #223047;
+      --chip-bg:#102a43;
+      --chip-text:#dbeafe;
+      --focus: #60a5fa;
     }
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      transition: background 0.3s, color 0.3s;
-      line-height: 1.6;
-    }
-    header {
-      background: url('cover.jpeg') no-repeat center center;
-      background-size: cover;
-      color: #fff;
-      padding: 5rem 1rem 4rem;
-      text-align: center;
-      position: relative;
-    }
-    header::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(13, 59, 102, 0.75);
-    }
-    header * {
-      position: relative;
-    }
-    header img {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      margin-bottom: 1rem;
-      object-fit: cover;
-      border: 3px solid white;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.2rem;
-    }
-    header p {
-      margin: 0.5rem 0 0;
-      font-size: 1.05rem;
-    }
-    nav {
-      background-color: var(--nav-color);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      padding: 1rem;
-    }
-    nav a, .theme-toggle {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      cursor: pointer;
-      font-size: 0.95rem;
-      padding: 0.4rem 0.6rem;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .theme-toggle {
-      background: none;
-      border: 1px solid #fff;
-      border-radius: 4px;
-    }
-    .content {
-      max-width: 1140px;
-      margin: 2.5rem auto;
-      padding: 0 2rem;
-    }
-    .section {
-      margin-bottom: 3rem;
-      display: none;
-      text-align: justify;
-    }
-    .section.active {
-      display: block;
-      animation: fadeIn 0.6s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .section h2 {
-      color: var(--primary-color);
-      border-bottom: 2px solid var(--primary-color);
-      padding-bottom: 0.3rem;
-      font-size: 1.7rem;
-      margin-bottom: 1.5rem; /* Increased margin */
-    }
-    .contact-form input, .contact-form textarea {
-      width: 100%;
-      padding: 0.6rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-family: 'Inter', sans-serif;
-    }
-    .contact-form button {
-      background-color: var(--primary-color);
-      color: #fff;
-      border: none;
-      padding: 0.6rem 1rem;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    footer {
-      background-color: var(--primary-color);
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 4rem;
-      font-size: 0.9rem;
-    }
-    ul {
-      padding-left: 1.4rem;
-      margin-bottom: 1rem;
-    }
-    li {
-      margin-bottom: 0.5rem;
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
     }
 
-    /* === NEW STYLES FOR PROJECTS SECTION === */
-    .project-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .project-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-    }
-    .project-title {
-        font-size: 1.4rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-    }
-    .project-title a {
-        color: var(--primary-color);
-        text-decoration: none;
-    }
-    .project-title a:hover {
-        text-decoration: underline;
-    }
-    .project-description {
-        margin-bottom: 1rem;
-    }
-    .project-tech {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-top: 1rem;
-    }
-    .tech-tag {
-        background-color: var(--primary-color);
-        color: #fff;
-        padding: 0.2rem 0.6rem;
-        border-radius: 4px;
-        font-size: 0.8rem;
-        font-weight: 500;
-    }
-    .workflow-image {
-        width: 100%;
-        border-radius: 6px;
-        margin-top: 1rem;
-        border: 1px solid var(--card-border);
-      
-    /* === END OF NEW STYLES === */
+    /* Skip link */
+    .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;background:#fff;color:#000;padding:.5rem .75rem;border-radius:.375rem;z-index:9999}
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.6rem;
-      }
-      header p {
-        font-size: 0.95rem;
-      }
-      nav {
-        gap: 0.8rem;
-        padding: 0.8rem;
-      }
-      nav a {
-        font-size: 0.85rem;
-      }
-      .content {
-        padding: 0 1rem;
-      }
+    header.hero {
+      position: relative;
+      min-height: 60vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background: url('cover.jpeg') center/cover no-repeat;
+      color: #fff;
+      isolation: isolate;
     }
-    @media (min-width: 1200px) {
-      body {
-        font-size: 1.05rem;
-        line-height: 1.7;
-      }
+    header.hero::before{
+      content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,59,102,.75),rgba(13,59,102,.6));z-index:-1
     }
+    .hero-inner { padding: 4rem 1rem 5rem; max-width: 64rem; }
+    .avatar { width: 120px; height: 120px; border-radius: 999px; border: 3px solid #fff; object-fit: cover; box-shadow: 0 8px 24px rgba(0,0,0,.25) }
+    .title { margin: 1rem 0 0; font-size: clamp(1.6rem, 2.5vw, 2.6rem); font-weight: 700; }
+    .subtitle { margin:.5rem auto 0; max-width: 52rem; font-weight: 500; opacity:.95 }
+
+    /* Sticky nav */
+    nav.primary {
+      position: sticky; top: 0; z-index: 50;
+      background: var(--nav); color: #fff;
+      display: flex; flex-wrap: wrap; gap: .5rem 1rem; justify-content: center; align-items: center;
+      padding: .75rem 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,.15);
+    }
+    nav.primary a, .theme-toggle {
+      color: #fff; text-decoration: none; font-weight: 600; font-size: .95rem; padding: .4rem .6rem; border-radius: .375rem; border: 1px solid transparent;
+    }
+    nav.primary a.active { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.2); }
+    .theme-toggle { background: transparent; border-color: rgba(255,255,255,.35); cursor: pointer }
+    .theme-toggle:focus, nav.primary a:focus { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+    main { max-width: 1160px; margin: 2rem auto 4rem; padding: 0 1.25rem; }
+
+    section.section { display: none; }
+    section.section.active { display: block; animation: fadeIn .5s ease }
+    @keyframes fadeIn { from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none} }
+
+    h2.section-title{ color: var(--primary); border-bottom: 2px solid var(--primary-600); padding-bottom: .35rem; margin: 0 0 1.25rem; font-size: clamp(1.35rem,2.2vw,1.8rem) }
+    p.lead { font-size: 1.05rem; color: var(--muted); }
+
+    /* Cards & grids */
+    .grid { display: grid; gap: 1.25rem }
+    @media (min-width: 700px){ .grid.cols-2{ grid-template-columns: repeat(2, minmax(0,1fr)) } }
+    @media (min-width: 1024px){ .grid.cols-3{ grid-template-columns: repeat(3, minmax(0,1fr)) } }
+
+    .card{ background: var(--card); border:1px solid var(--card-border); border-radius: 14px; padding: 1.1rem 1.1rem; box-shadow: 0 6px 24px rgba(0,0,0,.06); }
+    .card:hover{ transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,.08); transition: .2s }
+
+    .chips{ display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.75rem }
+    .chip{ background: var(--chip-bg); color: var(--chip-text); padding:.2rem .5rem; border-radius:.4rem; font-size:.8rem; font-weight:600 }
+
+    .btn-row{ display:flex; flex-wrap:wrap; gap:.5rem; margin-top: .9rem }
+    .btn{ display:inline-flex; align-items:center; gap:.5rem; padding:.5rem .7rem; border-radius:.5rem; text-decoration:none; font-weight:700; border:1px solid var(--card-border); background: var(--card); color: var(--primary) }
+    .btn.primary{ background: var(--primary); color:#fff; border-color: var(--primary-600) }
+    .btn:hover{ filter: brightness(1.03) }
+
+    .project-cover{ width:100%; border-radius: 10px; border:1px solid var(--card-border); margin-top:.75rem }
+
+    /* Contact */
+    form.contact { display:grid; gap:.75rem; max-width:720px }
+    form.contact input, form.contact textarea{ width:100%; padding:.7rem .8rem; border-radius:.5rem; border:1px solid var(--card-border); background: var(--card); color: var(--text) }
+    form.contact button{ justify-self:start }
+
+    footer{ background: var(--primary); color:#fff; text-align:center; padding: 1.1rem; font-size: .95rem }
   </style>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nitesh Ranjan Singh",
+    "jobTitle": "Data Engineer",
+    "affiliation": {"@type":"CollegeOrUniversity","name":"University of Glasgow"},
+    "alumniOf": {"@type":"CollegeOrUniversity","name":"UPES"},
+    "url": "https://nitesh0007-edith.github.io/academic/",
+    "sameAs": [
+      "https://www.linkedin.com/in/nitesh0007/",
+      "https://github.com/nitesh0007-edith",
+      "https://leetcode.com/u/nitesh2039/"
+    ]
+  }
+  </script>
 </head>
 <body>
-  <header>
-    <img src="image1.png" alt="Nitesh Ranjan Singh">
-    <h1>Nitesh Ranjan Singh</h1>
-    <p>MSc Data Science @ University of Glasgow | Data Engineer | Azure | PySpark</p>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="hero" role="banner" aria-label="Hero">
+    <div class="hero-inner">
+      <img class="avatar" src="image1.png" alt="Portrait of Nitesh Ranjan Singh" loading="eager" />
+      <h1 class="title">Nitesh Ranjan Singh</h1>
+      <p class="subtitle">MSc Data Science @ University of Glasgow • Data Engineer • Azure • Databricks • PySpark</p>
+      <div class="btn-row" style="justify-content:center; margin-top:1rem">
+        <a class="btn primary" href="Nitesh-Singh-Resume.pdf" aria-label="Download resume">⬇️ Download Resume</a>
+        <a class="btn" href="https://github.com/nitesh0007-edith" target="_blank" rel="noreferrer noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/nitesh0007/" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+        <a class="btn" href="#contact">Contact</a>
+      </div>
+    </div>
   </header>
 
-  <nav>
-    <a onclick="showSection('welcome')">Welcome</a>
-    <a onclick="showSection('about')">About</a>
-    <a onclick="showSection('experience')">Work Experience</a>
-    <a onclick="showSection('education')">Education</a>
-    <a onclick="showSection('projects')">Projects</a>
-    <a onclick="showSection('contact')">Contact</a>
-    <a href="Nitesh-Singh-Resume.pdf">Resume</a>
-    <a href="https://github.com/nitesh0007-edith" target="_blank">GitHub</a>
-    <a href="https://www.linkedin.com/in/nitesh0007/" target="_blank">LinkedIn</a>
-    <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+  <nav class="primary" role="navigation" aria-label="Primary" id="nav">
+    <a href="#welcome" data-section="welcome">Welcome</a>
+    <a href="#about" data-section="about">About</a>
+    <a href="#experience" data-section="experience">Work Experience</a>
+    <a href="#education" data-section="education">Education</a>
+    <a href="#projects" data-section="projects">Projects</a>
+    <a href="#contact" data-section="contact">Contact</a>
+    <button class="theme-toggle" id="themeBtn" aria-label="Toggle theme">🌓</button>
   </nav>
 
-  <div class="content">
-    <section class="section active" id="welcome">
-      <h2>Welcome!</h2>
-      <p>Hello and welcome to my professional portfolio. I am <strong>Nitesh Ranjan Singh</strong>, a passionate and forward-thinking <strong>Data Engineer</strong> with over <strong>three years of experience</strong> in designing and optimizing scalable data pipelines using modern cloud technologies like <strong>Azure Data Factory</strong>, <strong>Databricks</strong>, <strong>PySpark</strong>, and <strong>Snowflake</strong>. I’ve made impactful contributions in the pharmaceutical and healthcare analytics sectors at <strong>IQVIA</strong> and <strong>Axtria</strong>, and have been recognized with <strong>IQVIA’s Impact Award</strong> for my achievements.</p>
-      <p>Currently, I am pursuing an <strong>MSc in Data Science</strong> at the <strong>University of Glasgow</strong>, where I’m expanding my knowledge in advanced machine learning, big data analytics, and cloud-native data engineering practices. I’m honored to be a recipient of the <strong>£10,000 Excellence Scholarship</strong> and excited to engage with industry-aligned research and projects.</p>
-      <p>This portfolio is a curated collection of my professional journey, academic growth, technical projects, and career aspirations in data engineering and AI-driven infrastructure. Thank you for visiting, and I invite you to explore the sections ahead to learn more about my work and interests.</p>
+  <main id="main" tabindex="-1">
+    <!-- WELCOME -->
+    <section class="section active" id="welcome" aria-labelledby="welcome-title">
+      <h2 class="section-title" id="welcome-title">Welcome</h2>
+      <p class="lead">Hi! I’m <strong>Nitesh</strong> — a Data Engineer with <span id="yoe">3</span>+ years’ experience building scalable data platforms in Azure (ADF, ADLS, Databricks, Synapse) with Python/SQL/PySpark. I’ve shipped high‑impact pipelines in healthcare & pharma analytics at <strong>IQVIA</strong> and <strong>Axtria</strong>, and I’m currently pursuing an <strong>MSc in Data Science</strong> at the <strong>University of Glasgow</strong> (Excellence Scholarship).</p>
+      <p>This site showcases selected achievements, projects, and how I think about data systems and AI‑driven automation.</p>
     </section>
 
-    <section class="section" id="about">
-      <h2>About Me</h2>
-      <p>Hello! I'm <strong>Nitesh Ranjan Singh</strong>, a passionate and driven data professional currently pursuing an <strong>MSc in Data Science</strong> at the <strong>University of Glasgow</strong>. With over <strong>three years of experience as a Data Engineer</strong> in the pharmaceutical and healthcare analytics industry, I’ve designed and optimized large-scale ETL pipelines using technologies like <strong>Azure Data Factory</strong>, <strong>Databricks</strong>, <strong>PySpark</strong>, and <strong>Snowflake</strong>.</p>
-      <p><strong>Why Data Science?</strong><br>My fascination with data began during my undergraduate studies in Computer Science, where I explored machine learning and built AI-based systems like <em>DigiAttendance</em> — a facial recognition attendance tracker. Over time, working at organizations like <strong>IQVIA</strong> and <strong>Axtria</strong>, I witnessed how impactful data can be in driving real-world decisions — especially in healthcare. This blend of technology, business context, and data-driven insight led me to pursue data science more deeply. I enjoy building systems that not only process data efficiently but also unlock hidden patterns and empower decision-makers.</p>
-      <p><strong>Why the UK and the University of Glasgow?</strong><br>I chose the UK for its strong alignment with industry-focused academic programs, access to a vibrant tech ecosystem, and excellent post-study work opportunities. The University of Glasgow’s <strong>Data Science MSc program</strong> stood out to me for its well-balanced curriculum in big data analytics, cloud computing, and applied machine learning, backed by global faculty and research standards. Receiving a <strong>£10,000 Excellence Scholarship</strong> was both a recognition and a motivation to invest my full potential into this transformative journey.</p>
-      <p><strong>Career Goals</strong><br>My short-term goal is to secure a <strong>data engineering internship in the UK</strong> during the summer of 2026, where I can apply my skills in Azure, Spark, and data pipeline design in a real-world setting. Long-term, I aspire to become a <strong>Data Engineering Lead or Solutions Architect</strong>, working at the intersection of cloud infrastructure, machine learning, and AI Ops — building scalable data products that serve both technical and business outcomes.</p>
-    </section>
-
-    <section class="section" id="experience">
-      <h2>Work Experience</h2>
-      <ul>
-        <li><strong>Data Engineer – IQVIA, Gurgaon, India</strong><br><strong>Dec 2022 – Aug 2025</strong><br>
-          <div style="margin: 0.5rem 0;">
-            <span style="display:inline-block;background:#007FFF;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Azure</span>
-            <span style="display:inline-block;background:#2D7DD2;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">ADF</span>
-            <span style="display:inline-block;background:#FF6F00;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Databricks</span>
-            <span style="display:inline-block;background:#0078D4;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">ADLS</span>
-            <span style="display:inline-block;background:#1E90FF;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Azure SQL</span>
-            <span style="display:inline-block;background:#008080;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Synapse</span>
-            <span style="display:inline-block;background:#3572A5;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Python</span>
-            <span style="display:inline-block;background:#E27D60;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">PySpark</span>
-            <span style="display:inline-block;background:#FFB347;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">SQL</span>
-            <span style="display:inline-block;background:#F2C94C;color:black;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Power-BI</span>
-            <span style="display:inline-block;background:#6C757D;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Excel</span>
+    <!-- ABOUT -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <h2 class="section-title" id="about-title">About Me</h2>
+      <p>I build reliable data workflows that turn messy inputs into analytics‑ready, trustworthy datasets. I enjoy the intersection of <em>cloud infrastructure</em>, <em>data quality</em>, and <em>ML enablement</em> — especially when automation makes teams faster.</p>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Core Stack</h3>
+          <div class="chips">
+            <span class="chip">Azure</span><span class="chip">ADF</span><span class="chip">ADLS</span><span class="chip">Databricks</span><span class="chip">Synapse</span><span class="chip">Python</span><span class="chip">PySpark</span><span class="chip">SQL</span><span class="chip">Snowflake</span><span class="chip">Kafka</span><span class="chip">Airflow</span><span class="chip">Power BI</span>
           </div>
-          As a Data Engineer, I design and implement robust data workflows that enhance the delivery of analytical insights for clients across Europe. By integrating Python, SQL, PySpark, and Azure Databricks, I automate complex data processes, develop efficient data pipelines, and optimize reporting frameworks. These pipelines support high-quality Power BI and Excel dashboards, enabling timely and accurate reporting on a weekly, monthly, and quarterly basis.<br><br>
-          <strong>Key highlights:</strong>
-            <ul>
-              <li>Automated the data refresh process by shifting from a time-based trigger to an event-based trigger using Azure Data Factory (ADF), Azure SQL, and Power BI, eliminating manual intervention in extract refresh workflows by 100%.</li>
-              <li>Orchestrated and scaled a robust data ingestion and validation pipeline to process business-user-delivered files with over 100 million records using PySpark on Azure Databricks, ensuring alignment with standard data formats without modifying raw files, achieving zero data loss.</li>
-              <li>Implemented advanced data quality rules within the ETL pipelines using SQL and PySpark, enabling early detection of data anomalies and significantly improving data consistency and conformity across downstream systems.</li>
-              <li>Designed and developed an automated anomaly detection dashboard using Python and Power BI, minimizing manual data validation efforts by 95% and proactively preventing critical data quality issues.</li>
-              <li>Enabled and fixed high-impact data quality checks as part of the pipeline design in Azure Synapse and Azure SQL, which led to a 90% reduction in recurring data issues.</li>
-              <li>Optimized and re-engineered data pipelines to support three daily refreshes using ADF, Azure Databricks, and ADLS, improving data freshness and conformity by 95%, and ensuring readiness for analytics and reporting layers.</li>
-            </ul>
-        </li><br><br>
-        <li><strong>Analyst – Axtria, Noida, India</strong><br><strong>Jan 2022 – Dec 2022</strong><br>
-          <div style="margin: 0.5rem 0;">
-            <span style="display:inline-block;background:#3572A5;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Python</span>
-            <span style="display:inline-block;background:#E27D60;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">PySpark</span>
-            <span style="display:inline-block;background:#FFB347;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">SQL</span>
-            <span style="display:inline-block;background:#F2C94C;color:black;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Power BI</span>
-            <span style="display:inline-block;background:#6C757D;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Excel</span>
-            <span style="display:inline-block;background:#232F3E;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Databricks</span>
-            <span style="display:inline-block;background:#D42029;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Redshift</span>
-            <span style="display:inline-block;background:#00A3E0;color:white;border-radius:4px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.8rem;">Athena</span>
-          </div>
-          As an entry-level Analyst, I supported the development of data and reporting solutions by collaborating with cross-functional teams in the pharmaceutical analytics space. My responsibilities included data extraction, transformation, and visualization using SQL, Python, and BI tools. This role was foundational in building my understanding of end-to-end data workflows and stakeholder-driven reporting.<br><br>
-          <strong>Key highlights:</strong>
+        </div>
+        <div class="card">
+          <h3>Certifications</h3>
           <ul>
-            <li>Developed and maintained automation scripts using Python to extract data from API-based sources, standardize file formats, and automate file transfers via SFTP to Amazon S3 and within S3, supporting scalable and efficient data ingestion workflows.</li>
-            <li>Owned and ensured delivery of high-quality data pipelines for data transformation and loading using SQL and Matillion on the AWS ecosystem, enabling timely and accurate reporting for stakeholders.</li>
-            <li>Worked extensively with pharmaceutical datasets including Veeva, Specialty Pharmacy, IQVIA LAAD, and other healthcare data sources to analyze trends, derive insights, and address complex business requirements raised by clients.</li>
-            <li>Designed and delivered dynamic, client-facing dashboards using Power BI, transforming raw data into actionable insights and supporting data-driven decision-making across business functions.</li>
+            <li>Microsoft Certified: <strong>Azure Data Engineer Associate (DP‑203)</strong></li>
+            <li>Databricks Certified Data Engineer Associate</li>
+            <li>IBM Data Science Professional Certificate</li>
           </ul>
-        </li>
-      </ul>
+        </div>
+      </div>
     </section>
 
-    <section class="section" id="education">
-      <h2>Education</h2>
-      <ul>
-        <li>
-          <strong>MSc Data Science – University of Glasgow, UK</strong><br>
-          <em>Expected: 2026</em>
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience" aria-labelledby="exp-title">
+      <h2 class="section-title" id="exp-title">Work Experience</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Data Engineer — IQVIA (Dec 2022 – Aug 2025)</h3>
+          <p>Designed and scaled healthcare ETL on Azure/Databricks; productionized ML scoring; automated DQ & metadata workflows.</p>
           <ul>
-            <li>Modules: Big Data Analytics, Cloud Computing, Data Engineering</li>
+            <li>Migrated <strong>1B+ records</strong> to Databricks; reduced runtime by <strong>35%</strong>.</li>
+            <li>Event‑driven refreshes (ADF + Azure SQL + Power BI) eliminated manual extracts.</li>
+            <li>Anomaly‑detection dashboard cut manual validation by <strong>95%</strong>.</li>
+            <li>Tri‑daily refresh pipelines improved freshness & conformity by <strong>95%</strong>.</li>
+          </ul>
+          <div class="chips"><span class="chip">Azure</span><span class="chip">ADF</span><span class="chip">Databricks</span><span class="chip">ADLS</span><span class="chip">Synapse</span><span class="chip">Python</span><span class="chip">PySpark</span><span class="chip">SQL</span><span class="chip">Power BI</span></div>
+        </article>
+        <article class="card">
+          <h3>Analyst — Axtria (Jan 2022 – Dec 2022)</h3>
+          <p>Built ETL and dashboards for pharma analytics; automated API extractions; tuned queries and indexes for performance.</p>
+          <ul>
+            <li>Owned Matillion/AWS pipelines and Power BI reporting.</li>
+            <li>Worked with datasets incl. Veeva, Specialty Pharmacy, IQVIA LAAD.</li>
+          </ul>
+          <div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Power BI</span><span class="chip">AWS</span><span class="chip">Databricks</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section" id="education" aria-labelledby="edu-title">
+      <h2 class="section-title" id="edu-title">Education</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>MSc Data Science — University of Glasgow (Expected 2026)</h3>
+          <ul>
+            <li>Modules: Big Data Systems, ML & AI, Deep Learning, Visualization, Research Skills</li>
             <li>Scholarship: £10,000 Excellence Award</li>
-            <li>Project: Built scalable ETL pipeline using ADF, Databricks & ADLS Gen2 for healthcare data</li>
           </ul>
-        </li>
-        <br>
-        <li>
-          <strong>B.Tech in Computer Science Engineering – University of Petroleum and Energy Studies, India</strong><br>
-          <em>2018 – 2022</em>
+        </article>
+        <article class="card">
+          <h3>B.Tech CSE — UPES (2018–2022)</h3>
           <ul>
-            <li>Final Year Project: DigiAttendance – AI-based attendance system using facial recognition</li>
+            <li>Final Project: Facial‑recognition attendance system (OpenCV, face_recognition, PyQt5)</li>
           </ul>
-        </li>
-      </ul>
+        </article>
+      </div>
     </section>
 
-    <section class="section" id="projects">
-      <h2>Latest Projects</h2>
-      
-      <div class="project-card">
-        <h3 class="project-title"><a href="https://github.com/nitesh0007-edith/AutoPipelineAI" target="_blank">AutoPipelineAI</a></h3>
-        <p class="project-description">
-          This project addresses a key bottleneck in data operations: the time and expertise required to build custom ETL pipelines. AutoPipelineAI is a proof-of-concept Data-Ops framework that empowers users to generate and deploy data workflows using natural language, effectively democratizing data engineering tasks.
-        </p>
-        <ul>
-            <li><b>Core Functionality:</b> Users input data transformation requirements (e.g., "load the customer CSV, filter for UK clients, and aggregate sales by city") into a Streamlit-based web interface.</li>
-            <li><b>LLM Integration:</b> The framework leverages a locally-hosted Llama3 model via Ollama to interpret the prompt and generate production-quality, executable PySpark code for the required transformations.</li>
-            <li><b>Automated Orchestration:</b> The generated script is then automatically packaged into a container and integrated into a dynamic Azure Data Factory pipeline, ready for immediate execution or scheduling. This showcases a practical application of AI in automating cloud infrastructure and MLOps.</li>
-        </ul>
-        <img src="image_autopipelineAI.png" alt="AutoPipelineAI Workflow" class="workflow-image">
-        <div class="project-tech">
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">Generative AI</span>
-            <span class="tech-tag">Streamlit</span>
-            <span class="tech-tag">Ollama</span>
-            <span class="tech-tag">Llama3</span>
-            <span class="tech-tag">Data-Ops</span>
-            <span class="tech-tag">Azure</span>
-        </div>
-      </div>
+    <!-- PROJECTS -->
+    <section class="section" id="projects" aria-labelledby="proj-title">
+      <h2 class="section-title" id="proj-title">Latest Projects</h2>
+      <div class="grid cols-2">
+        <article class="card">
+          <header>
+            <h3 style="margin:0 0 .4rem"><a href="https://github.com/nitesh0007-edith/AutoPipelineAI" target="_blank" rel="noreferrer noopener">AutoPipelineAI</a></h3>
+            <p class="lead" style="margin:.25rem 0 0">LLM‑driven autonomous ETL & DataOps with Streamlit + Ollama (Llama 3)</p>
+          </header>
+          <img class="project-cover" src="image_autopipelineAI.png" alt="AutoPipelineAI architecture" loading="lazy">
+          <ul>
+            <li>Natural‑language to <strong>executable PySpark</strong> transformations.</li>
+            <li>Containerized tasks orchestrated by <strong>Azure Data Factory</strong>.</li>
+            <li>End‑to‑end demo via Streamlit UI + visual insights.</li>
+          </ul>
+          <div class="chips"><span class="chip">Python</span><span class="chip">Streamlit</span><span class="chip">Ollama</span><span class="chip">Llama3</span><span class="chip">Azure</span><span class="chip">DataOps</span></div>
+          <div class="btn-row">
+            <a class="btn primary" href="https://github.com/nitesh0007-edith/AutoPipelineAI" target="_blank" rel="noreferrer noopener">View Code</a>
+            <a class="btn" href="#" aria-disabled="true" title="Add live demo link when hosted">Live Demo</a>
+            <a class="btn" href="#" aria-disabled="true" title="Add blog link when published">Read Blog</a>
+          </div>
+        </article>
 
-      <div class="project-card">
-        <h3 class="project-title"><a href="https://github.com/nitesh0007-edith" target="_blank">Digi-Attendance</a></h3>
-        <p class="project-description">
-          A complete, end-to-end facial recognition system designed to automate workplace attendance, eliminating the need for manual check-ins or physical ID cards. The system was built with efficiency and accuracy as primary goals, capable of running on low-cost edge devices.
-        </p>
-        <ul>
-            <li><b>Real-Time Video Processing:</b> The application uses OpenCV to capture a live video stream, identifying and isolating faces in each frame in real-time.</li>
-            <li><b>Face Encoding & Recognition:</b> For each detected face, the `face_recognition` library generates a unique 128-d numerical encoding. This encoding is then compared against a pre-computed database of known employee faces to find a match with high accuracy.</li>
-            <li><b>User Interface & Data Logging:</b> A user-friendly GUI built with PyQt5 allows for easy management of the system. All successful recognitions are logged to a CSV file with a precise timestamp, which is then used to automatically calculate total working hours.</li>
-        </ul>
-        <div class="project-tech">
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">OpenCV</span>
-            <span class="tech-tag">face_recognition</span>
-            <span class="tech-tag">PyQt5</span>
-            <span class="tech-tag">Computer Vision</span>
-        </div>
-      </div>
+        <article class="card">
+          <header>
+            <h3 style="margin:0 0 .4rem"><a href="https://github.com/nitesh0007-edith" target="_blank" rel="noreferrer noopener">Digi‑Attendance</a></h3>
+            <p class="lead" style="margin:.25rem 0 0">Edge‑friendly facial recognition attendance system</p>
+          </header>
+          <ul>
+            <li>Real‑time video capture and face detection (OpenCV).</li>
+            <li>128‑d encodings + robust matching (<code>face_recognition</code>).</li>
+            <li>PyQt5 GUI + CSV logging for working‑hours summaries.</li>
+          </ul>
+          <div class="chips"><span class="chip">Python</span><span class="chip">OpenCV</span><span class="chip">face_recognition</span><span class="chip">PyQt5</span></div>
+          <div class="btn-row">
+            <a class="btn primary" href="https://github.com/nitesh0007-edith" target="_blank" rel="noreferrer noopener">View Code</a>
+          </div>
+        </article>
 
-      <div class="project-card">
-        <h3 class="project-title"><a href="https://github.com/nitesh0007-edith" target="_blank">Mathematical Model for Linear Data</a></h3>
-        <p class="project-description">
-          This project demonstrates a foundational mastery of machine learning principles by building a complete linear regression model from scratch to analyze the factors influencing crime rates in the US. By avoiding high-level libraries like Scikit-learn, this work showcases a deep understanding of the underlying mathematics.
-        </p>
-        <ul>
-            <li><b>Manual Implementation:</b> Implemented the entire gradient descent algorithm using only NumPy to train the model, including manual calculation of the cost function (MSE), derivatives, and iterative weight updates.</li>
-            <li><b>Data Analysis & Feature Engineering:</b> Performed exploratory data analysis on the US Crime Data dataset to identify and select relevant predictive features, preparing the data for the model without relying on automated tools.</li>
-            <li><b>Exceptional Performance:</b> The final model achieved a Mean Squared Error (MSE) of <b>0.0452</b> and an R-squared (R²) value of <b>0.9835</b>, indicating an extremely high level of accuracy and predictive power, validating the correctness of the from-scratch implementation.</li>
-        </ul>
-        <div class="project-tech">
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">NumPy</span>
-            <span class="tech-tag">Linear Regression</span>
-            <span class="tech-tag">Data Analysis</span>
-            <span class="tech-tag">Statistics</span>
-        </div>
+        <article class="card">
+          <header>
+            <h3 style="margin:0 0 .4rem"><a href="https://github.com/nitesh0007-edith" target="_blank" rel="noreferrer noopener">Mathematical Model for Linear Data</a></h3>
+            <p class="lead" style="margin:.25rem 0 0">Linear regression from scratch (NumPy) on US Crime Data</p>
+          </header>
+          <ul>
+            <li>Manual gradient descent, cost, and derivatives implementation.</li>
+            <li>Feature engineering + EDA; reproducible notebook.</li>
+            <li>Achieved MSE <strong>0.0452</strong>, R² <strong>0.9835</strong>.</li>
+          </ul>
+          <div class="chips"><span class="chip">Python</span><span class="chip">NumPy</span><span class="chip">Linear Regression</span></div>
+          <div class="btn-row">
+            <a class="btn primary" href="https://github.com/nitesh0007-edith" target="_blank" rel="noreferrer noopener">View Code</a>
+          </div>
+        </article>
       </div>
-
     </section>
 
-    <section class="section" id="contact">
-      <h2>Contact Me</h2>
-      <form class="contact-form" action="https://formspree.io/f/mqalezed" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
+    <!-- CONTACT -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <h2 class="section-title" id="contact-title">Contact Me</h2>
+      <form class="contact" action="https://formspree.io/f/mqalezed" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name" />
+        <input type="email" name="email" placeholder="Your Email" required aria-label="Your Email" />
+        <textarea name="message" rows="5" placeholder="Your Message" required aria-label="Your Message"></textarea>
+        <!-- Honeypot -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+        <button class="btn primary" type="submit">Send Message</button>
       </form>
+      <p class="lead" style="margin-top:1rem">Or email me: <a href="mailto:3090808S@student.gla.ac.uk">3090808S@student.gla.ac.uk</a></p>
     </section>
-  </div>
+  </main>
 
   <footer>
-    &copy; 2025 Nitesh Ranjan Singh | Glasgow, UK
+    <span>© <span id="year"></span> Nitesh Ranjan Singh — Glasgow, UK</span>
   </footer>
 
   <script>
-    function showSection(id) {
-      document.querySelectorAll('.section').forEach(section => {
-        section.classList.remove('active');
-      });
-      document.getElementById(id).classList.add('active');
-    }
+    // --- Theme ---
+    const themeBtn = document.getElementById('themeBtn');
+    const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    const storedTheme = localStorage.getItem('theme');
+    document.documentElement.setAttribute('data-theme', storedTheme || preferred);
+    themeBtn.addEventListener('click', () => {
+      const cur = document.documentElement.getAttribute('data-theme');
+      const next = cur === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
 
-    function toggleTheme() {
-      const theme = document.documentElement.getAttribute("data-theme");
-      document.documentElement.setAttribute("data-theme", theme === "dark" ? "light" : "dark");
-    }
+    // --- Section routing via hash ---
+    const sections = Array.from(document.querySelectorAll('section.section'));
+    const navLinks = Array.from(document.querySelectorAll('nav.primary a[data-section]'));
 
-    // Default to welcome section on page load
+    function setActive(id){
+      sections.forEach(s=>s.classList.toggle('active', s.id===id));
+      navLinks.forEach(a=>a.classList.toggle('active', a.dataset.section===id));
+    }
+    function route(){
+      const id = (location.hash || '#welcome').replace('#','');
+      setActive(id);
+    }
+    window.addEventListener('hashchange', route);
     document.addEventListener('DOMContentLoaded', () => {
-        showSection('welcome');
+      route();
+      // dynamic year in footer
+      document.getElementById('year').textContent = new Date().getFullYear();
+      // years of experience calc (from Jan 2022 as start of industry exp)
+      const start = new Date('2022-01-01');
+      const now = new Date();
+      const years = ((now - start) / (1000*60*60*24*365.25)).toFixed(1);
+      document.getElementById('yoe').textContent = years;
+    });
+
+    // --- Improve keyboard focus on nav
+    document.getElementById('nav').addEventListener('click', (e)=>{
+      const a = e.target.closest('a[data-section]');
+      if(a){ a.blur(); }
     });
   </script>
+
+  <!-- (Optional) Add your analytics snippet here -->
 </body>
 </html>
