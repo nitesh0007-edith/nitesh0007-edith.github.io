@@ -1345,7 +1345,7 @@
         </div>
         <div class="stat-item">
           <span class="stat-icon"><i class="fas fa-code"></i></span>
-          <div class="stat-value" data-count="10">0</div>
+          <div class="stat-value" data-count="7">0</div>
           <div class="stat-label">Projects</div>
         </div>
       </div>
@@ -1605,29 +1605,71 @@
       </div>
 
       <div class="projects-grid">
+        <!-- ECG Explainable Machine Learning -->
         <article class="project-card" data-aos="fade-up" data-aos-delay="0">
+          <img class="project-image" src="assets/images/projects/misc-1.png" alt="ECG Explainable ML" loading="lazy">
+          <div class="project-content">
+            <div class="project-header">
+              <div>
+                <h3 class="project-title">ECG Explainable Machine Learning</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.25rem;">Triple-Validated Deep Explainability for Cardiac Arrhythmia</p>
+              </div>
+              <a href="https://github.com/nitesh0007-edith/ECG-Explainable-Machine-Learning" target="_blank" rel="noopener" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+            <p class="project-description">
+              Clinically trustworthy AI system for automated ECG arrhythmia detection achieving <strong>99.79% accuracy</strong> on patient holdout validation across 8 arrhythmia classes. Implements triple-validated explainability (PFI, LIME, SHAP) converging on QRS complex as key diagnostic feature. Analyzed 68,442 ECG beats with only 30 errors.
+            </p>
+            <ul style="list-style: none; padding: 0; margin: 1rem 0; font-size: 0.9rem; color: var(--text-secondary);">
+              <li style="padding: 0.3rem 0;"><i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>6 Jupyter notebooks + 7 production modules</li>
+              <li style="padding: 0.3rem 0;"><i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>29 high-res visualizations (300 DPI)</li>
+              <li style="padding: 0.3rem 0;"><i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>4 trained models deployment-ready</li>
+            </ul>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">scikit-learn</span>
+              <span class="tech-tag">LIME</span>
+              <span class="tech-tag">SHAP</span>
+              <span class="tech-tag">Jupyter</span>
+              <span class="tech-tag">ML</span>
+              <span class="tech-tag">Healthcare</span>
+            </div>
+            <a href="https://github.com/nitesh0007-edith/ECG-Explainable-Machine-Learning" target="_blank" rel="noopener" class="btn primary" style="width: 100%;">
+              <i class="fab fa-github"></i> View Project
+            </a>
+          </div>
+        </article>
+
+        <!-- AutoPipelineAI -->
+        <article class="project-card" data-aos="fade-up" data-aos-delay="100">
           <img class="project-image" src="assets/images/projects/autopipelineai.png" alt="AutoPipelineAI architecture" loading="lazy">
           <div class="project-content">
             <div class="project-header">
               <div>
                 <h3 class="project-title">AutoPipelineAI</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.25rem;">LLM-Driven Data Automation</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.25rem;">LLM-Driven Autonomous ETL & DataOps</p>
               </div>
               <a href="https://github.com/nitesh0007-edith/AutoPipelineAI" target="_blank" rel="noopener" class="project-link">
                 <i class="fas fa-external-link-alt"></i>
               </a>
             </div>
             <p class="project-description">
-              Revolutionary LLM-driven autonomous ETL & DataOps platform using Streamlit and Ollama (Llama 3). Converts natural language to executable PySpark transformations with Azure Data Factory orchestration.
+              Revolutionary LLM-driven agentic framework for autonomous ETL automation. Features multi-agent orchestration with natural language interface, document intelligence with PDF extraction & NER, and local LLM support via Ollama ensuring complete data privacy.
             </p>
+            <ul style="list-style: none; padding: 0; margin: 1rem 0; font-size: 0.9rem; color: var(--text-secondary);">
+              <li style="padding: 0.3rem 0;"><i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>5 operational modes (Manual, LLM, Agent, PDF, Database)</li>
+              <li style="padding: 0.3rem 0;"><i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>Specialized ETL, Query, and Profiling agents</li>
+              <li style="padding: 0.3rem 0;"><i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>6-layer modular architecture with sandboxed execution</li>
+            </ul>
             <div class="project-tech">
               <span class="tech-tag">Python</span>
               <span class="tech-tag">Streamlit</span>
+              <span class="tech-tag">LangChain</span>
+              <span class="tech-tag">CrewAI</span>
               <span class="tech-tag">Ollama</span>
-              <span class="tech-tag">Llama3</span>
-              <span class="tech-tag">Azure</span>
-              <span class="tech-tag">PySpark</span>
-              <span class="tech-tag">DataOps</span>
+              <span class="tech-tag">DuckDB</span>
+              <span class="tech-tag">spaCy</span>
             </div>
             <a href="https://github.com/nitesh0007-edith/AutoPipelineAI" target="_blank" rel="noopener" class="btn primary" style="width: 100%;">
               <i class="fab fa-github"></i> View Project
@@ -1635,7 +1677,113 @@
           </div>
         </article>
 
-        <article class="project-card" data-aos="fade-up" data-aos-delay="100">
+        <!-- Market Wars Simulator -->
+        <article class="project-card" data-aos="fade-up" data-aos-delay="200">
+          <img class="project-image" src="assets/images/projects/misc-2.png" alt="Market Wars Simulator" loading="lazy">
+          <div class="project-content">
+            <div class="project-header">
+              <div>
+                <h3 class="project-title">Market Wars Simulator</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.25rem;">Regime-Driven Trading Strategy Simulator</p>
+              </div>
+              <a href="https://github.com/nitesh0007-edith/market-wars-simulator" target="_blank" rel="noopener" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+            <p class="project-description">
+              Comprehensive trading strategy simulator featuring Hidden Markov regime chains (Bull/Bear/Flat), realistic broker execution, and portfolio accounting. Powerful Genetic Algorithm evolves strategy parameters with per-regime adaptation for dynamic market conditions.
+            </p>
+            <ul style="list-style: none; padding: 0; margin: 1rem 0; font-size: 0.9rem; color: var(--text-secondary);">
+              <li style="padding: 0.3rem 0;"><i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>4 trading agents (Buy & Hold, Momentum, Mean Reversion, Vol Targeting)</li>
+              <li style="padding: 0.3rem 0;"><i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>Realistic costs: spread, commission, slippage</li>
+              <li style="padding: 0.3rem 0;"><i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>Professional metrics: Sharpe, Calmar, max drawdown</li>
+            </ul>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">NumPy</span>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">Streamlit</span>
+              <span class="tech-tag">HMM</span>
+              <span class="tech-tag">Genetic Algorithm</span>
+              <span class="tech-tag">Trading</span>
+            </div>
+            <a href="https://github.com/nitesh0007-edith/market-wars-simulator" target="_blank" rel="noopener" class="btn primary" style="width: 100%;">
+              <i class="fab fa-github"></i> View Project
+            </a>
+          </div>
+        </article>
+
+        <!-- Pulse Corp Data Engineering Case Study -->
+        <article class="project-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="project-content" style="padding-top: 2rem;">
+            <div class="project-header">
+              <div>
+                <h3 class="project-title">Pulse Corp Data Engineering Case Study</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.25rem;">E-Commerce Analytics Architecture on Azure</p>
+              </div>
+              <a href="https://github.com/nitesh0007-edith/Pulse-Corp-Data-Engineering-Case-Study" target="_blank" rel="noopener" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+            <p class="project-description">
+              Comprehensive data architecture solution for e-commerce electronics retailer emphasizing real-time analytics and automated pipelines. Implements Medallion Architecture (Bronze → Silver → Gold) with zero-manual-intervention pipelines and built-in monitoring.
+            </p>
+            <ul style="list-style: none; padding: 0; margin: 1rem 0; font-size: 0.9rem; color: var(--text-secondary);">
+              <li style="padding: 0.3rem 0;"><i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>Real-time analytics via Databricks streaming</li>
+              <li style="padding: 0.3rem 0;"><i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>Automated data quality checks with error zones</li>
+              <li style="padding: 0.3rem 0;"><i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>Schema evolution support & Power BI integration</li>
+            </ul>
+            <div class="project-tech">
+              <span class="tech-tag">Azure</span>
+              <span class="tech-tag">Databricks</span>
+              <span class="tech-tag">PySpark</span>
+              <span class="tech-tag">Delta Lake</span>
+              <span class="tech-tag">ADF</span>
+              <span class="tech-tag">ADLS Gen2</span>
+              <span class="tech-tag">Power BI</span>
+            </div>
+            <a href="https://github.com/nitesh0007-edith/Pulse-Corp-Data-Engineering-Case-Study" target="_blank" rel="noopener" class="btn primary" style="width: 100%;">
+              <i class="fab fa-github"></i> View Project
+            </a>
+          </div>
+        </article>
+
+        <!-- Outlier Detection Dashboard -->
+        <article class="project-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="project-content" style="padding-top: 2rem;">
+            <div class="project-header">
+              <div>
+                <h3 class="project-title">Outlier Detection Dashboard</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.25rem;">Interactive Anomaly Detection System</p>
+              </div>
+              <a href="https://github.com/nitesh0007-edith/Outlier-Detection-Dashboard" target="_blank" rel="noopener" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+            <p class="project-description">
+              Interactive Streamlit dashboard for detecting outliers in datasets using multiple statistical and machine learning techniques. Features real-time visualization, customizable detection algorithms, and comprehensive reporting capabilities for data quality monitoring.
+            </p>
+            <ul style="list-style: none; padding: 0; margin: 1rem 0; font-size: 0.9rem; color: var(--text-secondary);">
+              <li style="padding: 0.3rem 0;"><i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>Multiple detection algorithms (IQR, Z-score, Isolation Forest)</li>
+              <li style="padding: 0.3rem 0;"><i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>Real-time interactive visualizations</li>
+              <li style="padding: 0.3rem 0;"><i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>Data quality monitoring & export capabilities</li>
+            </ul>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Streamlit</span>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">scikit-learn</span>
+              <span class="tech-tag">Plotly</span>
+              <span class="tech-tag">Statistics</span>
+            </div>
+            <a href="https://github.com/nitesh0007-edith/Outlier-Detection-Dashboard" target="_blank" rel="noopener" class="btn primary" style="width: 100%;">
+              <i class="fab fa-github"></i> View Project
+            </a>
+          </div>
+        </article>
+
+        <!-- DigiAttendance -->
+        <article class="project-card" data-aos="fade-up" data-aos-delay="500">
           <img class="project-image" src="assets/images/projects/digiattendance.png" alt="DigiAttendance interface" loading="lazy">
           <div class="project-content">
             <div class="project-header">
@@ -1648,8 +1796,13 @@
               </a>
             </div>
             <p class="project-description">
-              Edge-friendly facial recognition attendance system with real-time detection using OpenCV and face_recognition. Features PyQt5 desktop UI with automated CSV logging and timestamped reports.
+              Edge-friendly facial recognition attendance system with real-time detection using OpenCV and face_recognition. Features PyQt5 desktop UI with automated CSV logging, timestamped reports, and support for multiple cameras.
             </p>
+            <ul style="list-style: none; padding: 0; margin: 1rem 0; font-size: 0.9rem; color: var(--text-secondary);">
+              <li style="padding: 0.3rem 0;"><i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>Real-time face detection & recognition</li>
+              <li style="padding: 0.3rem 0;"><i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>Automated attendance logging with timestamps</li>
+              <li style="padding: 0.3rem 0;"><i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>Desktop UI built with PyQt5</li>
+            </ul>
             <div class="project-tech">
               <span class="tech-tag">Python</span>
               <span class="tech-tag">OpenCV</span>
@@ -1664,27 +1817,33 @@
           </div>
         </article>
 
-        <article class="project-card" data-aos="fade-up" data-aos-delay="200">
+        <!-- Mathematical Model for Linear Data -->
+        <article class="project-card" data-aos="fade-up" data-aos-delay="600">
           <div class="project-content" style="padding-top: 2rem;">
             <div class="project-header">
               <div>
                 <h3 class="project-title">Mathematical Model for Linear Data</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.25rem;">ML from Scratch</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.25rem;">ML from Scratch Implementation</p>
               </div>
               <a href="https://github.com/nitesh0007-edith" target="_blank" rel="noopener" class="project-link">
                 <i class="fas fa-external-link-alt"></i>
               </a>
             </div>
             <p class="project-description">
-              Linear regression implementation from scratch using NumPy on US Crime Data. Features manual gradient descent, cost computation, and derivatives. Achieved MSE 0.0452 and R² 0.9835 with comprehensive feature engineering and EDA.
+              Linear regression implementation from scratch using NumPy on US Crime Data. Features manual gradient descent, cost computation, and derivatives. Achieved <strong>MSE 0.0452</strong> and <strong>R² 0.9835</strong> with comprehensive feature engineering and exploratory data analysis.
             </p>
+            <ul style="list-style: none; padding: 0; margin: 1rem 0; font-size: 0.9rem; color: var(--text-secondary);">
+              <li style="padding: 0.3rem 0;"><i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>Manual gradient descent implementation</li>
+              <li style="padding: 0.3rem 0;"><i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>Custom cost function & derivatives</li>
+              <li style="padding: 0.3rem 0;"><i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>Comprehensive EDA & feature engineering</li>
+            </ul>
             <div class="project-tech">
               <span class="tech-tag">Python</span>
               <span class="tech-tag">NumPy</span>
               <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">Matplotlib</span>
               <span class="tech-tag">Linear Regression</span>
               <span class="tech-tag">Mathematics</span>
-              <span class="tech-tag">ML</span>
             </div>
             <a href="assets/documents/paper___mathematical_model_for_linear_data.pdf" target="_blank" class="btn primary" style="width: 100%; margin-bottom: 0.5rem;">
               <i class="fas fa-file-pdf"></i> View Paper
