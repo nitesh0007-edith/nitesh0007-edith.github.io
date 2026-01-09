@@ -14,600 +14,2028 @@
   <meta property="og:image" content="assets/images/profile/cover.jpeg" />
   <meta property="og:url" content="https://nitesh0007-edith.github.io/academic/" />
   <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
   <style>
     :root {
       --bg: #ffffff;
       --bg-secondary: #f8fafc;
+      --bg-tertiary: #f1f5f9;
       --text: #0f172a;
       --text-secondary: #475569;
       --text-muted: #64748b;
-      --primary: #2563eb;
+      --primary: #3b82f6;
       --primary-dark: #1e40af;
-      --primary-light: #3b82f6;
-      --accent: #8b5cf6;
-      --accent-light: #a78bfa;
-      --nav-bg: rgba(255, 255, 255, 0.95);
+      --primary-light: #60a5fa;
+      --secondary: #8b5cf6;
+      --secondary-dark: #6d28d9;
+      --secondary-light: #a78bfa;
+      --accent: #ec4899;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --nav-bg: rgba(255, 255, 255, 0.98);
       --card: #ffffff;
       --card-border: #e2e8f0;
       --chip-bg: #eff6ff;
       --chip-text: #1e40af;
       --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -1px rgb(0 0 0 / 0.06);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.05);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04);
+      --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
       --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --gradient-2: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      --gradient-2: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      --gradient-3: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+      --gradient-mesh: linear-gradient(120deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
     }
+
     [data-theme="dark"] {
-      --bg: #0f172a;
-      --bg-secondary: #1e293b;
-      --text: #f1f5f9;
+      --bg: #0a0f1e;
+      --bg-secondary: #0f172a;
+      --bg-tertiary: #1e293b;
+      --text: #f8fafc;
       --text-secondary: #cbd5e1;
       --text-muted: #94a3b8;
       --primary: #60a5fa;
       --primary-dark: #3b82f6;
       --primary-light: #93c5fd;
-      --accent: #a78bfa;
-      --accent-light: #c4b5fd;
-      --nav-bg: rgba(15, 23, 42, 0.95);
+      --secondary: #a78bfa;
+      --secondary-dark: #8b5cf6;
+      --secondary-light: #c4b5fd;
+      --accent: #f472b6;
+      --nav-bg: rgba(10, 15, 30, 0.98);
       --card: #1e293b;
       --card-border: #334155;
       --chip-bg: #1e3a8a;
       --chip-text: #93c5fd;
-      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.5);
-      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.5);
-      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5);
-      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.5);
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.8);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.8), 0 2px 4px -1px rgb(0 0 0 / 0.8);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.8), 0 4px 6px -2px rgb(0 0 0 / 0.8);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.8), 0 10px 10px -5px rgb(0 0 0 / 0.8);
+      --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.9);
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
     }
+
+    /* Loading Screen */
+    #loading-screen {
+      position: fixed;
+      inset: 0;
+      background: var(--gradient-mesh);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s, visibility 0.5s;
+    }
+
+    #loading-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Skip Link */
     .skip-link {
-      position: absolute; left: -999px; top: auto; width: 1px; height: 1px;
-      overflow: hidden; z-index: 9999;
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      z-index: 9999;
     }
+
     .skip-link:focus {
-      left: 1rem; top: 1rem; width: auto; height: auto;
-      background: var(--primary); color: #fff; padding: .75rem 1rem;
-      border-radius: .5rem; text-decoration: none; font-weight: 600;
+      left: 1rem;
+      top: 1rem;
+      width: auto;
+      height: auto;
+      background: var(--primary);
+      color: #fff;
+      padding: .75rem 1rem;
+      border-radius: .5rem;
+      text-decoration: none;
+      font-weight: 600;
       box-shadow: var(--shadow-lg);
     }
-    header.hero {
-      position: relative; min-height: 75vh; display: flex;
-      align-items: center; justify-content: center; text-align: center;
-      background: url('assets/images/profile/cover.jpeg') center/cover no-repeat;
-      color: #fff; overflow: hidden;
-    }
-    header.hero::before {
-      content: ""; position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(37, 99, 235, 0.92) 0%, rgba(124, 58, 237, 0.88) 100%);
-      z-index: 1;
-    }
-    header.hero::after {
-      content: ""; position: absolute; inset: 0;
-      background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                  radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
-      z-index: 1;
-    }
-    .hero-inner {
-      position: relative; z-index: 2; padding: 5rem 1.5rem;
-      max-width: 72rem; animation: fadeInUp 0.8s ease-out;
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .avatar {
-      width: 140px; height: 140px; border-radius: 50%;
-      border: 4px solid rgba(255, 255, 255, 0.9); object-fit: cover;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease; margin-bottom: 1.5rem;
-    }
-    .avatar:hover { transform: scale(1.05); }
-    .title {
-      font-family: 'Space Grotesk', 'Inter', sans-serif;
-      font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800;
-      margin-bottom: 1rem; letter-spacing: -0.02em; line-height: 1.1;
-    }
-    .subtitle {
-      font-size: clamp(1rem, 2.5vw, 1.25rem); font-weight: 400;
-      opacity: 0.95; max-width: 48rem; margin: 0 auto 2rem; line-height: 1.6;
-    }
-    .hero-stats {
-      display: flex; gap: 2rem; justify-content: center;
-      flex-wrap: wrap; margin-bottom: 2rem; font-size: 0.95rem;
-    }
-    .stat-item {
-      display: flex; align-items: center; gap: 0.5rem;
-      padding: 0.5rem 1rem; background: rgba(255, 255, 255, 0.15);
-      border-radius: 50px; backdrop-filter: blur(10px);
-    }
-    .stat-icon { font-size: 1.2rem; }
-    .btn-row {
-      display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;
-    }
-    .btn {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.75rem 1.5rem; border-radius: 0.75rem;
-      text-decoration: none; font-weight: 600; font-size: 0.95rem;
-      border: 2px solid transparent; transition: all 0.3s ease;
-      cursor: pointer; position: relative; overflow: hidden;
-    }
-    .btn.primary {
-      background: rgba(255, 255, 255, 0.95); color: var(--primary);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-    }
-    .btn.primary:hover {
-      background: #ffffff; transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-    }
-    .btn.secondary {
-      background: transparent; color: #fff;
-      border-color: rgba(255, 255, 255, 0.4); backdrop-filter: blur(10px);
-    }
-    .btn.secondary:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.6); transform: translateY(-2px);
-    }
+
+    /* Navigation */
     nav.primary {
-      position: sticky; top: 0; z-index: 100;
-      background: var(--nav-bg); backdrop-filter: blur(12px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
       border-bottom: 1px solid var(--card-border);
-      box-shadow: var(--shadow-sm); transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    nav.primary.scrolled { box-shadow: var(--shadow); }
-    .nav-container {
-      max-width: 1280px; margin: 0 auto; padding: 0 1.5rem;
-      display: flex; justify-content: space-between;
-      align-items: center; gap: 1rem;
-    }
-    .nav-links {
-      display: flex; gap: 0.25rem; flex-wrap: wrap; align-items: center;
-    }
-    nav.primary a {
-      color: var(--text-secondary); text-decoration: none;
-      font-weight: 600; font-size: 0.9rem; padding: 1rem 1rem;
-      border-radius: 0.5rem; transition: all 0.2s ease; position: relative;
-    }
-    nav.primary a:hover { color: var(--primary); background: var(--bg-secondary); }
-    nav.primary a.active { color: var(--primary); }
-    nav.primary a.active::after {
-      content: ""; position: absolute; bottom: 0; left: 50%;
-      transform: translateX(-50%); width: 30px; height: 3px;
-      background: var(--primary); border-radius: 3px 3px 0 0;
-    }
-    .theme-toggle {
-      background: transparent; border: 2px solid var(--card-border);
-      color: var(--text); padding: 0.5rem 0.75rem;
-      border-radius: 0.5rem; cursor: pointer; font-size: 1.2rem;
-      transition: all 0.2s ease;
-    }
-    .theme-toggle:hover {
-      background: var(--bg-secondary); border-color: var(--primary);
-      transform: rotate(15deg);
-    }
-    main { max-width: 1280px; margin: 0 auto; padding: 4rem 1.5rem; }
-    section.section { display: none; animation: fadeIn 0.5s ease; }
-    section.section.active { display: block; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .section-title {
-      font-family: 'Space Grotesk', 'Inter', sans-serif;
-      color: var(--text); font-size: clamp(1.75rem, 3vw, 2.5rem);
-      font-weight: 700; margin-bottom: 0.75rem; position: relative;
-      display: inline-block; letter-spacing: -0.01em;
-    }
-    .section-title::after {
-      content: ""; position: absolute; bottom: -8px; left: 0;
-      width: 60px; height: 4px; background: var(--gradient-2); border-radius: 2px;
-    }
-    .section-header { margin-bottom: 3rem; }
-    p.lead {
-      font-size: 1.125rem; color: var(--text-secondary);
-      line-height: 1.8; margin-top: 1rem;
-    }
-    .grid { display: grid; gap: 1.5rem; margin-top: 2rem; }
-    @media (min-width: 768px) {
-      .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (min-width: 1024px) {
-      .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
-    }
-    .card {
-      background: var(--card); border: 1px solid var(--card-border);
-      border-radius: 1rem; padding: 1.75rem; box-shadow: var(--shadow-sm);
-      transition: all 0.3s ease; position: relative; overflow: hidden;
-    }
-    .card::before {
-      content: ""; position: absolute; top: 0; left: 0; right: 0;
-      height: 3px; background: var(--gradient-2);
-      transform: scaleX(0); transition: transform 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-4px); box-shadow: var(--shadow-lg);
-      border-color: var(--primary-light);
-    }
-    .card:hover::before { transform: scaleX(1); }
-    .card h3 {
-      color: var(--text); font-size: 1.25rem; font-weight: 700;
-      margin-bottom: 0.75rem; font-family: 'Space Grotesk', 'Inter', sans-serif;
-    }
-    .card h3 a {
-      color: inherit; text-decoration: none; transition: color 0.2s ease;
-    }
-    .card h3 a:hover { color: var(--primary); }
-    .card p {
-      color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.7;
-    }
-    .card ul { list-style: none; margin: 1rem 0; }
-    .card ul li {
-      color: var(--text-secondary); padding-left: 1.5rem;
-      margin-bottom: 0.5rem; position: relative; line-height: 1.6;
-    }
-    .card ul li::before {
-      content: "▹"; position: absolute; left: 0;
-      color: var(--primary); font-weight: bold;
-    }
-    .card ul ul { margin-top: 0.5rem; margin-left: 1rem; }
-    .card ul ul li { font-size: 0.95rem; margin-bottom: 0.4rem; }
-    .chips {
-      display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;
-    }
-    .chip {
-      background: var(--chip-bg); color: var(--chip-text);
-      padding: 0.35rem 0.75rem; border-radius: 0.5rem;
-      font-size: 0.8rem; font-weight: 600; transition: all 0.2s ease;
-      border: 1px solid transparent;
-    }
-    .chip:hover {
-      background: var(--primary); color: #fff; transform: translateY(-1px);
-    }
-    .project-cover {
-      width: 100%; border-radius: 0.75rem;
-      border: 1px solid var(--card-border); margin: 1rem 0;
-      transition: transform 0.3s ease;
-    }
-    .project-cover:hover { transform: scale(1.02); }
-    .stats-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem; margin-top: 2rem;
-    }
-    .stat-card {
-      background: var(--gradient-2); color: white; padding: 2rem;
-      border-radius: 1rem; text-align: center; box-shadow: var(--shadow);
-      transition: transform 0.3s ease;
-    }
-    .stat-card:hover { transform: translateY(-4px); }
-    .stat-card .number {
-      font-size: 2.5rem; font-weight: 800;
-      font-family: 'Space Grotesk', sans-serif; margin-bottom: 0.5rem;
-    }
-    .stat-card .label { font-size: 0.95rem; opacity: 0.9; }
-    form.contact { display: grid; gap: 1rem; max-width: 42rem; margin-top: 2rem; }
-    form.contact input, form.contact textarea {
-      width: 100%; padding: 0.875rem 1rem; border-radius: 0.75rem;
-      border: 2px solid var(--card-border); background: var(--card);
-      color: var(--text); font-family: inherit; font-size: 0.95rem;
-      transition: all 0.2s ease;
-    }
-    form.contact input:focus, form.contact textarea:focus {
-      outline: none; border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-    }
-    form.contact textarea { resize: vertical; min-height: 150px; }
-    form.contact button {
-      justify-self: start; background: var(--primary); color: white;
-      border: none; padding: 0.875rem 2rem; border-radius: 0.75rem;
-      font-weight: 600; font-size: 0.95rem; cursor: pointer;
-      transition: all 0.3s ease; box-shadow: var(--shadow);
-    }
-    form.contact button:hover {
-      background: var(--primary-dark); transform: translateY(-2px);
+
+    nav.primary.scrolled {
       box-shadow: var(--shadow-lg);
     }
-    footer {
-      background: var(--bg-secondary); color: var(--text-secondary);
-      text-align: center; padding: 2rem 1.5rem;
-      border-top: 1px solid var(--card-border); margin-top: 4rem;
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
     }
-    footer a {
-      color: var(--primary); text-decoration: none; font-weight: 600;
+
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: var(--gradient-2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transition: transform 0.3s;
     }
-    footer a:hover { text-decoration: underline; }
+
+    .nav-logo:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    nav.primary a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.625rem;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    nav.primary a:hover {
+      color: var(--primary);
+      background: var(--bg-secondary);
+    }
+
+    nav.primary a.active {
+      color: var(--primary);
+    }
+
+    nav.primary a.active::after {
+      content: "";
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 24px;
+      height: 3px;
+      background: var(--gradient-2);
+      border-radius: 3px;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .theme-toggle {
+      background: transparent;
+      border: 2px solid var(--card-border);
+      color: var(--text);
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.625rem;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .theme-toggle:hover {
+      background: var(--bg-secondary);
+      border-color: var(--primary);
+      transform: rotate(15deg) scale(1.1);
+    }
+
     .mobile-menu-toggle {
-      display: none; background: transparent;
-      border: 2px solid var(--card-border); color: var(--text);
-      padding: 0.5rem; border-radius: 0.5rem; cursor: pointer;
+      display: none;
+      background: transparent;
+      border: 2px solid var(--card-border);
+      color: var(--text);
+      padding: 0.5rem;
+      border-radius: 0.625rem;
+      cursor: pointer;
       font-size: 1.2rem;
     }
+
+    /* Hero Section */
+    header.hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: var(--gradient-mesh);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    #particles-js {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      padding: 8rem 2rem 6rem;
+      max-width: 1200px;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 2rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .avatar {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
+                  0 0 0 15px rgba(255, 255, 255, 0.1);
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .avatar:hover {
+      transform: scale(1.05);
+    }
+
+    .status-badge {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: var(--success);
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .title-highlight {
+      background: linear-gradient(135deg, #fbbf24 0%, #f97316 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-weight: 400;
+      opacity: 0.95;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
+    }
+
+    .typing-text {
+      display: inline-block;
+      border-right: 3px solid rgba(255, 255, 255, 0.8);
+      animation: blink 0.7s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1.5rem 2rem;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 1rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .stat-item:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-5px);
+    }
+
+    .stat-icon {
+      font-size: 2rem;
+    }
+
+    .stat-value {
+      font-size: 1.8rem;
+      font-weight: 800;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: 0.875rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      border: 2px solid transparent;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+    }
+
+    .btn:hover::before {
+      transform: translateX(100%);
+    }
+
+    .btn.primary {
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--primary);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn.primary:hover {
+      background: #ffffff;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn.secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.8);
+      transform: translateY(-3px);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255, 255, 255, 0.8);
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-10px); }
+    }
+
+    /* Main Content */
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section.section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-label {
+      display: inline-block;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+      padding: 0.5rem 1rem;
+      background: var(--chip-bg);
+      border-radius: 2rem;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--text);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .section-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .skill-category {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-category::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-2);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .skill-category:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--primary-light);
+    }
+
+    .skill-category:hover::before {
+      transform: scaleX(1);
+    }
+
+    .skill-category-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-category-icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gradient-2);
+      color: white;
+      border-radius: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .skill-category h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .skill-item {
+      background: var(--chip-bg);
+      color: var(--chip-text);
+      padding: 0.6rem 1rem;
+      border-radius: 0.75rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .skill-item:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px) scale(1.05);
+      border-color: var(--primary-dark);
+    }
+
+    /* Experience Timeline */
+    .timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: 3rem auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--gradient-2);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      width: calc(50% - 2rem);
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      padding-right: 3rem;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: calc(50% + 2rem);
+      padding-left: 3rem;
+      text-align: left;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      background: var(--primary);
+      border: 4px solid var(--bg);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px var(--primary-light);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot {
+      right: -10px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-dot {
+      left: -10px;
+    }
+
+    .timeline-content {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .timeline-content:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--primary);
+    }
+
+    .timeline-date {
+      display: inline-block;
+      background: var(--chip-bg);
+      color: var(--chip-text);
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .timeline-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-company {
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .timeline-description {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .timeline-achievements {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .timeline-achievements li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .timeline-achievements li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .timeline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .timeline-tag {
+      background: var(--chip-bg);
+      color: var(--chip-text);
+      padding: 0.3rem 0.7rem;
+      border-radius: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-2);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-2xl);
+      border-color: var(--primary);
+    }
+
+    .project-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover .project-image {
+      transform: scale(1.05);
+    }
+
+    .project-content {
+      padding: 2rem;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 1rem;
+    }
+
+    .project-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-link {
+      color: var(--primary);
+      font-size: 1.2rem;
+      transition: all 0.2s ease;
+    }
+
+    .project-link:hover {
+      color: var(--primary-dark);
+      transform: translateX(5px);
+    }
+
+    .project-description {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-tag {
+      background: var(--chip-bg);
+      color: var(--chip-text);
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .tech-tag:hover {
+      background: var(--primary);
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* Contact Section */
+    .contact-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .contact-method {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .contact-method:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--primary);
+    }
+
+    .contact-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gradient-2);
+      color: white;
+      border-radius: 1rem;
+      font-size: 1.8rem;
+    }
+
+    .contact-label {
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-value {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    form.contact {
+      display: grid;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .form-group {
+      position: relative;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    form.contact input,
+    form.contact textarea {
+      width: 100%;
+      padding: 1rem 1.25rem;
+      border-radius: 0.875rem;
+      border: 2px solid var(--card-border);
+      background: var(--card);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+    }
+
+    form.contact input:focus,
+    form.contact textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px var(--chip-bg);
+    }
+
+    form.contact textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    form.contact button {
+      justify-self: start;
+      background: var(--gradient-2);
+      color: white;
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 0.875rem;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    form.contact button::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+    }
+
+    form.contact button:hover::before {
+      transform: translateX(100%);
+    }
+
+    form.contact button:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      text-align: center;
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--card-border);
+      margin-top: 6rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .social-link {
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--card);
+      color: var(--text);
+      border-radius: 50%;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      border: 2px solid var(--card-border);
+    }
+
+    .social-link:hover {
+      background: var(--gradient-2);
+      color: white;
+      transform: translateY(-5px);
+      border-color: transparent;
+    }
+
+    .footer-text {
+      font-size: 0.95rem;
+    }
+
+    .footer-text a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .footer-text a:hover {
+      color: var(--primary-dark);
+      text-decoration: underline;
+    }
+
+    /* Scroll to Top */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      background: var(--gradient-2);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 99;
+    }
+
+    .scroll-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-to-top:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .timeline::before {
+        left: 30px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 5rem !important;
+        padding-right: 0 !important;
+        text-align: left !important;
+      }
+
+      .timeline-item .timeline-dot {
+        left: 21px !important;
+        right: auto !important;
+      }
+    }
+
     @media (max-width: 768px) {
-      .mobile-menu-toggle { display: block; }
+      .nav-container {
+        padding: 0 1.5rem;
+      }
+
+      .mobile-menu-toggle {
+        display: block;
+      }
+
       .nav-links {
-        position: absolute; top: 100%; left: 0; right: 0;
-        background: var(--nav-bg); backdrop-filter: blur(12px);
-        flex-direction: column; gap: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--nav-bg);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        gap: 0;
         border-bottom: 1px solid var(--card-border);
-        max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
       }
-      .nav-links.open { max-height: 500px; }
+
+      .nav-links.open {
+        max-height: 500px;
+      }
+
       nav.primary a {
-        width: 100%; text-align: left; padding: 1rem 1.5rem; border-radius: 0;
+        width: 100%;
+        text-align: left;
+        padding: 1rem 1.5rem;
+        border-radius: 0;
       }
-      nav.primary a.active::after {
-        left: 1.5rem; transform: none; bottom: 0.5rem; width: 40px;
+
+      .hero-inner {
+        padding: 6rem 1.5rem 4rem;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .stat-item {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section.section {
+        padding: 4rem 0;
+      }
+
+      main {
+        padding: 0 1.5rem;
       }
     }
-    @media (max-width: 640px) {
-      .hero-stats { flex-direction: column; gap: 0.75rem; }
-      .stats-grid { grid-template-columns: 1fr; }
+
+    @media (max-width: 480px) {
+      .avatar {
+        width: 140px;
+        height: 140px;
+      }
+
+      .btn-row {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
     }
-    ::-webkit-scrollbar { width: 10px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 5px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--primary-dark); }
+
+    /* Print Styles */
     @media print {
-      nav.primary, .theme-toggle, .mobile-menu-toggle { display: none; }
+      nav.primary,
+      .theme-toggle,
+      .mobile-menu-toggle,
+      .scroll-to-top,
+      .scroll-indicator,
+      #particles-js {
+        display: none;
+      }
     }
   </style>
+
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Person","name":"Nitesh Ranjan Singh","jobTitle":"Data Engineer","affiliation":{"@type":"CollegeOrUniversity","name":"University of Glasgow"},"alumniOf":{"@type":"CollegeOrUniversity","name":"UPES"},"url":"https://nitesh0007-edith.github.io/academic/","sameAs":["https://www.linkedin.com/in/nitesh0007/","https://github.com/nitesh0007-edith","https://leetcode.com/u/nitesh2039/"]}
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nitesh Ranjan Singh",
+    "jobTitle": "Data Engineer",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Glasgow"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "UPES"
+    },
+    "url": "https://nitesh0007-edith.github.io/academic/",
+    "sameAs": [
+      "https://www.linkedin.com/in/nitesh0007/",
+      "https://github.com/nitesh0007-edith",
+      "https://leetcode.com/u/nitesh2039/"
+    ]
+  }
   </script>
 </head>
+
 <body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Skip Link -->
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="hero" role="banner">
-    <div class="hero-inner">
-      <img class="avatar" src="assets/images/profile/avatar.jpg" alt="Portrait of Nitesh Ranjan Singh" loading="eager" />
-      <h1 class="title">Nitesh Ranjan Singh</h1>
-      <p class="subtitle">Data Engineer crafting scalable solutions • MSc Data Science @ University of Glasgow</p>
-      <div class="hero-stats">
-        <div class="stat-item"><span class="stat-icon">💼</span><span><span id="yoe">3</span>+ Years Experience</span></div>
-        <div class="stat-item"><span class="stat-icon">🎓</span><span>Excellence Scholar</span></div>
-        <div class="stat-item"><span class="stat-icon">☁️</span><span>Azure Certified</span></div>
-      </div>
-      <div class="btn-row">
-        <a class="btn primary" href="assets/documents/resumes/Nitesh_Ranjan_Singh_UofG_Resume.pdf"><span>⬇️</span> Download Resume</a>
-        <a class="btn secondary" href="https://github.com/nitesh0007-edith" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn secondary" href="https://www.linkedin.com/in/nitesh0007/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn secondary" href="#contact">Contact</a>
-      </div>
-    </div>
-  </header>
+
+  <!-- Navigation -->
   <nav class="primary" role="navigation" id="nav">
     <div class="nav-container">
-      <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Toggle menu">☰</button>
+      <div class="nav-logo">NRS</div>
+      <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
       <div class="nav-links" id="navLinks">
-        <a href="#welcome" data-section="welcome">Welcome</a>
+        <a href="#home" data-section="home">Home</a>
         <a href="#about" data-section="about">About</a>
+        <a href="#skills" data-section="skills">Skills</a>
         <a href="#experience" data-section="experience">Experience</a>
-        <a href="#education" data-section="education">Education</a>
         <a href="#projects" data-section="projects">Projects</a>
         <a href="#contact" data-section="contact">Contact</a>
       </div>
-      <button class="theme-toggle" id="themeBtn" aria-label="Toggle theme">🌓</button>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeBtn" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
     </div>
   </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="home" role="banner">
+    <div id="particles-js"></div>
+    <div class="hero-inner">
+      <div class="avatar-wrapper" data-aos="zoom-in" data-aos-duration="800">
+        <img class="avatar" src="assets/images/profile/avatar.jpg" alt="Portrait of Nitesh Ranjan Singh" loading="eager" />
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          Available
+        </div>
+      </div>
+
+      <h1 class="title" data-aos="fade-up" data-aos-delay="100">
+        Hi, I'm <span class="title-highlight">Nitesh Ranjan Singh</span>
+      </h1>
+
+      <p class="subtitle" data-aos="fade-up" data-aos-delay="200">
+        <span class="typing-text" id="typingText">Data Engineer</span>
+      </p>
+
+      <div class="hero-stats" data-aos="fade-up" data-aos-delay="300">
+        <div class="stat-item">
+          <span class="stat-icon"><i class="fas fa-briefcase"></i></span>
+          <div class="stat-value" data-count="3">0</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-icon"><i class="fas fa-trophy"></i></span>
+          <div class="stat-value">£10K</div>
+          <div class="stat-label">Scholarship</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-icon"><i class="fas fa-certificate"></i></span>
+          <div class="stat-value">Azure</div>
+          <div class="stat-label">Certified</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-icon"><i class="fas fa-code"></i></span>
+          <div class="stat-value" data-count="10">0</div>
+          <div class="stat-label">Projects</div>
+        </div>
+      </div>
+
+      <div class="btn-row" data-aos="fade-up" data-aos-delay="400">
+        <a class="btn primary" href="assets/documents/resumes/Nitesh_Ranjan_Singh_UofG_Resume.pdf">
+          <i class="fas fa-download"></i> Download Resume
+        </a>
+        <a class="btn secondary" href="https://github.com/nitesh0007-edith" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+        <a class="btn secondary" href="https://www.linkedin.com/in/nitesh0007/" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a class="btn secondary" href="#contact">
+          <i class="fas fa-envelope"></i> Contact Me
+        </a>
+      </div>
+
+      <div class="scroll-indicator">
+        <span style="font-size: 0.9rem;">Scroll Down</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
   <main id="main" tabindex="-1">
-    <section class="section active" id="welcome">
-      <div class="section-header"><h2 class="section-title">Welcome</h2></div>
-      <p class="lead">Hi! I'm <strong>Nitesh</strong> — a Data Engineer with <span id="yoe2">3</span>+ years of experience building scalable data platforms using Azure (ADF, ADLS, Databricks, Synapse) with Python, SQL, and PySpark. I've delivered high-impact data pipelines in healthcare and pharma analytics at <strong>IQVIA</strong> and <strong>Axtria</strong>.</p>
-      <p class="lead">Currently pursuing an <strong>MSc in Data Science</strong> at the <strong>University of Glasgow</strong> (Excellence Scholarship recipient), where I'm deepening my expertise in machine learning, big data systems, and AI-driven automation.</p>
-      <div class="stats-grid">
-        <div class="stat-card"><div class="number">1B+</div><div class="label">Records Migrated</div></div>
-        <div class="stat-card"><div class="number">35%</div><div class="label">Runtime Reduction</div></div>
-        <div class="stat-card"><div class="number">95%</div><div class="label">Validation Automation</div></div>
-      </div>
-    </section>
+
+    <!-- About Section -->
     <section class="section" id="about">
-      <div class="section-header">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">Who I Am</span>
         <h2 class="section-title">About Me</h2>
-        <p class="lead">I'm passionate about transforming complex data challenges into elegant, scalable solutions. My career is driven by curiosity and a commitment to building systems that empower data-driven decision-making.</p>
+        <p class="section-subtitle">
+          Passionate about transforming complex data challenges into elegant, scalable solutions
+        </p>
       </div>
-      <p style="color:var(--text-secondary);margin-bottom:1.5rem">With over three years of hands-on experience, I've architected and optimized large-scale data ecosystems for leading organizations in healthcare analytics. I specialize in cloud-native solutions, particularly within the Azure ecosystem, where I design efficient ETL pipelines, implement robust data quality frameworks, and enable ML-driven insights.</p>
-      <p style="color:var(--text-secondary);margin-bottom:2rem">Beyond engineering, I'm deeply interested in the intersection of <strong>DataOps</strong>, <strong>MLOps</strong>, and <strong>LLM-powered automation</strong> — exploring how emerging technologies can revolutionize data workflows and accelerate time-to-insight.</p>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Core Stack</h3>
-          <div class="chips">
-            <span class="chip">Azure</span><span class="chip">ADF</span><span class="chip">ADLS</span><span class="chip">Databricks</span><span class="chip">Synapse</span><span class="chip">Python</span><span class="chip">PySpark</span><span class="chip">SQL</span><span class="chip">Snowflake</span><span class="chip">Kafka</span><span class="chip">Airflow</span><span class="chip">Power BI</span>
+
+      <div style="max-width: 900px; margin: 0 auto; color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">
+        <p data-aos="fade-up" style="margin-bottom: 1.5rem;">
+          With over <strong style="color: var(--text);">three years of hands-on experience</strong>, I've architected and optimized large-scale data ecosystems for leading organizations in healthcare analytics at <strong style="color: var(--primary);">IQVIA</strong> and <strong style="color: var(--primary);">Axtria</strong>.
+        </p>
+        <p data-aos="fade-up" data-aos-delay="100" style="margin-bottom: 1.5rem;">
+          I specialize in <strong style="color: var(--text);">cloud-native solutions</strong>, particularly within the Azure ecosystem, where I design efficient ETL pipelines, implement robust data quality frameworks, and enable ML-driven insights.
+        </p>
+        <p data-aos="fade-up" data-aos-delay="200" style="margin-bottom: 1.5rem;">
+          Currently pursuing an <strong style="color: var(--text);">MSc in Data Science</strong> at the <strong style="color: var(--text);">University of Glasgow</strong> (Excellence Scholarship recipient), where I'm deepening my expertise in machine learning, big data systems, and AI-driven automation.
+        </p>
+        <p data-aos="fade-up" data-aos-delay="300">
+          Beyond engineering, I'm deeply interested in the intersection of <strong style="color: var(--primary);">DataOps</strong>, <strong style="color: var(--primary);">MLOps</strong>, and <strong style="color: var(--primary);">LLM-powered automation</strong> — exploring how emerging technologies can revolutionize data workflows.
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills" style="background: var(--bg-secondary); margin-left: -2rem; margin-right: -2rem; padding-left: 2rem; padding-right: 2rem;">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">What I Do</span>
+        <h2 class="section-title">Skills & Technologies</h2>
+        <p class="section-subtitle">
+          Building modern data platforms with cutting-edge technologies
+        </p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-category" data-aos="fade-up" data-aos-delay="0">
+          <div class="skill-category-header">
+            <div class="skill-category-icon"><i class="fas fa-cloud"></i></div>
+            <h3>Cloud & Infrastructure</h3>
+          </div>
+          <div class="skill-items">
+            <span class="skill-item">Azure</span>
+            <span class="skill-item">AWS</span>
+            <span class="skill-item">ADF</span>
+            <span class="skill-item">ADLS</span>
+            <span class="skill-item">Databricks</span>
+            <span class="skill-item">Synapse</span>
+            <span class="skill-item">Snowflake</span>
+            <span class="skill-item">Docker</span>
           </div>
         </div>
-        <div class="card">
-          <h3>Certifications</h3>
-          <ul>
-            <li>Microsoft Certified: <strong>Azure Data Engineer Associate (DP‑203)</strong></li>
-            <li>Databricks Certified Data Engineer Associate</li>
-            <li>IBM Data Science Professional Certificate</li>
-          </ul>
+
+        <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+          <div class="skill-category-header">
+            <div class="skill-category-icon"><i class="fas fa-code"></i></div>
+            <h3>Programming</h3>
+          </div>
+          <div class="skill-items">
+            <span class="skill-item">Python</span>
+            <span class="skill-item">PySpark</span>
+            <span class="skill-item">SQL</span>
+            <span class="skill-item">Scala</span>
+            <span class="skill-item">JavaScript</span>
+            <span class="skill-item">Shell</span>
+          </div>
+        </div>
+
+        <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+          <div class="skill-category-header">
+            <div class="skill-category-icon"><i class="fas fa-database"></i></div>
+            <h3>Data Engineering</h3>
+          </div>
+          <div class="skill-items">
+            <span class="skill-item">ETL/ELT</span>
+            <span class="skill-item">Data Modeling</span>
+            <span class="skill-item">Data Warehousing</span>
+            <span class="skill-item">Data Lakes</span>
+            <span class="skill-item">Stream Processing</span>
+            <span class="skill-item">Kafka</span>
+          </div>
+        </div>
+
+        <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+          <div class="skill-category-header">
+            <div class="skill-category-icon"><i class="fas fa-brain"></i></div>
+            <h3>ML & AI</h3>
+          </div>
+          <div class="skill-items">
+            <span class="skill-item">Machine Learning</span>
+            <span class="skill-item">Deep Learning</span>
+            <span class="skill-item">MLOps</span>
+            <span class="skill-item">LLMs</span>
+            <span class="skill-item">Computer Vision</span>
+            <span class="skill-item">NLP</span>
+          </div>
+        </div>
+
+        <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
+          <div class="skill-category-header">
+            <div class="skill-category-icon"><i class="fas fa-cogs"></i></div>
+            <h3>Tools & Workflow</h3>
+          </div>
+          <div class="skill-items">
+            <span class="skill-item">Git</span>
+            <span class="skill-item">CI/CD</span>
+            <span class="skill-item">Airflow</span>
+            <span class="skill-item">Power BI</span>
+            <span class="skill-item">Tableau</span>
+            <span class="skill-item">Jupyter</span>
+          </div>
+        </div>
+
+        <div class="skill-category" data-aos="fade-up" data-aos-delay="500">
+          <div class="skill-category-header">
+            <div class="skill-category-icon"><i class="fas fa-certificate"></i></div>
+            <h3>Certifications</h3>
+          </div>
+          <div class="skill-items">
+            <span class="skill-item">Azure DP-203</span>
+            <span class="skill-item">Databricks DE</span>
+            <span class="skill-item">IBM Data Science</span>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- Experience Section -->
     <section class="section" id="experience">
-      <div class="section-header"><h2 class="section-title">Work Experience</h2></div>
-      <div class="grid">
-        <article class="card">
-          <h3>Data Engineer — IQVIA (Dec 2022 – Aug 2025)</h3>
-          <p>Designed and scaled healthcare ETL on Azure/Databricks; productionized ML scoring; automated DQ & metadata workflows.</p>
-          <ul>
-            <li>Migrated <strong>1B+ records</strong> to Databricks; reduced runtime by <strong>35%</strong>.</li>
-            <li>Event‑driven refreshes (ADF + Azure SQL + Power BI) eliminated manual extracts.</li>
-            <li>Anomaly‑detection dashboard cut manual validation by <strong>95%</strong>.</li>
-            <li>Tri‑daily refresh pipelines improved freshness & conformity by <strong>95%</strong>.</li>
-          </ul>
-          <div class="chips"><span class="chip">Azure</span><span class="chip">ADF</span><span class="chip">Databricks</span><span class="chip">ADLS</span><span class="chip">Synapse</span><span class="chip">Python</span><span class="chip">PySpark</span><span class="chip">SQL</span><span class="chip">Power BI</span></div>
-        </article>
-        <article class="card">
-          <h3>Analyst — Axtria (Jan 2022 – Dec 2022)</h3>
-          <p>Built ETL and dashboards for pharma analytics; automated API extractions; tuned queries and indexes for performance.</p>
-          <ul>
-            <li>Owned Matillion/AWS pipelines and Power BI reporting.</li>
-            <li>Worked with datasets incl. Veeva, Specialty Pharmacy, IQVIA LAAD.</li>
-          </ul>
-          <div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Power BI</span><span class="chip">AWS</span><span class="chip">Databricks</span></div>
-        </article>
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">Career Journey</span>
+        <h2 class="section-title">Work Experience</h2>
+        <p class="section-subtitle">
+          Building scalable data solutions at leading organizations
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date"><i class="fas fa-calendar"></i> Dec 2022 – Aug 2025</span>
+            <h3 class="timeline-title">Data Engineer</h3>
+            <div class="timeline-company"><i class="fas fa-building"></i> IQVIA</div>
+            <p class="timeline-description">
+              Designed and scaled healthcare ETL pipelines on Azure/Databricks; productionized ML scoring systems; automated data quality and metadata workflows.
+            </p>
+            <ul class="timeline-achievements">
+              <li>Migrated <strong>1B+ records</strong> to Databricks, reducing runtime by <strong>35%</strong></li>
+              <li>Built event-driven refresh pipelines (ADF + Azure SQL + Power BI) that eliminated manual data extracts</li>
+              <li>Created anomaly-detection dashboard that cut manual validation by <strong>95%</strong></li>
+              <li>Implemented tri-daily refresh pipelines improving data freshness and conformity by <strong>95%</strong></li>
+              <li>Productionized ML model scoring pipeline handling millions of predictions daily</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="timeline-tag">Azure</span>
+              <span class="timeline-tag">ADF</span>
+              <span class="timeline-tag">Databricks</span>
+              <span class="timeline-tag">PySpark</span>
+              <span class="timeline-tag">Python</span>
+              <span class="timeline-tag">SQL</span>
+              <span class="timeline-tag">Power BI</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date"><i class="fas fa-calendar"></i> Jan 2022 – Dec 2022</span>
+            <h3 class="timeline-title">Analyst</h3>
+            <div class="timeline-company"><i class="fas fa-building"></i> Axtria</div>
+            <p class="timeline-description">
+              Built ETL pipelines and dashboards for pharma analytics; automated API extractions; optimized query performance through indexing and tuning.
+            </p>
+            <ul class="timeline-achievements">
+              <li>Owned end-to-end Matillion/AWS data pipelines for pharmaceutical analytics</li>
+              <li>Developed Power BI dashboards serving key business stakeholders</li>
+              <li>Worked with complex datasets including Veeva, Specialty Pharmacy, and IQVIA LAAD</li>
+              <li>Automated API data extraction workflows reducing manual effort by 80%</li>
+              <li>Optimized SQL queries achieving 50% performance improvement</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="timeline-tag">Python</span>
+              <span class="timeline-tag">SQL</span>
+              <span class="timeline-tag">AWS</span>
+              <span class="timeline-tag">Databricks</span>
+              <span class="timeline-tag">Power BI</span>
+              <span class="timeline-tag">Matillion</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date"><i class="fas fa-calendar"></i> Sep 2025 – Present</span>
+            <h3 class="timeline-title">MSc Data Science</h3>
+            <div class="timeline-company"><i class="fas fa-university"></i> University of Glasgow</div>
+            <p class="timeline-description">
+              Excellence Scholarship recipient (£10,000) pursuing advanced studies in machine learning, big data systems, and AI-driven automation.
+            </p>
+            <ul class="timeline-achievements">
+              <li>Core modules: ML & AI, Big Data Systems, Deep Learning, Information Retrieval</li>
+              <li>Electives: Web Science, Text as Data, Cybersecurity, Cryptography</li>
+              <li>Research focus: LLM-powered data automation and explainable AI</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="timeline-tag">Machine Learning</span>
+              <span class="timeline-tag">Deep Learning</span>
+              <span class="timeline-tag">Big Data</span>
+              <span class="timeline-tag">Research</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-    <section class="section" id="education">
-      <div class="section-header"><h2 class="section-title">Education</h2></div>
-      <div class="grid">
-        <article class="card">
-          <h3>MSc Data Science — University of Glasgow (Expected 2026)</h3>
-          <ul>
-            <li><strong>Core modules:</strong> Programming & Systems Development; Research & Professional Skills; Introduction to Data Science & Systems; Machine Learning & Artificial Intelligence for Data Scientists; MSc Project.</li>
-            <li><strong>Selected electives:</strong> Deep Learning; Big Data Systems; Web Science; Text as Data; Information Retrieval; Security options such as Cryptography, Cybersecurity Fundamentals, Human‑Centred Security.</li>
-            <li><strong>Focus:</strong> Large‑scale data analysis, practical labs, and team projects preparing for roles across software, finance, government, manufacturing and health services.</li>
-            <li><strong>Scholarship:</strong> £10,000 Excellence Award</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>B.Tech Computer Science & Engineering — UPES (2018–2022)</h3>
-          <ul>
-            <li><strong>Specialization:</strong> Banking, Financial Services & Insurance (BFIN)</li>
-            <li><strong>Representative coursework:</strong>
-              <ul>
-                <li>Mathematics I & II, Discrete Mathematics, Linear Algebra, Probability & Statistics</li>
-                <li>Programming in C & Python, Data Structures & Algorithms, DBMS, Computer Architecture, Operating Systems, Software Engineering & Project Management</li>
-                <li>Big Data Analysis; Web Technologies; Formal Languages & Automata Theory</li>
-                <li>Information Security Fundamentals; IT Systems & Network Security; Cryptography concepts</li>
-                <li>Cloud Computing Fundamentals; Cloud Architecture & Deployment Models; Container Orchestration & Infrastructure Automation; Cloud Security & Management</li>
-                <li>Agile Practices; OSS for Industries; System Monitoring</li>
-              </ul>
-            </li>
-            <li><strong>Capstone:</strong> Facial‑recognition attendance system (OpenCV, face_recognition, PyQt5) + industry internship.</li>
-          </ul>
-        </article>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects" style="background: var(--bg-secondary); margin-left: -2rem; margin-right: -2rem; padding-left: 2rem; padding-right: 2rem;">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">My Work</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">
+          Innovative solutions combining data engineering, ML, and automation
+        </p>
       </div>
-    </section>
-    <section class="section" id="projects">
-      <div class="section-header"><h2 class="section-title">Latest Projects</h2></div>
-      <div class="grid cols-2">
-        <article class="card">
-          <header>
-            <h3 style="margin:0 0 .4rem"><a href="https://github.com/nitesh0007-edith/AutoPipelineAI" target="_blank" rel="noopener">AutoPipelineAI</a></h3>
-            <p class="lead" style="margin:.25rem 0 0">LLM‑driven autonomous ETL & DataOps with Streamlit + Ollama (Llama 3)</p>
-          </header>
-          <img class="project-cover" src="assets/images/projects/autopipelineai.png" alt="AutoPipelineAI architecture" loading="lazy">
-          <ul>
-            <li>Natural‑language to <strong>executable PySpark</strong> transformations.</li>
-            <li>Containerized tasks orchestrated by <strong>Azure Data Factory</strong>.</li>
-            <li>End‑to‑end demo via Streamlit UI + visual insights.</li>
-          </ul>
-          <div class="chips"><span class="chip">Python</span><span class="chip">Streamlit</span><span class="chip">Ollama</span><span class="chip">Llama3</span><span class="chip">Azure</span><span class="chip">DataOps</span></div>
-          <div class="btn-row">
-            <a class="btn primary" href="https://github.com/nitesh0007-edith/AutoPipelineAI" target="_blank" rel="noopener">View Code</a>
+
+      <div class="projects-grid">
+        <article class="project-card" data-aos="fade-up" data-aos-delay="0">
+          <img class="project-image" src="assets/images/projects/autopipelineai.png" alt="AutoPipelineAI architecture" loading="lazy">
+          <div class="project-content">
+            <div class="project-header">
+              <div>
+                <h3 class="project-title">AutoPipelineAI</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.25rem;">LLM-Driven Data Automation</p>
+              </div>
+              <a href="https://github.com/nitesh0007-edith/AutoPipelineAI" target="_blank" rel="noopener" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+            <p class="project-description">
+              Revolutionary LLM-driven autonomous ETL & DataOps platform using Streamlit and Ollama (Llama 3). Converts natural language to executable PySpark transformations with Azure Data Factory orchestration.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Streamlit</span>
+              <span class="tech-tag">Ollama</span>
+              <span class="tech-tag">Llama3</span>
+              <span class="tech-tag">Azure</span>
+              <span class="tech-tag">PySpark</span>
+              <span class="tech-tag">DataOps</span>
+            </div>
+            <a href="https://github.com/nitesh0007-edith/AutoPipelineAI" target="_blank" rel="noopener" class="btn primary" style="width: 100%;">
+              <i class="fab fa-github"></i> View Project
+            </a>
           </div>
         </article>
-        <article class="card">
-          <header>
-            <h3 style="margin:0 0 .4rem"><a href="https://github.com/nitesh0007-edith/DigiAttendance" target="_blank" rel="noopener">DigiAttendance</a></h3>
-            <p class="lead" style="margin:.25rem 0 0">Edge‑friendly facial recognition attendance system</p>
-          </header>
-          <img class="project-cover" src="assets/images/projects/digiattendance.png" alt="DigiAttendance workflow interface" loading="lazy">
-          <ul>
-            <li>AI‑powered real‑time face detection and recognition for attendance tracking.</li>
-            <li>Built with <strong>OpenCV</strong> and <strong>face_recognition</strong> for precise identification.</li>
-            <li>Desktop UI built using <strong>PyQt5</strong> for intuitive operation.</li>
-            <li>Automated CSV logging and timestamped attendance reports.</li>
-          </ul>
-          <div class="chips"><span class="chip">Python</span><span class="chip">OpenCV</span><span class="chip">face_recognition</span><span class="chip">PyQt5</span></div>
+
+        <article class="project-card" data-aos="fade-up" data-aos-delay="100">
+          <img class="project-image" src="assets/images/projects/digiattendance.png" alt="DigiAttendance interface" loading="lazy">
+          <div class="project-content">
+            <div class="project-header">
+              <div>
+                <h3 class="project-title">DigiAttendance</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.25rem;">AI-Powered Attendance System</p>
+              </div>
+              <a href="https://github.com/nitesh0007-edith/DigiAttendance" target="_blank" rel="noopener" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+            <p class="project-description">
+              Edge-friendly facial recognition attendance system with real-time detection using OpenCV and face_recognition. Features PyQt5 desktop UI with automated CSV logging and timestamped reports.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">OpenCV</span>
+              <span class="tech-tag">face_recognition</span>
+              <span class="tech-tag">PyQt5</span>
+              <span class="tech-tag">Computer Vision</span>
+              <span class="tech-tag">AI/ML</span>
+            </div>
+            <a href="https://github.com/nitesh0007-edith/DigiAttendance" target="_blank" rel="noopener" class="btn primary" style="width: 100%;">
+              <i class="fab fa-github"></i> View Project
+            </a>
+          </div>
         </article>
-        <article class="card">
-          <header>
-            <h3 style="margin:0 0 .4rem"><a href="https://github.com/nitesh0007-edith" target="_blank" rel="noopener">Mathematical Model for Linear Data</a></h3>
-            <p class="lead" style="margin:.25rem 0 0">Linear regression from scratch (NumPy) on US Crime Data</p>
-          </header>
-          <ul>
-            <li>Manual gradient descent, cost, and derivatives implementation.</li>
-            <li>Feature engineering + EDA; reproducible notebook.</li>
-            <li>Achieved MSE <strong>0.0452</strong>, R² <strong>0.9835</strong>.</li>
-          </ul>
-          <div class="chips"><span class="chip">Python</span><span class="chip">NumPy</span><span class="chip">Linear Regression</span></div>
-          <div class="btn-row">
-            <a class="btn primary" href="https://github.com/nitesh0007-edith" target="_blank" rel="noopener">View Code</a>
+
+        <article class="project-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-content" style="padding-top: 2rem;">
+            <div class="project-header">
+              <div>
+                <h3 class="project-title">Mathematical Model for Linear Data</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.25rem;">ML from Scratch</p>
+              </div>
+              <a href="https://github.com/nitesh0007-edith" target="_blank" rel="noopener" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+            <p class="project-description">
+              Linear regression implementation from scratch using NumPy on US Crime Data. Features manual gradient descent, cost computation, and derivatives. Achieved MSE 0.0452 and R² 0.9835 with comprehensive feature engineering and EDA.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">NumPy</span>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">Linear Regression</span>
+              <span class="tech-tag">Mathematics</span>
+              <span class="tech-tag">ML</span>
+            </div>
+            <a href="assets/documents/paper___mathematical_model_for_linear_data.pdf" target="_blank" class="btn primary" style="width: 100%; margin-bottom: 0.5rem;">
+              <i class="fas fa-file-pdf"></i> View Paper
+            </a>
+            <a href="https://github.com/nitesh0007-edith" target="_blank" rel="noopener" class="btn secondary" style="width: 100%;">
+              <i class="fab fa-github"></i> View Code
+            </a>
           </div>
         </article>
       </div>
+
+      <div style="text-align: center; margin-top: 3rem;" data-aos="fade-up">
+        <a href="https://github.com/nitesh0007-edith" target="_blank" rel="noopener" class="btn primary" style="font-size: 1.1rem; padding: 1.2rem 2.5rem;">
+          <i class="fab fa-github"></i> View All Projects on GitHub
+        </a>
+      </div>
     </section>
+
+    <!-- Contact Section -->
     <section class="section" id="contact">
-      <div class="section-header"><h2 class="section-title">Contact Me</h2></div>
-      <form class="contact" action="https://formspree.io/f/mqalezed" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name" />
-        <input type="email" name="email" placeholder="Your Email" required aria-label="Your Email" />
-        <textarea name="message" rows="5" placeholder="Your Message" required aria-label="Your Message"></textarea>
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-        <button class="btn primary" type="submit">Send Message</button>
-      </form>
-      <p class="lead" style="margin-top:1rem">Or email me: <a href="mailto:3090808S@student.gla.ac.uk">3090808S@student.gla.ac.uk</a></p>
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">Get in Touch</span>
+        <h2 class="section-title">Contact Me</h2>
+        <p class="section-subtitle">
+          Let's discuss your next data engineering project or collaboration opportunity
+        </p>
+      </div>
+
+      <div class="contact-container">
+        <div class="contact-grid">
+          <a href="mailto:3090808S@student.gla.ac.uk" class="contact-method" data-aos="fade-up" data-aos-delay="0">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value">3090808S@student.gla.ac.uk</div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/nitesh0007/" target="_blank" rel="noopener" class="contact-method" data-aos="fade-up" data-aos-delay="100">
+            <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+            <div class="contact-label">LinkedIn</div>
+            <div class="contact-value">linkedin.com/in/nitesh0007</div>
+          </a>
+
+          <a href="https://github.com/nitesh0007-edith" target="_blank" rel="noopener" class="contact-method" data-aos="fade-up" data-aos-delay="200">
+            <div class="contact-icon"><i class="fab fa-github"></i></div>
+            <div class="contact-label">GitHub</div>
+            <div class="contact-value">github.com/nitesh0007-edith</div>
+          </a>
+        </div>
+
+        <form class="contact" action="https://formspree.io/f/mqalezed" method="POST" data-aos="fade-up" data-aos-delay="300">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="John Doe" required aria-label="Your Name" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required aria-label="Your Email" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Tell me about your project or opportunity..." required aria-label="Your Message"></textarea>
+          </div>
+
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <button class="btn primary" type="submit">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
     </section>
+
   </main>
+
+  <!-- Footer -->
   <footer>
-    <span>© <span id="year"></span> Nitesh Ranjan Singh — Glasgow, UK</span>
+    <div class="footer-content">
+      <div class="footer-social">
+        <a href="https://github.com/nitesh0007-edith" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/nitesh0007/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://leetcode.com/u/nitesh2039/" target="_blank" rel="noopener" class="social-link" aria-label="LeetCode">
+          <i class="fas fa-code"></i>
+        </a>
+        <a href="mailto:3090808S@student.gla.ac.uk" class="social-link" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+      <p class="footer-text">
+        © <span id="year"></span> Nitesh Ranjan Singh — Glasgow, UK<br>
+        Built with passion and powered by ☕
+      </p>
+    </div>
   </footer>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
   <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out',
+      once: true,
+      offset: 50
+    });
+
+    // Loading Screen
+    window.addEventListener('load', () => {
+      const loadingScreen = document.getElementById('loading-screen');
+      setTimeout(() => {
+        loadingScreen.classList.add('hidden');
+      }, 800);
+    });
+
+    // Particles.js Configuration
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: '#ffffff' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: '#ffffff',
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: 'none',
+          random: false,
+          straight: false,
+          out_mode: 'out',
+          bounce: false
+        }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: { enable: true, mode: 'repulse' },
+          onclick: { enable: true, mode: 'push' },
+          resize: true
+        },
+        modes: {
+          repulse: { distance: 100, duration: 0.4 },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+
+    // Theme Toggle
     const themeBtn = document.getElementById('themeBtn');
-    const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    const themeBtnIcon = themeBtn.querySelector('i');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const storedTheme = localStorage.getItem('theme');
-    document.documentElement.setAttribute('data-theme', storedTheme || preferred);
+    const currentTheme = storedTheme || (prefersDark ? 'dark' : 'light');
+
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    themeBtnIcon.className = currentTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+
     themeBtn.addEventListener('click', () => {
-      const cur = document.documentElement.getAttribute('data-theme');
-      const next = cur === 'dark' ? 'light' : 'dark';
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
+      themeBtnIcon.className = next === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
     });
-    const sections = Array.from(document.querySelectorAll('section.section'));
-    const navLinks = Array.from(document.querySelectorAll('nav.primary a[data-section]'));
-    function setActive(id){
-      sections.forEach(s=>s.classList.toggle('active', s.id===id));
-      navLinks.forEach(a=>a.classList.toggle('active', a.dataset.section===id));
-    }
-    function route(){
-      const id = (location.hash || '#welcome').replace('#','');
-      setActive(id);
-    }
-    window.addEventListener('hashchange', route);
-    document.addEventListener('DOMContentLoaded', () => {
-      route();
-      document.getElementById('year').textContent = new Date().getFullYear();
-      const start = new Date('2022-01-01');
-      const now = new Date();
-      const years = ((now - start) / (1000*60*60*24*365.25)).toFixed(1);
-      document.getElementById('yoe').textContent = years;
-      document.getElementById('yoe2').textContent = years;
-    });
-    document.getElementById('nav').addEventListener('click', (e)=>{
-      const a = e.target.closest('a[data-section]');
-      if(a){ a.blur(); }
-    });
+
+    // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navLinksEl = document.getElementById('navLinks');
+    const navLinks = document.getElementById('navLinks');
+
     mobileMenuBtn.addEventListener('click', () => {
-      navLinksEl.classList.toggle('open');
+      navLinks.classList.toggle('open');
+      const icon = mobileMenuBtn.querySelector('i');
+      icon.className = navLinks.classList.contains('open') ? 'fas fa-times' : 'fas fa-bars';
     });
-    navLinksEl.addEventListener('click', (e) => {
-      if(e.target.tagName === 'A') {
-        navLinksEl.classList.remove('open');
+
+    // Close mobile menu when clicking a link
+    navLinks.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        navLinks.classList.remove('open');
+        const icon = mobileMenuBtn.querySelector('i');
+        icon.className = 'fas fa-bars';
       }
     });
+
+    // Navbar scroll effect
+    const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
-      const nav = document.getElementById('nav');
-      if(window.scrollY > 50) {
+      if (window.scrollY > 50) {
         nav.classList.add('scrolled');
       } else {
         nav.classList.remove('scrolled');
       }
     });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section');
+    const navLinksAll = document.querySelectorAll('nav.primary a[data-section]');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= (sectionTop - 100)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinksAll.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('data-section') === current) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Typing animation
+    const typingText = document.getElementById('typingText');
+    const texts = [
+      'Data Engineer',
+      'Cloud Architect',
+      'ML Engineer',
+      'DataOps Specialist',
+      'MSc Data Science Student'
+    ];
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeText() {
+      const currentText = texts[textIndex];
+
+      if (!isDeleting && charIndex <= currentText.length) {
+        typingText.textContent = currentText.substring(0, charIndex);
+        charIndex++;
+        setTimeout(typeText, 100);
+      } else if (isDeleting && charIndex >= 0) {
+        typingText.textContent = currentText.substring(0, charIndex);
+        charIndex--;
+        setTimeout(typeText, 50);
+      } else if (!isDeleting && charIndex === currentText.length + 1) {
+        setTimeout(() => {
+          isDeleting = true;
+          typeText();
+        }, 2000);
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length;
+        setTimeout(typeText, 500);
+      }
+    }
+
+    typeText();
+
+    // Counter animation for stats
+    function animateCounter(element, target) {
+      let current = 0;
+      const increment = target / 50;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          element.textContent = target;
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.floor(current);
+        }
+      }, 30);
+    }
+
+    // Trigger counter animation when visible
+    const observerOptions = {
+      threshold: 0.5,
+      rootMargin: '0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counters = entry.target.querySelectorAll('[data-count]');
+          counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-count'));
+            animateCounter(counter, target);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    const heroStats = document.querySelector('.hero-stats');
+    if (heroStats) observer.observe(heroStats);
+
+    // Scroll to Top Button
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        scrollToTopBtn.classList.add('visible');
+      } else {
+        scrollToTopBtn.classList.remove('visible');
+      }
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Form submission feedback
+    const contactForm = document.querySelector('form.contact');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        const button = contactForm.querySelector('button[type="submit"]');
+        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        button.disabled = true;
+      });
+    }
   </script>
 </body>
 </html>
