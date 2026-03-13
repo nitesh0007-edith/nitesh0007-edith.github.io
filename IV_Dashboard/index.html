@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glasgow Weather Data Visualization</title>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2c3e50;
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        /* ── Navbar ── */
+        .navbar {
+            background: #003865;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 48px;
+            border-bottom: 3px solid #00a3e0;
+        }
+        .nav-brand {
+            display: flex; align-items: center;
+            text-decoration: none;
+        }
+        .nav-brand img { height: 48px; }
+        .nav-right {
+            color: rgba(255,255,255,0.85); font-size: 0.88em;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .nav-badge {
+            background: rgba(255,255,255,0.1);
+            padding: 5px 14px; border-radius: 16px; font-weight: 500;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            text-align: center;
+            padding: 64px 24px 28px;
+            background: linear-gradient(180deg, #f7f9fc 0%, #fff 100%);
+        }
+        .hero h1 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 2.5em; font-weight: 700; color: #1a2a3a;
+            margin-bottom: 14px; letter-spacing: -0.3px;
+        }
+        .divider-line {
+            display: flex; align-items: center; justify-content: center;
+            gap: 16px; margin-bottom: 16px;
+        }
+        .divider-line .line {
+            width: 48px; height: 2.5px; background: #003865; border-radius: 2px;
+        }
+        .divider-line span {
+            font-style: italic; color: #5a7a94; font-size: 1.08em;
+        }
+        .hero-desc {
+            color: #6b7c8a; font-size: 1em; max-width: 600px; margin: 0 auto;
+        }
+
+        /* ── Cards ── */
+        .cards-wrap {
+            display: flex; justify-content: center; gap: 28px;
+            padding: 36px 48px 56px;
+            background: linear-gradient(180deg, #fff 0%, #f5f7fa 100%);
+        }
+        .card {
+            background: #fff; border-radius: 10px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+            width: 330px; display: flex; flex-direction: column;
+            overflow: hidden; transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #eaeff4;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+        }
+        .card-inner { padding: 26px 24px 0; flex: 1; display: flex; flex-direction: column; }
+        .card-inner h3 { font-size: 1.15em; font-weight: 700; margin-bottom: 8px; }
+        .card-inner h3.c-navy { color: #003865; }
+        .card-inner h3.c-teal { color: #1a6b5a; }
+        .card-inner h3.c-burnt { color: #c0392b; }
+        .card-inner .card-sub {
+            font-size: 0.82em; color: #8899a6; margin-bottom: 10px;
+            text-transform: uppercase; letter-spacing: 0.6px; font-weight: 600;
+        }
+        .card-inner p { font-size: 0.9em; color: #5e6d7a; margin-bottom: 18px; line-height: 1.55; }
+
+        /* Tags */
+        .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+        .tag {
+            font-size: 0.72em; padding: 3px 10px; border-radius: 12px;
+            font-weight: 600; letter-spacing: 0.3px;
+        }
+        .tag.blue { background: #e8f0fe; color: #003865; }
+        .tag.green { background: #e6f5ee; color: #1a6b5a; }
+        .tag.red { background: #fce8e6; color: #c0392b; }
+
+        /* Thumb */
+        .card-thumb {
+            background: #f4f6f9; border: 1px solid #e6eaef; border-radius: 6px;
+            height: 130px; margin-bottom: 16px; overflow: hidden;
+            display: flex; align-items: flex-end; justify-content: center; padding: 10px;
+        }
+        .bars { display: flex; align-items: flex-end; gap: 5px; height: 100%; }
+        .bars .bar { width: 16px; border-radius: 3px 3px 0 0; }
+        .heatmap-grid {
+            display: grid; grid-template-columns: repeat(12,1fr);
+            grid-template-rows: repeat(5,1fr); gap: 2px; width: 100%; height: 100%;
+        }
+        .heatmap-grid .cell { border-radius: 2px; }
+        .scatter-svg { width: 100%; height: 100%; }
+
+        /* Button */
+        .card-btn {
+            display: block; text-align: center; padding: 13px;
+            color: #fff; font-weight: 600; font-size: 0.95em;
+            text-decoration: none; transition: filter 0.2s;
+        }
+        .card-btn:hover { filter: brightness(1.1); }
+        .card-btn.b-navy { background: #003865; }
+        .card-btn.b-teal { background: #1a6b5a; }
+        .card-btn.b-burnt { background: #c0392b; }
+
+        /* ── Dataset strip ── */
+        .data-strip {
+            max-width: 880px; margin: 0 auto; padding: 40px 48px 0;
+        }
+        .data-strip h2 {
+            font-size: 1.2em; font-weight: 700; color: #1a2a3a; margin-bottom: 14px;
+        }
+        .stats-row {
+            display: flex; gap: 20px; margin-bottom: 12px;
+        }
+        .stat-box {
+            flex: 1; background: #f7f9fc; border: 1px solid #e6eaef;
+            border-radius: 8px; padding: 16px 18px; text-align: center;
+        }
+        .stat-box .num {
+            font-size: 1.5em; font-weight: 700; color: #003865; line-height: 1.2;
+        }
+        .stat-box .label {
+            font-size: 0.78em; color: #7a8a96; margin-top: 2px;
+        }
+
+        /* ── Tasks strip ── */
+        .tasks-strip {
+            max-width: 880px; margin: 0 auto; padding: 32px 48px 0;
+        }
+        .tasks-strip h2 {
+            font-size: 1.2em; font-weight: 700; color: #1a2a3a; margin-bottom: 14px;
+        }
+        .task-list {
+            list-style: none; display: grid;
+            grid-template-columns: 1fr 1fr; gap: 10px 24px;
+        }
+        .task-list li {
+            font-size: 0.88em; color: #4a5b6a; padding: 10px 14px;
+            background: #f7f9fc; border-left: 3px solid #003865;
+            border-radius: 0 6px 6px 0; line-height: 1.45;
+        }
+        .task-list li strong { color: #1a2a3a; }
+
+        /* ── Footer ── */
+        .footer {
+            margin-top: 48px; background: #f5f7fa;
+            border-top: 1px solid #dde3e9; padding: 16px 48px;
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 0.82em; color: #8899a6;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <a class="nav-brand" href="#">
+        <img src="uofg_logo_boxed.png" alt="University of Glasgow">
+    </a>
+    <div class="nav-right">
+        <span>Information Visualisation</span>
+        <span class="nav-badge">Group V</span>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <h1>Glasgow Weather Data Visualization</h1>
+    <div class="divider-line">
+        <div class="line"></div>
+        <span>Multiview Analysis of Glasgow's Weather Data (2015 &ndash; 2019)</span>
+        <div class="line"></div>
+    </div>
+    <p class="hero-desc">
+        Three interactive dashboards built with Altair &amp; Vega-Lite, each offering a
+        distinct approach to exploring 1,795 daily weather observations.
+    </p>
+</section>
+
+<!-- System Cards -->
+<section class="cards-wrap">
+
+    <!-- System A -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-sub">System A</div>
+            <h3 class="c-navy">Category &amp; Attribute Overview</h3>
+            <p>Ranked bar charts with metric switching, bidirectional scatter
+               plots, and threshold sliders for weather-type comparison.</p>
+            <div class="tags">
+                <span class="tag blue">Bar Charts</span>
+                <span class="tag blue">Scatter Plots</span>
+                <span class="tag blue">Bidirectional Brush</span>
+            </div>
+            <div class="card-thumb">
+                <div class="bars">
+                    <div class="bar" style="height:92%;background:#e45756;"></div>
+                    <div class="bar" style="height:74%;background:#f58518;"></div>
+                    <div class="bar" style="height:56%;background:#72b7b2;"></div>
+                    <div class="bar" style="height:42%;background:#4c78a8;"></div>
+                    <div class="bar" style="height:28%;background:#54a24b;"></div>
+                    <div class="bar" style="height:14%;background:#bab0ac;"></div>
+                    <div style="width:14px;"></div>
+                    <div class="bar" style="height:38%;background:#4c78a8;opacity:.55;"></div>
+                    <div class="bar" style="height:62%;background:#f58518;opacity:.55;"></div>
+                    <div class="bar" style="height:50%;background:#e45756;opacity:.55;"></div>
+                    <div class="bar" style="height:78%;background:#72b7b2;opacity:.55;"></div>
+                    <div class="bar" style="height:44%;background:#54a24b;opacity:.55;"></div>
+                </div>
+            </div>
+        </div>
+        <a href="System_A.html" class="card-btn b-navy">Explore System A &rsaquo;</a>
+    </div>
+
+    <!-- System B -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-sub">System B</div>
+            <h3 class="c-teal">Temporal Decomposition</h3>
+            <p>Calendar heatmap, seasonal grouped bars, and a generalised-selection
+               drill-down from yearly overview to monthly detail.</p>
+            <div class="tags">
+                <span class="tag green">Heatmap</span>
+                <span class="tag green">Grouped Bars</span>
+                <span class="tag green">Generalised Selection</span>
+            </div>
+            <div class="card-thumb">
+                <div class="heatmap-grid" id="hmGrid"></div>
+            </div>
+        </div>
+        <a href="System_B.html" class="card-btn b-teal">Explore System B &rsaquo;</a>
+    </div>
+
+    <!-- System C -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-sub">System C</div>
+            <h3 class="c-burnt">Full Exploration</h3>
+            <p>Large scatter plot with colour &amp; shape legend filtering,
+               composition heatmap, and season summary &mdash; maximum flexibility.</p>
+            <div class="tags">
+                <span class="tag red">Legend Filtering</span>
+                <span class="tag red">Shape + Colour</span>
+                <span class="tag red">Scroll Zoom</span>
+            </div>
+            <div class="card-thumb">
+                <svg class="scatter-svg" viewBox="0 0 300 110" preserveAspectRatio="none">
+                    <circle cx="18" cy="55" r="3.5" fill="#1f77b4" opacity=".7"/>
+                    <circle cx="38" cy="75" r="3.5" fill="#ff7f0e" opacity=".7"/>
+                    <circle cx="56" cy="40" r="3.5" fill="#2ca02c" opacity=".7"/>
+                    <circle cx="74" cy="88" r="3.5" fill="#d62728" opacity=".7"/>
+                    <circle cx="92" cy="32" r="3.5" fill="#9467bd" opacity=".7"/>
+                    <circle cx="112" cy="64" r="3.5" fill="#1f77b4" opacity=".7"/>
+                    <circle cx="132" cy="48" r="3.5" fill="#ff7f0e" opacity=".7"/>
+                    <circle cx="155" cy="82" r="3.5" fill="#2ca02c" opacity=".7"/>
+                    <circle cx="175" cy="26" r="3.5" fill="#d62728" opacity=".7"/>
+                    <circle cx="195" cy="58" r="3.5" fill="#1f77b4" opacity=".7"/>
+                    <circle cx="218" cy="38" r="3.5" fill="#9467bd" opacity=".7"/>
+                    <circle cx="238" cy="72" r="3.5" fill="#ff7f0e" opacity=".7"/>
+                    <circle cx="258" cy="50" r="3.5" fill="#2ca02c" opacity=".7"/>
+                    <circle cx="278" cy="85" r="3.5" fill="#1f77b4" opacity=".7"/>
+                    <rect x="46" y="95" width="6" height="6" fill="#2ca02c" opacity=".5" transform="rotate(45 49 98)"/>
+                    <rect x="140" y="15" width="6" height="6" fill="#1f77b4" opacity=".5"/>
+                    <polygon points="100,100 104,93 108,100" fill="#9467bd" opacity=".5"/>
+                    <polygon points="220,95 224,88 228,95" fill="#d62728" opacity=".5"/>
+                </svg>
+            </div>
+        </div>
+        <a href="System_C.html" class="card-btn b-burnt">Explore System C &rsaquo;</a>
+    </div>
+
+</section>
+
+<!-- Dataset summary -->
+<section class="data-strip">
+    <h2>The Dataset</h2>
+    <div class="stats-row">
+        <div class="stat-box">
+            <div class="num">1,795</div>
+            <div class="label">Daily observations</div>
+        </div>
+        <div class="stat-box">
+            <div class="num">5</div>
+            <div class="label">Years (2015 &ndash; 2019)</div>
+        </div>
+        <div class="stat-box">
+            <div class="num">9</div>
+            <div class="label">Weather attributes</div>
+        </div>
+        <div class="stat-box">
+            <div class="num">6</div>
+            <div class="label">Weather categories</div>
+        </div>
+    </div>
+</section>
+
+<!-- Tasks -->
+<section class="tasks-strip">
+    <h2>Analytical Tasks</h2>
+    <ul class="task-list">
+        <li><strong>T1</strong> &mdash; Identify the season or month with the highest average temperature range.</li>
+        <li><strong>T2</strong> &mdash; Find the top 3 weather types by frequency across the dataset.</li>
+        <li><strong>T3</strong> &mdash; Determine which year had the highest average wind speed.</li>
+        <li><strong>T4</strong> &mdash; Find the weather type with highest average visibility, filtered by minimum humidity.</li>
+        <li style="grid-column: 1 / -1;">
+            <strong>T5</strong> &mdash; Identify months with wind speed and humidity above user-set thresholds.
+            Find the top 3 seasons with the highest average cloud cover.
+        </li>
+    </ul>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <span>&copy; 2026 Information Visualisation &middot; University of Glasgow</span>
+    <span>Built with Python, Altair &amp; Vega-Lite</span>
+</footer>
+
+<script>
+(function(){
+    var g=document.getElementById('hmGrid');
+    if(!g)return;
+    var c=['#f7fcf5','#c7e9c0','#74c476','#238b45','#006d2c',
+           '#eff3ff','#9ecae1','#3182bd','#deebf7','#fee0d2',
+           '#fc9272','#de2d26','#fff5eb','#fcbba1','#f7fbff'];
+    for(var i=0;i<60;i++){
+        var d=document.createElement('div');
+        d.className='cell';
+        d.style.background=c[Math.floor(Math.random()*c.length)];
+        g.appendChild(d);
+    }
+})();
+</script>
+
+</body>
+</html>
