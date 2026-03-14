@@ -35,20 +35,18 @@
         .info-box li { margin: 6px 0; line-height: 1.5; font-size: 0.95em; }
         .info-box ol { margin: 8px 0; padding-left: 20px; }
         .info-box ol li { margin: 8px 0; line-height: 1.5; font-size: 0.95em; }
-        #vis { display: flex; justify-content: center; margin: 20px 0; }
-        #vis .vega-embed {
-            display: flex !important; flex-direction: column; align-items: center;
-        }
-        #vis .vega-bindings {
-            order: -1;
+        #controls-panel {
             background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px;
-            padding: 14px 22px; margin-bottom: 16px; width: 100%;
-            display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center;
-            font-family: 'Segoe UI', Tahoma, sans-serif; font-size: 0.9em;
+            padding: 14px 22px; margin: 10px 0 16px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.08);
         }
-        #vis .vega-bind { display: flex; align-items: center; gap: 5px; }
-        #vis .vega-bind label { font-weight: 600; white-space: nowrap; color: #444; }
+        #controls-panel .vega-bindings {
+            display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center;
+            font-family: 'Segoe UI', Tahoma, sans-serif; font-size: 0.9em;
+        }
+        .vega-bind { display: flex; align-items: center; gap: 5px; }
+        .vega-bind label { font-weight: 600; white-space: nowrap; color: #444; }
+        #vis { display: flex; justify-content: center; margin: 10px 0; }
     </style>
 </head>
 <body>
@@ -98,6 +96,7 @@
         average cloud cover.</li>
 </ol>
 </div>
+        <div id="controls-panel"></div>
         <div id="vis"></div>
     </div>
     <script>
@@ -105,13 +104,10 @@
   "config": {
     "view": {
       "continuousWidth": 300,
-      "continuousHeight": 300,
-      "cornerRadius": 4,
-      "stroke": "#dee2e6",
-      "strokeWidth": 1
+      "continuousHeight": 300
     },
     "concat": {
-      "spacing": 20
+      "spacing": 30
     }
   },
   "vconcat": [
@@ -33072,7 +33068,14 @@
   }
 };
         vegaEmbed('#vis', spec, {mode: 'vega-lite', actions: {export: true, source: false, compiled: false, editor: false}})
-            .then(function(result) { window.vegaView = result.view; })
+            .then(function(result) {
+                window.vegaView = result.view;
+                var bindings = document.querySelector('#vis .vega-bindings');
+                var panel = document.getElementById('controls-panel');
+                if (bindings && panel) {
+                    panel.appendChild(bindings);
+                }
+            })
             .catch(console.error);
     </script>
 </body>
