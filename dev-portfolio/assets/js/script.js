@@ -1,1 +1,0 @@
-fetch('assets/data/projects.json').then(res => res.json()).then(data => console.log(data));

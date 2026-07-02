@@ -32,3 +32,13 @@ Temporary Items
 # Logs
 *.log
 npm-debug.log*
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# Content source with personal contact details — keep out of the public repo
+info.md
