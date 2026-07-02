@@ -176,9 +176,26 @@ export default function EducationPage() {
           </h2>
           <p className="font-[family-name:var(--font-courier-prime)] text-[#1a1a1a] max-w-2xl mx-auto">
             Mentored <strong>50+ students</strong> on UK Master&apos;s admissions and
-            Data Engineering / GenAI career paths via Topmate — <strong>5/5 rating</strong>.
+            Data Engineering / GenAI career paths via{" "}
+            <a
+              href="https://topmate.io/nitesh2039"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#4a6fa5] underline hover:text-[#d4a84b] transition-colors"
+            >
+              Topmate
+            </a>{" "}
+            — <strong>5/5 rating</strong>.
             Also ran adoption workshops for 200+ enterprise stakeholders at IQVIA.
           </p>
+          <a
+            href="https://topmate.io/nitesh2039"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-4 px-5 py-2 bg-[#1a1a1a] text-[#f5f0e1] font-[family-name:var(--font-bangers)] text-lg tracking-wider border-2 border-[#1a1a1a] hover:bg-[#d4a84b] hover:text-[#1a1a1a] transition-colors"
+          >
+            BOOK A 1:1 →
+          </a>
         </div>
       </ComicPanel>
     </ChapterLayout>

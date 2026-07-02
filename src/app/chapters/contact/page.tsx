@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, FileText, ExternalLink } from "lucide-react";
+import { Mail, Linkedin, Github, FileText, ExternalLink, CalendarCheck } from "lucide-react";
 import ChapterLayout from "@/components/ChapterLayout";
 import { ComicPanel, SpeechBubble, MangaAvatar } from "@/components/comic";
 
@@ -37,6 +37,14 @@ const contactMethods = [
     href: "/resume.pdf",
     description: "Full professional details",
     color: "bg-[#6b8e4e]",
+  },
+  {
+    icon: CalendarCheck,
+    label: "Book a 1:1",
+    value: "topmate.io/nitesh2039",
+    href: "https://topmate.io/nitesh2039",
+    description: "Mentoring on UK Master's, Data Engineering & GenAI careers — 5/5 rated",
+    color: "bg-[#d4a84b]",
   },
 ];
 

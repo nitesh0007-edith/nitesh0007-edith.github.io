@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Linkedin, Mail } from "lucide-react";
+import { CalendarCheck, Github, Linkedin, Mail } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -35,6 +35,15 @@ const Footer = () => {
             className="text-[#8b7355] hover:text-[#d4a84b] transition-colors"
           >
             <Linkedin size={18} />
+          </a>
+          <a
+            href="https://topmate.io/nitesh2039"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Book a 1:1 on Topmate"
+            className="text-[#8b7355] hover:text-[#d4a84b] transition-colors"
+          >
+            <CalendarCheck size={18} />
           </a>
         </div>
 
