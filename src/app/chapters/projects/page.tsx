@@ -8,7 +8,7 @@ import { ComicPanel, SoundEffect } from "@/components/comic";
 
 type ProjectStatus =
   | "SHIPPED"
-  | "KAGGLE WINNER"
+  | "KAGGLE 2ND PLACE"
   | "HACKATHON RUNNER-UP"
   | "IN PROGRESS"
   | "DESIGNED";
@@ -28,7 +28,7 @@ interface Project {
 
 const statusColors: Record<ProjectStatus, string> = {
   SHIPPED: "bg-[#6b8e4e]",
-  "KAGGLE WINNER": "bg-[#b5544a]",
+  "KAGGLE 2ND PLACE": "bg-[#b5544a]",
   "HACKATHON RUNNER-UP": "bg-[#d4a84b]",
   "IN PROGRESS": "bg-[#4a6fa5]",
   DESIGNED: "bg-[#7a5c91]",
@@ -39,9 +39,9 @@ const caseFiles: Project[] = [
     id: 9,
     title: "HyperX — Agentic Legal Citation Retrieval",
     icon: "⚖️",
-    status: "KAGGLE WINNER",
+    status: "KAGGLE 2ND PLACE",
     brief:
-      "Won a $3,000 prize as Team HyperX in Kaggle's LLM Agentic Legal Information Retrieval competition — retrieving Swiss legal citations for English queries, scored on citation-level Macro F1.",
+      "Placed 2nd as Team HyperX in Kaggle's LLM Agentic Legal Information Retrieval competition, winning a $3,000 prize — retrieving Swiss legal citations for English queries, scored on citation-level Macro F1.",
     approach: [
       "Hybrid retrieval: rule-based EN→DE query expansion feeding BM25 plus dual dense indexes (multilingual-E5-large + FAISS) over statutes and court decisions, fused with Reciprocal Rank Fusion",
       "Cross-encoder re-ranking to top-50, then citation-graph expansion (BGE family walk + co-occurrence) and 2-hop re-retrieval",
@@ -56,7 +56,7 @@ const caseFiles: Project[] = [
       "Citation graph",
       "Python",
     ],
-    impact: "$3,000 prize winner — Team HyperX, Kaggle",
+    impact: "2nd place — $3,000 prize, Team HyperX, Kaggle",
     link: "https://www.kaggle.com/competitions/llm-agentic-legal-information-retrieval",
     repo: "https://github.com/Dharundp6/LLM_agentic",
   },

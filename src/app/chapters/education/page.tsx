@@ -17,8 +17,8 @@ const modules = [
 
 const awards = [
   {
-    icon: "🏆",
-    title: "Kaggle Winner — $3,000 Prize",
+    icon: "🥈",
+    title: "2nd Place, Kaggle — $3,000 Prize",
     detail:
       "LLM Agentic Legal Information Retrieval competition — Team HyperX; agentic hybrid retrieval of Swiss legal citations",
     year: "2026",

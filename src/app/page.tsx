@@ -74,7 +74,7 @@ export default function CoverPage() {
               Open to Data / AI Engineer roles — Summer 2026
             </span>
             <span className="inline-block px-4 py-2 bg-[#d4a84b] text-[#1a1a1a] font-[family-name:var(--font-bangers)] text-sm border-2 border-[#1a1a1a]">
-              🏆 Kaggle Winner — $3,000 Prize (Team HyperX)
+              🥈 2nd Place, Kaggle — $3,000 Prize (Team HyperX)
             </span>
           </motion.div>
 
