@@ -18,8 +18,16 @@ export default function CoverPage() {
   return (
     <div className="min-h-screen bg-[#f5f0e1] flex flex-col">
       {/* Main Cover Content */}
-      <main className="flex-1 flex items-center justify-center px-4 py-20">
-        <div className="max-w-4xl mx-auto text-center">
+      <main className="flex-1 flex items-center justify-center px-4 py-20 relative overflow-hidden">
+        {/* Floating manga decorations */}
+        <span className="absolute top-24 left-[12%] text-3xl text-[#d4a84b] float-slow select-none hidden sm:block" aria-hidden="true">✦</span>
+        <span className="absolute top-40 right-[15%] text-2xl text-[#b5544a] float-slower select-none hidden sm:block" aria-hidden="true">✚</span>
+        <span className="absolute bottom-36 left-[18%] text-xl text-[#4a6fa5] float-slower select-none hidden sm:block" aria-hidden="true">●</span>
+        <span className="absolute bottom-52 right-[10%] text-3xl text-[#7a5c91] float-slow select-none hidden sm:block" aria-hidden="true">✦</span>
+        <span className="absolute top-1/2 left-[6%] text-lg text-[#8b7355] float-slow select-none hidden lg:block" aria-hidden="true">✚</span>
+        <span className="absolute top-1/3 right-[6%] text-lg text-[#6b8e4e] float-slower select-none hidden lg:block" aria-hidden="true">●</span>
+
+        <div className="max-w-4xl mx-auto text-center relative">
           {/* Comic Title Badge */}
           <motion.div
             initial={{ scale: 0, rotate: -10 }}
@@ -30,14 +38,20 @@ export default function CoverPage() {
             <SoundEffect text="ISSUE #1" size="md" color="red" rotate={-3} />
           </motion.div>
 
-          {/* Avatar */}
+          {/* Avatar with sunburst backdrop */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             className="mb-8 flex justify-center"
           >
-            <MangaAvatar expression="determined" size="xl" showSparkles />
+            <div className="relative flex items-center justify-center">
+              <div
+                className="sunburst absolute w-[26rem] h-[26rem] md:w-[30rem] md:h-[30rem] opacity-25"
+                aria-hidden="true"
+              />
+              <MangaAvatar expression="determined" size="xl" showSparkles />
+            </div>
           </motion.div>
 
           {/* Title */}
@@ -97,7 +111,7 @@ export default function CoverPage() {
           >
             <Link
               href="/chapters/origin"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-[#b5544a] text-white border-[3px] border-[#1a1a1a] font-[family-name:var(--font-bangers)] text-2xl comic-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-[#b5544a] text-white border-[3px] border-[#1a1a1a] font-[family-name:var(--font-bangers)] text-2xl comic-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none hover:-rotate-1 transition-all"
             >
               <BookOpen size={24} />
               Start Reading

@@ -5,3 +5,4 @@ export { default as NarratorBox } from "./NarratorBox";
 export { default as ChapterHeader } from "./ChapterHeader";
 export { default as MangaAvatar } from "./MangaAvatar";
 export { default as SpeedLines, MangaSpeedLines } from "./SpeedLines";
+export { default as ReadingProgress } from "./ReadingProgress";

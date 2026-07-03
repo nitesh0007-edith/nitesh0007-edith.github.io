@@ -483,3 +483,116 @@ body::before {
     padding: 12px 16px;
   }
 }
+
+/* ===== CREATIVE LAYER ===== */
+
+/* Marker-pen text selection */
+::selection {
+  background: var(--comic-accent-yellow);
+  color: var(--comic-ink);
+}
+
+/* Ben-Day halftone dot field */
+.halftone-bg {
+  background-image:
+    radial-gradient(var(--comic-sepia-light) 1.5px, transparent 1.5px),
+    radial-gradient(var(--comic-sepia-light) 1px, transparent 1px);
+  background-size: 18px 18px;
+  background-position: 0 0, 9px 9px;
+}
+
+/* Rotating sunburst rays (hero backdrop) */
+.sunburst {
+  background: repeating-conic-gradient(
+    from 0deg,
+    var(--comic-accent-yellow) 0deg 6deg,
+    transparent 6deg 12deg
+  );
+  border-radius: 50%;
+  animation: sunburst-spin 60s linear infinite;
+}
+
+@keyframes sunburst-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Floating manga decorations */
+.float-slow {
+  animation: floaty 6s ease-in-out infinite;
+}
+
+.float-slower {
+  animation: floaty 9s ease-in-out infinite reverse;
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(6deg);
+  }
+}
+
+/* Halftone corner accent on every panel (clipped by panel overflow) */
+.comic-panel::after {
+  content: '';
+  position: absolute;
+  right: -22px;
+  bottom: -22px;
+  width: 96px;
+  height: 96px;
+  background-image: radial-gradient(var(--comic-sepia-light) 2px, transparent 2px);
+  background-size: 10px 10px;
+  opacity: 0.35;
+  transform: rotate(8deg);
+  pointer-events: none;
+}
+
+/* Rubber-stamp page marker */
+.page-stamp {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--comic-sepia);
+  border: 2px solid var(--comic-sepia);
+  padding: 2px 10px;
+  transform: rotate(2deg);
+  display: inline-block;
+}
+
+/* Ink brush underline on hover */
+.ink-underline {
+  position: relative;
+}
+
+.ink-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 3px;
+  background: var(--comic-accent-red);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.ink-underline:hover::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sunburst,
+  .float-slow,
+  .float-slower,
+  .manga-sparkle {
+    animation: none;
+  }
+}

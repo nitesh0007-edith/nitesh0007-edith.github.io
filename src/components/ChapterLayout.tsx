@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ReadingProgress } from "@/components/comic";
 
 interface ChapterLayoutProps {
   children: ReactNode;
@@ -30,10 +31,13 @@ const ChapterLayout = ({
       transition={{ duration: 0.4 }}
       className="min-h-screen bg-[#f5f0e1] flex flex-col"
     >
+      <ReadingProgress />
+
       {/* Chapter Header */}
-      <div className="pt-20 pb-6 px-4 md:px-8 border-b-4 border-[#1a1a1a]">
-        <div className="max-w-5xl mx-auto text-center">
-          <span className="inline-block px-4 py-1 bg-[#b5544a] text-white font-[family-name:var(--font-bangers)] text-sm border-2 border-[#1a1a1a] mb-3">
+      <div className="pt-20 pb-6 px-4 md:px-8 border-b-4 border-[#1a1a1a] relative overflow-hidden">
+        <div className="absolute inset-0 halftone-bg opacity-20 pointer-events-none" />
+        <div className="max-w-5xl mx-auto text-center relative">
+          <span className="inline-block px-4 py-1 bg-[#b5544a] text-white font-[family-name:var(--font-bangers)] text-sm border-2 border-[#1a1a1a] mb-3 -rotate-2">
             CHAPTER {chapterNumber}
           </span>
           <h1 className="font-[family-name:var(--font-bangers)] text-4xl md:text-6xl text-[#1a1a1a] tracking-wide">
@@ -44,6 +48,9 @@ const ChapterLayout = ({
               {subtitle}
             </p>
           )}
+          <span className="page-stamp absolute top-0 right-0 hidden md:inline-block">
+            Vol. 1 · Page {chapterNumber} / 6
+          </span>
         </div>
       </div>
 
@@ -70,7 +77,7 @@ const ChapterLayout = ({
 
           <Link
             href="/"
-            className="px-4 py-2 text-[#8b7355] font-[family-name:var(--font-bangers)] hover:text-[#1a1a1a] transition-colors"
+            className="ink-underline px-4 py-2 text-[#8b7355] font-[family-name:var(--font-bangers)] hover:text-[#1a1a1a] transition-colors"
           >
             Back to Cover
           </Link>
