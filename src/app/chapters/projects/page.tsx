@@ -6,7 +6,12 @@ import { X, ExternalLink, Github } from "lucide-react";
 import ChapterLayout from "@/components/ChapterLayout";
 import { ComicPanel, SoundEffect } from "@/components/comic";
 
-type ProjectStatus = "SHIPPED" | "HACKATHON RUNNER-UP" | "IN PROGRESS" | "DESIGNED";
+type ProjectStatus =
+  | "SHIPPED"
+  | "KAGGLE WINNER"
+  | "HACKATHON RUNNER-UP"
+  | "IN PROGRESS"
+  | "DESIGNED";
 
 interface Project {
   id: number;
@@ -18,16 +23,43 @@ interface Project {
   tools: string[];
   impact: string;
   link?: string;
+  repo?: string;
 }
 
 const statusColors: Record<ProjectStatus, string> = {
   SHIPPED: "bg-[#6b8e4e]",
+  "KAGGLE WINNER": "bg-[#b5544a]",
   "HACKATHON RUNNER-UP": "bg-[#d4a84b]",
   "IN PROGRESS": "bg-[#4a6fa5]",
   DESIGNED: "bg-[#7a5c91]",
 };
 
 const caseFiles: Project[] = [
+  {
+    id: 9,
+    title: "HyperX — Agentic Legal Citation Retrieval",
+    icon: "⚖️",
+    status: "KAGGLE WINNER",
+    brief:
+      "Won a $3,000 prize as Team HyperX in Kaggle's LLM Agentic Legal Information Retrieval competition — retrieving Swiss legal citations for English queries, scored on citation-level Macro F1.",
+    approach: [
+      "Hybrid retrieval: rule-based EN→DE query expansion feeding BM25 plus dual dense indexes (multilingual-E5-large + FAISS) over statutes and court decisions, fused with Reciprocal Rank Fusion",
+      "Cross-encoder re-ranking to top-50, then citation-graph expansion (BGE family walk + co-occurrence) and 2-hop re-retrieval",
+      "Handled a hard train/test distribution shift — German training queries vs English test queries, median 2 vs 22 gold citations — by tuning every threshold on validation, not train",
+      "Iterated citation-level Macro F1 from 0.10 (BM25 baseline) to 0.40 across four pipeline phases",
+    ],
+    tools: [
+      "BM25",
+      "multilingual-E5-large",
+      "FAISS",
+      "Cross-encoder rerank",
+      "Citation graph",
+      "Python",
+    ],
+    impact: "$3,000 prize winner — Team HyperX, Kaggle",
+    link: "https://www.kaggle.com/competitions/llm-agentic-legal-information-retrieval",
+    repo: "https://github.com/Dharundp6/LLM_agentic",
+  },
   {
     id: 1,
     title: "LectureLens — Hybrid RAG Learning Copilot",
@@ -353,17 +385,29 @@ export default function ProjectsPage() {
                   </div>
                 </div>
 
-                {/* Link */}
-                {selectedCase.link && (
-                  <div className="flex justify-center">
-                    <a
-                      href={selectedCase.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-[#4a6fa5] text-white border-[3px] border-[#1a1a1a] font-[family-name:var(--font-bangers)] hover:bg-[#3a5f95] transition-colors"
-                    >
-                      View Project <ExternalLink size={16} />
-                    </a>
+                {/* Links */}
+                {(selectedCase.link || selectedCase.repo) && (
+                  <div className="flex justify-center gap-3 flex-wrap">
+                    {selectedCase.link && (
+                      <a
+                        href={selectedCase.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 bg-[#4a6fa5] text-white border-[3px] border-[#1a1a1a] font-[family-name:var(--font-bangers)] hover:bg-[#3a5f95] transition-colors"
+                      >
+                        View Project <ExternalLink size={16} />
+                      </a>
+                    )}
+                    {selectedCase.repo && (
+                      <a
+                        href={selectedCase.repo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 bg-[#1a1a1a] text-[#f5f0e1] border-[3px] border-[#1a1a1a] font-[family-name:var(--font-bangers)] hover:bg-[#3a3a3a] transition-colors"
+                      >
+                        <Github size={16} /> View Code
+                      </a>
+                    )}
                   </div>
                 )}
               </div>
