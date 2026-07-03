@@ -37,7 +37,7 @@ const timelineEvents = [
     year: "2025–26",
     title: "Current Quest: Glasgow",
     description:
-      "MSc Data Science at the University of Glasgow as a £10,000 Excellence Scholar — going deep on GenAI: fine-tuning LLMs, hybrid RAG, and agentic systems on MCP.",
+      "MSc Data Science at the University of Glasgow as a £10,000 Excellence Scholar — going deep on GenAI: fine-tuning LLMs, hybrid RAG, and agentic systems on MCP. Currently a Data System & CRM Migration Intern at Street Connect (Jun 2026 – present).",
     icon: "🚀",
   },
 ];

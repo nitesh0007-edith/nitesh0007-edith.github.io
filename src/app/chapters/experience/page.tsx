@@ -9,6 +9,21 @@ import { ComicPanel, SpeechBubble, SoundEffect } from "@/components/comic";
 const experiences = [
   {
     id: 1,
+    title: "Data System & CRM Migration Intern",
+    company: "Street Connect",
+    location: "Glasgow, Scotland, UK · On-site",
+    period: "Jun 2026 – Present",
+    brief:
+      "Current role alongside the MSc — migrating Street Connect's data systems and CRM to a new platform.",
+    contributions: [
+      "Supporting the migration of Street Connect's data systems and CRM",
+      "Role in progress — full write-up to follow",
+    ],
+    results: [],
+    tech: [],
+  },
+  {
+    id: 2,
     title: "Data Engineer",
     company: "IQVIA · GSK Omnichannel Data Platform",
     location: "Gurugram, India",
@@ -29,7 +44,7 @@ const experiences = [
     tech: ["Azure Databricks", "PySpark", "ADF", "Synapse", "ADLS Gen2", "Power BI"],
   },
   {
-    id: 2,
+    id: 3,
     title: "Data Analyst",
     company: "IQVIA · GSK Omnichannel Data Platform",
     location: "Gurugram, India",
@@ -49,7 +64,7 @@ const experiences = [
     tech: ["PySpark", "SQL", "Azure Databricks", "YAML rule registry", "Power BI"],
   },
   {
-    id: 3,
+    id: 4,
     title: "Analyst Trainee",
     company: "Axtria · Johnson & Johnson MDM + AstraZeneca O2",
     location: "Noida, India",
@@ -87,7 +102,7 @@ export default function ExperiencePage() {
     <ChapterLayout
       chapterNumber={3}
       title="Experience"
-      subtitle="Analyst Trainee → Data Analyst → Data Engineer, in regulated global pharma"
+      subtitle="Analyst Trainee → Data Analyst → Data Engineer in global pharma — now interning at Street Connect, Glasgow"
       prevChapter={{ href: "/chapters/skills", label: "Skills" }}
       nextChapter={{ href: "/chapters/projects", label: "Projects" }}
     >
@@ -174,43 +189,47 @@ export default function ExperiencePage() {
             </div>
 
             {/* Impact */}
-            <div className="mb-6">
-              <h3 className="font-[family-name:var(--font-bangers)] text-lg text-[#8b7355] mb-3">
-                IMPACT:
-              </h3>
-              <div className="grid grid-cols-3 gap-4">
-                {experience.results.map((result, index) => (
-                  <div
-                    key={index}
-                    className="text-center p-3 bg-[#6b8e4e]/20 border-2 border-[#6b8e4e]"
-                  >
-                    <span className="font-[family-name:var(--font-bangers)] text-2xl text-[#6b8e4e]">
-                      {result.metric}
-                    </span>
-                    <p className="text-xs text-[#5c4d3c] font-[family-name:var(--font-courier-prime)]">
-                      {result.label}
-                    </p>
-                  </div>
-                ))}
+            {experience.results.length > 0 && (
+              <div className="mb-6">
+                <h3 className="font-[family-name:var(--font-bangers)] text-lg text-[#8b7355] mb-3">
+                  IMPACT:
+                </h3>
+                <div className="grid grid-cols-3 gap-4">
+                  {experience.results.map((result, index) => (
+                    <div
+                      key={index}
+                      className="text-center p-3 bg-[#6b8e4e]/20 border-2 border-[#6b8e4e]"
+                    >
+                      <span className="font-[family-name:var(--font-bangers)] text-2xl text-[#6b8e4e]">
+                        {result.metric}
+                      </span>
+                      <p className="text-xs text-[#5c4d3c] font-[family-name:var(--font-courier-prime)]">
+                        {result.label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Technologies */}
-            <div>
-              <h3 className="font-[family-name:var(--font-bangers)] text-sm text-[#8b7355] mb-2">
-                TECHNOLOGIES:
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {experience.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 bg-[#1a1a1a] text-[#f5f0e1] text-xs font-[family-name:var(--font-courier-prime)]"
-                  >
-                    {tech}
-                  </span>
-                ))}
+            {experience.tech.length > 0 && (
+              <div>
+                <h3 className="font-[family-name:var(--font-bangers)] text-sm text-[#8b7355] mb-2">
+                  TECHNOLOGIES:
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {experience.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 bg-[#1a1a1a] text-[#f5f0e1] text-xs font-[family-name:var(--font-courier-prime)]"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </ComicPanel>
         </motion.div>
       </AnimatePresence>
