@@ -77,8 +77,8 @@ export default function OriginStoryPage() {
               <p className="text-[#1a1a1a] leading-relaxed">
                 I&apos;m <strong>Nitesh Ranjan Singh</strong>, a Glasgow-based Data
                 Engineer with 3+ years designing production-scale data platforms
-                for GSK, Johnson &amp; Johnson, and AstraZeneca — now completing an
-                MSc in Data Science at the University of Glasgow.
+                for GSK, Johnson &amp; Johnson, and AstraZeneca — with MSc Data Science studies
+                at the University of Glasgow (2025–2026).
               </p>
             </SpeechBubble>
 
@@ -175,13 +175,13 @@ export default function OriginStoryPage() {
               📍 Glasgow, Scotland
             </span>
             <span className="px-3 py-1 bg-[#6b8e4e] text-white text-sm font-[family-name:var(--font-bangers)] border-2 border-[#1a1a1a]">
-              ✓ Open to Summer 2026 roles
+              ✓ Open to opportunities in Scotland and the UK
             </span>
             <span className="px-3 py-1 bg-[#7a5c91] text-white text-sm font-[family-name:var(--font-bangers)] border-2 border-[#1a1a1a]">
               🎓 £10K Excellence Scholar @ UofG
             </span>
             <span className="px-3 py-1 bg-[#b5544a] text-white text-sm font-[family-name:var(--font-bangers)] border-2 border-[#1a1a1a]">
-              🇬🇧 Graduate Route eligible — no sponsorship needed
+              🇬🇧 UK Graduate Route visa eligible
             </span>
           </motion.div>
         </div>

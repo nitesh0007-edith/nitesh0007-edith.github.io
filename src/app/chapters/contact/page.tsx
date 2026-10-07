@@ -73,8 +73,8 @@ export default function ContactPage() {
           <SpeechBubble tailPosition="top">
             <p className="text-[#1a1a1a] text-center">
               Thanks for reading this far. I&apos;m open to Data Engineer,
-              AI/GenAI Engineer, and ML Engineer roles for Summer 2026 —
-              based in Glasgow, open to Scotland and hybrid/remote UK.
+              AI/GenAI Engineer, and ML Engineer roles. Based in Glasgow,
+              open to opportunities in Scotland and hybrid/remote UK.
             </p>
           </SpeechBubble>
         </motion.div>
@@ -88,8 +88,8 @@ export default function ContactPage() {
             href={method.href}
             target={method.label !== "Email" ? "_blank" : "_self"}
             rel="noopener noreferrer"
-            initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 + index * 0.1 }}
             className="group"
           >
@@ -103,7 +103,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Content Section */}
-                <div className="flex-1 p-4 flex flex-col justify-center">
+                <div className="min-w-0 flex-1 p-4 flex flex-col justify-center">
                   <h3 className="font-[family-name:var(--font-bangers)] text-lg text-[#1a1a1a] flex items-center gap-2">
                     {method.label}
                     <ExternalLink
@@ -136,9 +136,9 @@ export default function ContactPage() {
               HIRING NOTE
             </h2>
             <p className="font-[family-name:var(--font-courier-prime)] text-sm text-[#1a1a1a] max-w-2xl mx-auto">
-              UK Graduate Route visa eligible (from Sep 2026, 2-year duration) —
-              <strong> no sponsorship required near term</strong>. Open to Skilled
-              Worker sponsorship for the longer term.
+              UK Graduate Route visa eligible. Current right-to-work documentation
+              can be discussed during recruitment, including longer-term
+              sponsorship requirements.
             </p>
           </div>
         </ComicPanel>

@@ -85,12 +85,18 @@ export default function CoverPage() {
               MSc Data Science @ University of Glasgow
             </span>
             <span className="inline-block px-4 py-2 bg-[#6b8e4e] text-white font-[family-name:var(--font-bangers)] text-sm border-2 border-[#1a1a1a]">
-              Open to Data / AI Engineer roles — Summer 2026
+              Open to Data / AI Engineer roles in Scotland &amp; the UK
             </span>
             <span className="inline-block px-4 py-2 bg-[#d4a84b] text-[#1a1a1a] font-[family-name:var(--font-bangers)] text-sm border-2 border-[#1a1a1a]">
               🥈 2nd Place, Kaggle — $3,000 Prize (Team HyperX)
             </span>
           </motion.div>
+
+          <a href="https://www.kaggle.com/competitions/kaggriculture"
+            target="_blank" rel="noopener noreferrer"
+            className="inline-flex mt-3 px-4 py-2 bg-[#e8dcc8] text-[#1a1a1a] border-2 border-[#1a1a1a] font-[family-name:var(--font-bangers)]">
+            🥉 Kaggriculture · Kaggle Bronze Medal
+          </a>
 
           {/* Professional Summary */}
           <motion.p
@@ -101,6 +107,24 @@ export default function CoverPage() {
           >
             Azure &amp; Databricks Pipelines • LLM Fine-Tuning • Hybrid RAG • MCP Agents
           </motion.p>
+
+          <section aria-label="Featured projects" className="mt-8 text-left">
+            <h2 className="font-[family-name:var(--font-bangers)] text-xl text-center mb-3">LATEST BUILDS</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {[
+                { id: 10, name: "DataSentinel", detail: "Data quality, Git evidence and approved fixes", proof: "Live demo · 62 backend tests" },
+                { id: 11, name: "LumaLearn SmartReco", detail: "Grounded agentic recommendations and observable runs", proof: "Live product · GitHub Actions CI" },
+                { id: 12, name: "SasineSense AI", detail: "Scottish document intelligence with provenance", proof: "Human review · 85 tests" },
+              ].map((project) => (
+                <Link key={project.id} href={`/chapters/projects/#project-${project.id}`}
+                  className="block p-4 border-[3px] border-[#1a1a1a] bg-[#e8dcc8] hover:bg-[#d4a84b] transition-colors">
+                  <h3 className="font-[family-name:var(--font-bangers)] text-lg">{project.name}</h3>
+                  <p className="text-sm mt-1">{project.detail}</p>
+                  <p className="text-xs mt-2 font-semibold">{project.proof} →</p>
+                </Link>
+              ))}
+            </div>
+          </section>
 
           {/* Start Reading CTA */}
           <motion.div

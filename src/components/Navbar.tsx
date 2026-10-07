@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -22,6 +22,13 @@ const Navbar = () => {
   const pathname = usePathname();
 
   const isHomePage = pathname === "/";
+  useEffect(() => {
+    const closeMenus = (event: KeyboardEvent) => {
+      if (event.key === "Escape") { setIsChaptersOpen(false); setIsMobileMenuOpen(false); }
+    };
+    document.addEventListener("keydown", closeMenus);
+    return () => document.removeEventListener("keydown", closeMenus);
+  }, []);
 
   return (
     <>
@@ -56,6 +63,8 @@ const Navbar = () => {
             {/* Chapters Dropdown */}
             <div className="relative">
               <button
+                aria-expanded={isChaptersOpen}
+                aria-controls="chapters-menu"
                 onClick={() => setIsChaptersOpen(!isChaptersOpen)}
                 className="flex items-center gap-1 font-[family-name:var(--font-bangers)] text-sm text-[#8b7355] hover:text-[#1a1a1a] transition-colors"
               >
@@ -75,6 +84,7 @@ const Navbar = () => {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
+                    id="chapters-menu"
                     className="absolute top-full left-0 mt-2 w-48 bg-[#f5f0e1] border-[3px] border-[#1a1a1a] shadow-lg"
                   >
                     {chapters.map((chapter) => (
@@ -128,6 +138,8 @@ const Navbar = () => {
             className="md:hidden p-2 bg-[#f5f0e1] border-[3px] border-[#1a1a1a]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -141,6 +153,7 @@ const Navbar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            id="mobile-menu"
             className="fixed inset-0 z-40 bg-[#f5f0e1] pt-20 px-6 md:hidden"
           >
             <div className="flex flex-col gap-2">

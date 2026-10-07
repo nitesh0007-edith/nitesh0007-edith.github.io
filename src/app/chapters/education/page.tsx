@@ -11,11 +11,16 @@ const modules = [
   "Big Data Systems",
   "Information Retrieval",
   "Statistics & Probability",
-  "NLP",
-  "Data Systems",
 ];
 
 const awards = [
+  {
+    icon: "🥉",
+    title: "Bronze Medal, Kaggriculture",
+    detail: "Kaggle competition bronze medal",
+    year: "2026",
+    link: "https://www.kaggle.com/competitions/kaggriculture",
+  },
   {
     icon: "🥈",
     title: "2nd Place, Kaggle — $3,000 Prize",
@@ -100,8 +105,8 @@ export default function EducationPage() {
         </div>
 
         <NarratorBox position="top-left" className="mb-6">
-          Dissertation: Explainable &amp; Fair Multi-Stakeholder Recommender
-          (neuro-symbolic: GNN + Knowledge Graph + LLM) — targeting ACM RecSys 2026.
+          Dissertation: Provider Fairness in Multi-Stakeholder Recommendation
+          (neuro-symbolic: GNN + Knowledge Graph + LLM) — completed MSc research, submitted to ECIR 2027.
         </NarratorBox>
 
         <h3 className="font-[family-name:var(--font-bangers)] text-lg text-[#8b7355] mb-3">
@@ -168,6 +173,7 @@ export default function EducationPage() {
                 </div>
                 <p className="text-xs text-[#5c4d3c] font-[family-name:var(--font-courier-prime)]">
                   {award.detail}
+                    {award.link && <a href={award.link} target="_blank" rel="noopener noreferrer" className="block mt-2 underline text-[#4a6fa5]">View competition</a>}
                 </p>
               </div>
             </motion.div>

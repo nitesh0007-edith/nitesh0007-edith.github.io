@@ -26,6 +26,7 @@ const courierPrime = Courier_Prime({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nitesh0007-edith.github.io"),
   title: "Nitesh Ranjan Singh | Data & AI Engineer",
   description:
     "Data Engineer & AI Engineer — production data platforms and GenAI systems. 3+ years at IQVIA and Axtria building pharma analytics platforms; MSc Data Science at the University of Glasgow. Explore my comic-style portfolio.",
