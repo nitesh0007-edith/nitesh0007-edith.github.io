@@ -219,14 +219,15 @@ const caseFiles: Project[] = [
     icon: "🔬",
     status: "RESEARCH COMPLETE",
     brief:
-      "Completed MSc dissertation: provider-fair recommendation balancing accuracy, provider exposure and diversity, with grounded LLM explanations. Submitted to ECIR 2027.",
+      "Submitted MSc dissertation: Combining Fairness-Aware Training with Exposure-Aware Re-Ranking. Investigates where provider fairness belongs in a recommender pipeline, with separately evaluated grounded explanations.",
     approach: [
-      "Multi-objective loss: α·L_buyer (BPR accuracy) + β·L_seller (Gini fairness) + γ·L_platform (diversity/engagement)",
-      "GNN (LightGCN) over a knowledge graph built on the Amazon product dataset",
-      "Evaluation spans NDCG@10, Recall@10, seller-exposure Gini, and human-rated explanation faithfulness, comprehensibility, and persuasiveness",
+      "Crossed standard/provider-aware LightGCN training with/without exposure-debt re-ranking in a 2 × 2 factorial experiment across five datasets and ten random seeds",
+      "Compared NDCG@10, Recall@10, provider-exposure Gini and catalogue-normalised exposure entropy using paired tests; a diversity-training objective was examined in a separate ablation",
+      "Found dataset-dependent trade-offs: no universally best configuration, with training and re-ranking addressing different parts of the exposure problem",
+      "Generated knowledge-graph-conditioned buyer, provider and platform explanations with numeric-grounding checks; the explanation module is separate from recommendation scoring",
     ],
-    tools: ["PyTorch", "LightGCN", "Knowledge Graph", "LLM explainability"],
-    impact: "Completed MSc research; submitted to ECIR 2027",
+    tools: ["Python", "PyTorch Geometric", "LightGCN", "Exposure-aware re-ranking", "Knowledge Graph", "LLM explanations"],
+    impact: "MSc dissertation submitted September 2026; related ECIR 2027 abstract submitted October 2026, full paper in preparation",
   },
   {
     id: 7,

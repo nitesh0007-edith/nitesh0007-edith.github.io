@@ -9,7 +9,7 @@ const timelineEvents = [
     year: "2018–22",
     title: "Academic Foundation",
     description:
-      "B.Tech Computer Science (AI & ML) at UPES, India. Built the foundations in Python, SQL, and machine learning.",
+      "B.Tech Computer Science Engineering at UPES, India. Developed Digi-Attendance, a Python/OpenCV facial-recognition attendance application with a PyQt5 interface.",
     icon: "🎓",
   },
   {

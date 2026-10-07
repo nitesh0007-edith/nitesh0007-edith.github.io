@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import ChapterLayout from "@/components/ChapterLayout";
-import { ComicPanel, SoundEffect, NarratorBox } from "@/components/comic";
+import { ComicPanel, SoundEffect } from "@/components/comic";
 
 const modules = [
   "Machine Learning & AI",
@@ -16,8 +16,8 @@ const modules = [
 const awards = [
   {
     icon: "🥉",
-    title: "Bronze Medal, Kaggriculture",
-    detail: "Kaggle competition bronze medal",
+    title: "Kaggle Bronze Medal — Kaggriculture",
+    detail: "Awarded a bronze medal in the Kaggriculture competition on Kaggle.",
     year: "2026",
     link: "https://www.kaggle.com/competitions/kaggriculture",
   },
@@ -104,10 +104,33 @@ export default function EducationPage() {
           </div>
         </div>
 
-        <NarratorBox position="top-left" className="mb-6">
-          Dissertation: Provider Fairness in Multi-Stakeholder Recommendation
-          (neuro-symbolic: GNN + Knowledge Graph + LLM) — completed MSc research, submitted to ECIR 2027.
-        </NarratorBox>
+        <section aria-labelledby="dissertation-heading" className="mb-6 p-4 bg-[#e8dcc8]/50 border-2 border-[#1a1a1a]">
+          <h3 id="dissertation-heading" className="font-[family-name:var(--font-bangers)] text-xl text-[#1a1a1a] mb-2">
+            MSc dissertation
+          </h3>
+          <p className="font-semibold text-[#1a1a1a] mb-3">
+            Provider Fairness in Multi-Stakeholder Recommendation:
+            Combining Fairness-Aware Training with Exposure-Aware Re-Ranking
+          </p>
+          <p className="text-sm text-[#5c4d3c] mb-3">
+            Investigated where to introduce provider fairness in a recommender:
+            during LightGCN training, through exposure-aware re-ranking, or both.
+            The comparison covered five datasets and ten random seeds in a
+            controlled 2 × 2 experiment.
+          </p>
+          <ul className="list-disc pl-5 space-y-2 text-sm text-[#1a1a1a]">
+            <li>Evaluated recommendation accuracy, provider-exposure Gini and catalogue-normalised exposure entropy, with paired statistical comparisons.</li>
+            <li>Found that the useful fairness intervention depends on the dataset: training and re-ranking offer different trade-offs rather than one universal winner.</li>
+            <li>Generated buyer, provider and platform explanations grounded in knowledge-graph context, with numeric-grounding checks.</li>
+          </ul>
+          <p className="text-sm mt-4 font-semibold text-[#4a6fa5]">
+            Dissertation submitted September 2026 · Supervisor: Dr Graham McDonald
+          </p>
+          <p className="text-xs mt-2 text-[#5c4d3c]">
+            Related ECIR 2027 short paper in preparation; abstract submitted October 2026.
+          </p>
+          <a href="/chapters/projects/#project-6" className="inline-block mt-3 text-sm underline text-[#4a6fa5]">Explore the research case study</a>
+        </section>
 
         <h3 className="font-[family-name:var(--font-bangers)] text-lg text-[#8b7355] mb-3">
           MODULES:
@@ -135,7 +158,7 @@ export default function EducationPage() {
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
             <h2 className="font-[family-name:var(--font-bangers)] text-2xl text-[#1a1a1a]">
-              B.Tech Computer Science (AI &amp; ML)
+              B.Tech Computer Science Engineering
             </h2>
             <p className="font-[family-name:var(--font-bangers)] text-lg text-[#4a6fa5]">
               UPES, India
@@ -145,6 +168,25 @@ export default function EducationPage() {
             Jun 2018 – May 2022
           </span>
         </div>
+        <p className="mt-4 text-sm text-[#5c4d3c]">
+          Built a foundation in computer science through practical software development,
+          with a final-year project applying Python and computer vision to attendance management.
+        </p>
+        <section aria-labelledby="btech-project-heading" className="mt-4 p-4 bg-[#e8dcc8]/50 border-2 border-[#1a1a1a]">
+          <h3 id="btech-project-heading" className="font-[family-name:var(--font-bangers)] text-xl mb-2">
+            Final-year project: Digi-Attendance
+          </h3>
+          <p className="text-sm text-[#1a1a1a]">
+            Developed a facial-recognition attendance application using Python,
+            OpenCV, face_recognition and PyQt5. It processed live video and facial
+            encodings to automate attendance capture through a desktop interface.
+          </p>
+          <div className="flex flex-wrap gap-2 mt-3">
+            {["Python", "OpenCV", "face_recognition", "PyQt5", "Computer vision"].map((tool) => (
+              <span key={tool} className="item-tag">{tool}</span>
+            ))}
+          </div>
+        </section>
       </ComicPanel>
 
       {/* Awards Strip */}
