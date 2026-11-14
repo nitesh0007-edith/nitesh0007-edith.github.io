@@ -1,7 +1,6 @@
 # Nitesh Ranjan Singh — Portfolio
 
-Comic-book / manga-themed portfolio built with Next.js 15, Tailwind CSS 4, and Framer Motion.
-Statically exported and deployed to GitHub Pages via GitHub Actions.
+A bold, illustrated Data & AI Engineering portfolio built with Next.js 15 and Tailwind CSS 4. Orange display typography, an original manga hero, pastel sections, and sketch-style details frame real projects and experience.
 
 ## Development
 
@@ -10,10 +9,23 @@ npm install
 npm run dev
 ```
 
-## Build
+## Validation and build
 
 ```bash
-npm run build   # static export to out/
+npx tsc --noEmit
+npm run build
 ```
 
-Content source of truth: `info.md`.
+The production site exports to `out/`. The existing GitHub Actions workflow deploys that directory to GitHub Pages when changes are pushed to `main`.
+
+## Content and design
+
+- `src/lib/portfolio.ts`: projects, experience, modules, and awards.
+- `src/components/Portfolio.tsx`: homepage sections and their interactions.
+- `src/app/globals.css`: visual styles and responsive layouts.
+- `public/images/hero-manga.webp`: original transparent hero illustration.
+- `docs/design-notes.md`: reference, artwork prompt, and verification notes.
+
+The existing `/chapters/*/` routes render the same redesigned sections. Project links such as `/chapters/projects/#project-10` continue to open the corresponding project details.
+
+Private biographical source: `info.md` (ignored by Git).

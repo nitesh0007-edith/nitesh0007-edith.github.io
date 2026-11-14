@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Bangers, Comic_Neue, Courier_Prime } from "next/font/google";
+import { Anton, Comic_Neue, Courier_Prime } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const bangers = Bangers({
+const displayFont = Anton({
   weight: "400",
-  variable: "--font-bangers",
+  variable: "--font-anton",
   subsets: ["latin"],
   display: "swap",
 });
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://nitesh0007-edith.github.io"),
   title: "Nitesh Ranjan Singh | Data & AI Engineer",
   description:
-    "Data Engineer & AI Engineer — production data platforms and GenAI systems. 3+ years at IQVIA and Axtria building pharma analytics platforms; MSc Data Science at the University of Glasgow. Explore my comic-style portfolio.",
+    "Data & AI Engineer in Glasgow. Explore production data platforms, grounded AI systems, award-winning retrieval research and selected work by Nitesh Ranjan Singh.",
   keywords: [
     "Data Engineering",
     "GenAI",
@@ -58,10 +58,13 @@ export default function RootLayout({
   return (
     <html lang="en-GB">
       <body
-        className={`${bangers.variable} ${comicNeue.variable} ${courierPrime.variable} antialiased`}
+        className={`${displayFont.variable} ${comicNeue.variable} ${courierPrime.variable} antialiased`}
       >
+        <a className="skip-link" href="#main-content">
+          Skip to content
+        </a>
         <Navbar />
-        <main className="relative flex min-h-screen flex-col">{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
       </body>
     </html>

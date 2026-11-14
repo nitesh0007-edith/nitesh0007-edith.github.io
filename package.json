@@ -1,7 +1,7 @@
 {
   "name": "nitesh-portfolio",
   "version": "1.0.0",
-  "description": "Nitesh Ranjan Singh's Data & AI Engineer Portfolio - Comic Book Theme",
+  "description": "Nitesh Ranjan Singh's Data & AI Engineer Portfolio",
   "private": true,
   "scripts": {
     "dev": "next dev",

@@ -1,185 +1,25 @@
-"use client";
+import {
+  Hero,
+  About,
+  Recognition,
+  Toolkit,
+  Experience,
+  Projects,
+  Education,
+  Contact,
+} from "@/components/Portfolio";
 
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { BookOpen, Briefcase, Code2, FolderOpen, Mail, GraduationCap } from "lucide-react";
-import { MangaAvatar, SoundEffect } from "@/components/comic";
-
-const chapters = [
-  { href: "/chapters/origin", label: "About Me", icon: BookOpen },
-  { href: "/chapters/skills", label: "Skills", icon: Code2 },
-  { href: "/chapters/experience", label: "Experience", icon: Briefcase },
-  { href: "/chapters/projects", label: "Projects", icon: FolderOpen },
-  { href: "/chapters/education", label: "Education", icon: GraduationCap },
-  { href: "/chapters/contact", label: "Contact", icon: Mail },
-];
-
-export default function CoverPage() {
+export default function Home() {
   return (
-    <div className="min-h-screen bg-[#f5f0e1] flex flex-col">
-      {/* Main Cover Content */}
-      <main className="flex-1 flex items-center justify-center px-4 py-20 relative overflow-hidden">
-        {/* Floating manga decorations */}
-        <span className="absolute top-24 left-[12%] text-3xl text-[#d4a84b] float-slow select-none hidden sm:block" aria-hidden="true">✦</span>
-        <span className="absolute top-40 right-[15%] text-2xl text-[#b5544a] float-slower select-none hidden sm:block" aria-hidden="true">✚</span>
-        <span className="absolute bottom-36 left-[18%] text-xl text-[#4a6fa5] float-slower select-none hidden sm:block" aria-hidden="true">●</span>
-        <span className="absolute bottom-52 right-[10%] text-3xl text-[#7a5c91] float-slow select-none hidden sm:block" aria-hidden="true">✦</span>
-        <span className="absolute top-1/2 left-[6%] text-lg text-[#8b7355] float-slow select-none hidden lg:block" aria-hidden="true">✚</span>
-        <span className="absolute top-1/3 right-[6%] text-lg text-[#6b8e4e] float-slower select-none hidden lg:block" aria-hidden="true">●</span>
-
-        <div className="max-w-4xl mx-auto text-center relative">
-          {/* Comic Title Badge */}
-          <motion.div
-            initial={{ scale: 0, rotate: -10 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            className="mb-8"
-          >
-            <SoundEffect text="ISSUE #1" size="md" color="red" rotate={-3} />
-          </motion.div>
-
-          {/* Avatar with sunburst backdrop */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="mb-8 flex justify-center"
-          >
-            <div className="relative flex items-center justify-center">
-              <div
-                className="sunburst absolute w-[26rem] h-[26rem] md:w-[30rem] md:h-[30rem] opacity-25"
-                aria-hidden="true"
-              />
-              <MangaAvatar expression="determined" size="xl" showSparkles />
-            </div>
-          </motion.div>
-
-          {/* Title */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-          >
-            <h1 className="font-[family-name:var(--font-bangers)] text-5xl md:text-7xl lg:text-8xl text-[#1a1a1a] tracking-wide mb-2">
-              NITESH RANJAN SINGH
-            </h1>
-            <div className="flex justify-center gap-2 mb-4">
-              <span className="h-1 w-16 bg-[#b5544a]" />
-              <span className="h-1 w-8 bg-[#d4a84b]" />
-              <span className="h-1 w-16 bg-[#b5544a]" />
-            </div>
-            <p className="font-[family-name:var(--font-courier-prime)] text-lg md:text-xl text-[#8b7355]">
-              I build production data platforms and GenAI systems — from
-              10M-record pipelines for global pharma to fine-tuned LLMs served at scale.
-            </p>
-          </motion.div>
-
-          {/* Status Badge */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className="mt-6 flex flex-wrap justify-center gap-3"
-          >
-            <span className="inline-block px-4 py-2 bg-[#4a6fa5] text-white font-[family-name:var(--font-bangers)] text-sm border-2 border-[#1a1a1a]">
-              MSc Data Science @ University of Glasgow
-            </span>
-            <span className="inline-block px-4 py-2 bg-[#6b8e4e] text-white font-[family-name:var(--font-bangers)] text-sm border-2 border-[#1a1a1a]">
-              Open to Data / AI Engineer roles in Scotland &amp; the UK
-            </span>
-            <span className="inline-block px-4 py-2 bg-[#d4a84b] text-[#1a1a1a] font-[family-name:var(--font-bangers)] text-sm border-2 border-[#1a1a1a]">
-              🥈 2nd Place, Kaggle — $3,000 Prize (Team HyperX)
-            </span>
-          </motion.div>
-
-          <a href="https://www.kaggle.com/competitions/kaggriculture"
-            target="_blank" rel="noopener noreferrer"
-            className="inline-flex mt-3 px-4 py-2 bg-[#e8dcc8] text-[#1a1a1a] border-2 border-[#1a1a1a] font-[family-name:var(--font-bangers)]">
-            🥉 Kaggriculture · Kaggle Bronze Medal
-          </a>
-
-          {/* Professional Summary */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.7 }}
-            className="mt-4 text-[#5c4d3c] text-sm font-[family-name:var(--font-courier-prime)]"
-          >
-            Azure &amp; Databricks Pipelines • LLM Fine-Tuning • Hybrid RAG • MCP Agents
-          </motion.p>
-
-          <section aria-label="Featured projects" className="mt-8 text-left">
-            <h2 className="font-[family-name:var(--font-bangers)] text-xl text-center mb-3">LATEST BUILDS</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {[
-                { id: 10, name: "DataSentinel", detail: "Data quality, Git evidence and approved fixes", proof: "Live demo · 62 backend tests" },
-                { id: 11, name: "LumaLearn SmartReco", detail: "Grounded agentic recommendations and observable runs", proof: "Live product · GitHub Actions CI" },
-                { id: 12, name: "SasineSense AI", detail: "Scottish document intelligence with provenance", proof: "Human review · 85 tests" },
-              ].map((project) => (
-                <Link key={project.id} href={`/chapters/projects/#project-${project.id}`}
-                  className="block p-4 border-[3px] border-[#1a1a1a] bg-[#e8dcc8] hover:bg-[#d4a84b] transition-colors">
-                  <h3 className="font-[family-name:var(--font-bangers)] text-lg">{project.name}</h3>
-                  <p className="text-sm mt-1">{project.detail}</p>
-                  <p className="text-xs mt-2 font-semibold">{project.proof} →</p>
-                </Link>
-              ))}
-            </div>
-          </section>
-
-          {/* Start Reading CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            className="mt-10"
-          >
-            <Link
-              href="/chapters/origin"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-[#b5544a] text-white border-[3px] border-[#1a1a1a] font-[family-name:var(--font-bangers)] text-2xl comic-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none hover:-rotate-1 transition-all"
-            >
-              <BookOpen size={24} />
-              Start Reading
-            </Link>
-          </motion.div>
-
-          {/* Quick Access Menu */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-            className="mt-12"
-          >
-            <p className="font-[family-name:var(--font-bangers)] text-sm text-[#8b7355] mb-4">
-              QUICK ACCESS
-            </p>
-            <div className="flex flex-wrap justify-center gap-3">
-              {chapters.map((chapter, index) => (
-                <motion.div
-                  key={chapter.href}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.1 + index * 0.1 }}
-                >
-                  <Link
-                    href={chapter.href}
-                    className="flex items-center gap-2 px-4 py-2 bg-[#f5f0e1] border-[2px] border-[#1a1a1a] font-[family-name:var(--font-bangers)] text-sm text-[#5c4d3c] hover:bg-[#d4a84b] hover:text-[#1a1a1a] transition-colors"
-                  >
-                    <chapter.icon size={16} />
-                    {chapter.label}
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </main>
-
-      {/* Footer Badge */}
-      <footer className="py-4 text-center border-t-4 border-[#1a1a1a] bg-[#1a1a1a]">
-        <p className="font-[family-name:var(--font-bangers)] text-xs text-[#8b7355] tracking-widest">
-          GLASGOW, SCOTLAND • DATA ENGINEERING • GENAI
-        </p>
-      </footer>
-    </div>
+    <>
+      <Hero />
+      <About />
+      <Recognition />
+      <Toolkit />
+      <Experience />
+      <Projects />
+      <Education />
+      <Contact />
+    </>
   );
 }
