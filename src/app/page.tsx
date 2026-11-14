@@ -6,6 +6,7 @@ import {
   Experience,
   Projects,
   Education,
+  PhotoJournal,
   Contact,
 } from "@/components/Portfolio";
 
@@ -19,6 +20,7 @@ export default function Home() {
       <Experience />
       <Projects />
       <Education />
+      <PhotoJournal />
       <Contact />
     </>
   );

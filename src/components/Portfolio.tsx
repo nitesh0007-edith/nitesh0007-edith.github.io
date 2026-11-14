@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { PersonalPhoto, PhotoFrame } from "@/components/PersonalPhoto";
 import {
   ArrowDown,
   ArrowDownRight,
@@ -153,14 +154,11 @@ export function About() {
             BY DESIGN.
           </span>
           <div className="portrait-frame">
-            <Image
-              src="/images/avatar.jpg"
-              alt="Illustrated portrait of Nitesh in Glasgow"
-              width={640}
-              height={640}
+            <PersonalPhoto
+              photo="portrait"
               sizes="(max-width: 700px) 85vw, 38vw"
             />
-            <span className="photo-caption">A new chapter in Glasgow ↗</span>
+            <span className="photo-caption">Me, between ideas. ↗</span>
           </div>
           <span className="portrait-sticker">
             <Sparkles size={18} /> BUILT ON CURIOSITY
@@ -174,8 +172,7 @@ export function About() {
             Serious about data.
             <br />
             <span>
-              Playful about
-              <br />
+              Playful about <br />
               possibilities.
             </span>
           </h2>
@@ -230,22 +227,31 @@ export function Recognition() {
             Building, competing, and learning with people who push me further.
           </p>
         </div>
-        <div className="award-grid">
-          {featured.map((award, index) => (
-            <article key={award.title} className="award-card">
-              <div className="award-top">
-                <Trophy size={27} strokeWidth={1.5} />
-                <span>
-                  {award.year} / 0{index + 1}
+        <div className="recognition-layout">
+          <PhotoFrame
+            photo="codeolympics"
+            label="CODEOLYMPICS / 2026"
+            caption="A good day, shared with good company."
+            sizes="(max-width: 800px) 90vw, 55vw"
+            className="medal-photo"
+          />
+          <div className="award-grid award-grid-with-photo">
+            {featured.map((award, index) => (
+              <article key={award.title} className="award-card">
+                <div className="award-top">
+                  <Trophy size={27} strokeWidth={1.5} />
+                  <span>
+                    {award.year} / 0{index + 1}
+                  </span>
+                </div>
+                <h3>{award.title}</h3>
+                <p>{award.detail}</p>
+                <span className="award-mark" aria-hidden="true">
+                  {index === 0 ? "2ND" : index === 1 ? "RUNNER-UP" : "GOLD"}
                 </span>
-              </div>
-              <h3>{award.title}</h3>
-              <p>{award.detail}</p>
-              <span className="award-mark" aria-hidden="true">
-                {index === 0 ? "2ND" : index === 1 ? "RUNNER-UP" : "GOLD"}
-              </span>
-            </article>
-          ))}
+              </article>
+            ))}
+          </div>
         </div>
         <a className="text-link" href="#education">
           Scholarships, medals & more <ArrowUpRight size={18} />
@@ -494,6 +500,23 @@ const projectTypes: Record<number, string> = {
   8: "LAKEHOUSE ARCHITECTURE",
 };
 function ProjectVisual({ id }: { id: number }) {
+  if (id === 6) {
+    return (
+      <div
+        className="project-art art-6 research-project-photo"
+        aria-hidden="true"
+      >
+        <PersonalPhoto
+          photo="dissertation"
+          sizes="(max-width: 650px) 90vw, 33vw"
+        />
+        <span className="art-caption">
+          MSC RESEARCH / THE FINISHED DISSERTATION
+        </span>
+        <span className="art-corner">↗</span>
+      </div>
+    );
+  }
   return (
     <div className={`project-art art-${id}`} aria-hidden="true">
       <span className="art-grid" />
@@ -849,6 +872,55 @@ export function Education() {
             ))}
           </div>
         </div>
+        <div className="research-memory">
+          <PhotoFrame
+            photo="dissertation"
+            label="RESEARCH / SEPTEMBER 2026"
+            caption="From experiments to a finished dissertation."
+            sizes="(max-width: 650px) 90vw, 40vw"
+            className="dissertation-photo"
+          />
+          <div>
+            <span className="eyebrow">THE WORK, OFF-SCREEN</span>
+            <h3>
+              A question worth
+              <br />
+              staying curious about.
+            </h3>
+            <p>
+              Where should provider fairness sit in a recommendation pipeline?
+              My MSc dissertation examined fairness-aware training and
+              exposure-aware re-ranking, with grounded explanations evaluated
+              separately.
+            </p>
+            <a className="text-link" href="/#project-6">
+              Explore the research <ArrowUpRight size={17} />
+            </a>
+          </div>
+        </div>
+        <div className="university-memories">
+          <div className="memory-heading">
+            <span className="eyebrow">THE GLASGOW CHAPTER</span>
+            <h3>More than the coursework.</h3>
+            <p>Shared milestones. New people. A place to keep learning.</p>
+          </div>
+          <div className="university-photos">
+            <PhotoFrame
+              photo="scholarship-reception"
+              label="UNIVERSITY / SCHOLARSHIP RECEPTION"
+              caption="A milestone worth celebrating."
+              sizes="(max-width: 650px) 90vw, 32vw"
+              className="scholarship-photo"
+            />
+            <PhotoFrame
+              photo="glasgow-community"
+              label="UNIVERSITY / COMMUNITY"
+              caption="A bigger picture of life at Glasgow."
+              sizes="(max-width: 650px) 90vw, 60vw"
+              className="community-photo"
+            />
+          </div>
+        </div>
         <aside className="mentoring-note">
           <div>
             <span className="eyebrow">PASSING IT FORWARD</span>
@@ -867,6 +939,75 @@ export function Education() {
             Book a 1:1 <ArrowUpRight size={16} />
           </a>
         </aside>
+      </div>
+    </section>
+  );
+}
+
+export function PhotoJournal() {
+  const moments = [
+    {
+      photo: "city-walks" as const,
+      label: "01 / CITY WALKS",
+      caption: "Taking the scenic route.",
+    },
+    {
+      photo: "coastal-detour" as const,
+      label: "02 / COASTAL DETOURS",
+      caption: "A little room to breathe.",
+    },
+    {
+      photo: "winter-hike" as const,
+      label: "03 / WINTER PATHS",
+      caption: "A different kind of challenge.",
+    },
+    {
+      photo: "london-after-dark" as const,
+      label: "04 / LONDON AFTER DARK",
+      caption: "A change of scenery.",
+    },
+    {
+      photo: "campus-friends" as const,
+      label: "05 / CAMPUS DAYS",
+      caption: "Better with good company.",
+    },
+  ];
+  return (
+    <section
+      id="life"
+      className="journal-section"
+      aria-labelledby="journal-title"
+    >
+      <div className="section-shell">
+        <div className="journal-heading">
+          <div>
+            <SectionLabel number="07">AWAY FROM THE KEYBOARD</SectionLabel>
+            <h2 id="journal-title">
+              A FEW OTHER
+              <br />
+              <span>CHAPTERS.</span>
+            </h2>
+          </div>
+          <p>
+            City walks, coastal detours, snowy paths.
+            <br />
+            And good company along the way.
+          </p>
+        </div>
+        <div className="journal-grid">
+          {moments.map((moment) => (
+            <PhotoFrame
+              key={moment.photo}
+              {...moment}
+              sizes="(max-width: 650px) 50vw, 20vw"
+              className={`journal-${moment.photo}`}
+            />
+          ))}
+        </div>
+        <p className="journal-footnote">
+          A few frames from life outside the code. Click any photo for the full
+          scene. <ArrowUpRight size={16} />
+        </p>
       </div>
     </section>
   );
@@ -895,7 +1036,7 @@ export function Contact() {
   return (
     <section id="contact" className="contact-section">
       <div className="section-shell">
-        <SectionLabel number="07">LET’S MAKE SOMETHING USEFUL</SectionLabel>
+        <SectionLabel number="08">LET’S MAKE SOMETHING USEFUL</SectionLabel>
         <div className="contact-grid">
           <div>
             <h2>

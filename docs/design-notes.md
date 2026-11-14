@@ -23,3 +23,7 @@ Final generation prompt:
 - Project dialogs, Escape dismissal, focus restoration, and direct links.
 - All six existing chapter routes.
 - Mobile navigation and reduced-motion preference.
+
+## Personal photographs
+
+The About portrait now uses a real photograph. Selected user-supplied photographs also illustrate CodeOlympics, the Glasgow university chapter, the dissertation and a personal photo journal. See [the placement analysis](photo-placement.md) for the full selection and decisions about duplicates and alternate shots.

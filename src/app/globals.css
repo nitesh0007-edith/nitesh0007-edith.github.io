@@ -2203,3 +2203,406 @@ h2,
     display: block;
   }
 }
+
+/* Personal photographs: responsive renditions retain the full source composition. */
+.personal-photo {
+  display: block;
+  width: 100%;
+}
+.personal-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.portrait-frame .personal-photo img {
+  object-position: 50% 35%;
+}
+.personal-frame {
+  min-width: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--ink);
+  background: white;
+  box-shadow: 5px 5px 0 var(--ink);
+}
+.personal-photo-link {
+  position: relative;
+  display: block;
+  min-height: 0;
+  overflow: hidden;
+  background: #e9e7e0;
+}
+.personal-photo-link .personal-photo {
+  height: 100%;
+}
+.personal-photo-link img {
+  transition: transform 0.35s ease;
+}
+.personal-photo-link:hover img {
+  transform: scale(1.025);
+}
+.photo-expand {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  background: #fffffff0;
+  box-shadow: 2px 2px 0 #0005;
+}
+.personal-frame figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 18px 20px;
+  border-top: 2px solid var(--ink);
+  font-family: var(--font-comic-neue), cursive;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.personal-frame .photo-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  line-height: 1.5;
+  color: #666;
+}
+.recognition-layout {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 28px;
+  margin: 44px 0 32px;
+  align-items: stretch;
+}
+.medal-photo .personal-photo-link {
+  flex: 1;
+  aspect-ratio: 1.35;
+}
+.medal-photo img {
+  object-position: 50% 53%;
+}
+.award-grid-with-photo {
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin: 0;
+}
+.award-grid-with-photo .award-card {
+  min-height: 0;
+  padding: 18px 20px 24px;
+  transform: none;
+  box-shadow: 3px 3px 0;
+}
+.award-grid-with-photo .award-top {
+  margin-bottom: 10px;
+}
+.award-grid-with-photo .award-top svg {
+  width: 21px;
+  height: 21px;
+}
+.award-grid-with-photo .award-card h3 {
+  max-width: none;
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+.award-grid-with-photo .award-card p {
+  font-size: 11px;
+  max-width: none;
+}
+.award-grid-with-photo .award-mark {
+  font-size: 32px;
+}
+.research-project-photo .personal-photo {
+  height: 100%;
+}
+.research-project-photo img {
+  object-position: 25% 95%;
+}
+.research-project-photo .art-caption {
+  background: #fffffff0;
+  padding: 7px 8px;
+  left: 10px;
+  top: 10px;
+  letter-spacing: 0.6px;
+}
+.research-project-photo .art-corner {
+  background: white;
+  padding: 0 5px;
+  line-height: 1.2;
+}
+.research-memory {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 55px;
+  margin-top: 55px;
+  padding-top: 45px;
+  border-top: 1px solid #cfc7b2;
+}
+.research-memory > * {
+  min-width: 0;
+}
+.research-memory h3,
+.memory-heading h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(28px, 3vw, 39px);
+  font-weight: 800;
+  letter-spacing: -1.4px;
+  line-height: 1.08;
+  margin: 18px 0;
+}
+.research-memory p,
+.memory-heading p {
+  color: #625c4e;
+  font-size: 13px;
+  line-height: 1.9;
+  margin: 20px 0;
+}
+.dissertation-photo .personal-photo-link {
+  aspect-ratio: 1.2;
+}
+.dissertation-photo img {
+  object-position: 50% 100%;
+}
+.university-memories {
+  margin-top: 65px;
+  padding-top: 40px;
+  border-top: 1px solid #cfc7b2;
+}
+.memory-heading p {
+  margin-bottom: 32px;
+}
+.university-photos {
+  display: grid;
+  grid-template-columns: 0.75fr 1.4fr;
+  gap: 28px;
+  align-items: end;
+}
+.scholarship-photo {
+  transform: rotate(-1deg);
+}
+.scholarship-photo .personal-photo-link {
+  aspect-ratio: 3 / 4;
+}
+.community-photo {
+  transform: rotate(1deg);
+}
+.community-photo .personal-photo-link {
+  aspect-ratio: 3 / 2;
+}
+.journal-section {
+  background: #e9f0e8;
+  border-top: 2px solid var(--ink);
+}
+.journal-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 35px;
+}
+.journal-heading h2 span {
+  color: #527248;
+}
+.journal-heading > p {
+  font-size: 13px;
+  color: #4a5d43;
+  line-height: 1.8;
+  margin: 0 0 4px;
+}
+.journal-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 17px;
+  margin-top: 45px;
+}
+.journal-grid .personal-photo-link {
+  aspect-ratio: 0.7;
+}
+.journal-grid .personal-frame:nth-child(odd) {
+  transform: rotate(-1.5deg);
+}
+.journal-grid .personal-frame:nth-child(even) {
+  transform: rotate(1.5deg);
+}
+.journal-grid figcaption {
+  flex: 1;
+  padding: 14px 12px;
+  font-size: 17px;
+}
+.journal-grid .photo-label {
+  font-size: 7px;
+  letter-spacing: 0.5px;
+}
+.journal-footnote {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  line-height: 1.7;
+  color: #4a5d43;
+  margin-top: 30px;
+}
+.journal-footnote svg {
+  flex-shrink: 0;
+}
+@media (max-width: 1100px) {
+  .recognition-layout {
+    gap: 22px;
+  }
+  .research-memory {
+    gap: 35px;
+  }
+  .journal-grid {
+    gap: 12px;
+  }
+  .journal-grid figcaption {
+    font-size: 15px;
+    padding: 12px 10px;
+  }
+}
+@media (max-width: 800px) {
+  .recognition-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .medal-photo .personal-photo-link {
+    aspect-ratio: 3 / 2;
+  }
+  .award-grid-with-photo {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .award-grid-with-photo .award-card {
+    padding: 15px 13px 30px;
+  }
+  .award-grid-with-photo .award-card h3 {
+    font-size: 17px;
+  }
+  .research-memory {
+    gap: 28px;
+  }
+  .university-photos {
+    gap: 20px;
+    grid-template-columns: 0.85fr 1.25fr;
+  }
+  .personal-frame figcaption {
+    padding: 15px;
+    font-size: 18px;
+  }
+  .journal-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .journal-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+  .journal-grid figcaption {
+    font-size: 17px;
+    padding: 14px;
+  }
+  .journal-grid .personal-frame:nth-child(4),
+  .journal-grid .personal-frame:nth-child(5) {
+    transform: none;
+  }
+}
+@media (max-width: 650px) {
+  .recognition-layout {
+    margin-top: 30px;
+  }
+  .medal-photo .personal-photo-link {
+    aspect-ratio: 1.25;
+  }
+  .medal-photo img {
+    object-position: 52% 50%;
+  }
+  .award-grid-with-photo {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .award-grid-with-photo .award-card {
+    padding: 20px 22px 28px;
+  }
+  .award-grid-with-photo .award-card h3 {
+    font-size: 20px;
+  }
+  .award-grid-with-photo .award-card p {
+    font-size: 12px;
+  }
+  .personal-frame figcaption {
+    font-size: 19px;
+  }
+  .research-memory {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 42px;
+    padding-top: 35px;
+  }
+  .research-memory h3 {
+    font-size: 32px;
+  }
+  .university-memories {
+    margin-top: 42px;
+  }
+  .university-photos {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .scholarship-photo {
+    width: 88%;
+    margin: 0 auto;
+  }
+  .scholarship-photo .personal-photo-link {
+    aspect-ratio: 3 / 4;
+  }
+  .journal-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 16px;
+    margin-top: 34px;
+  }
+  .journal-grid figcaption {
+    font-size: 17px;
+    padding: 12px 10px;
+  }
+  .journal-grid .personal-frame:last-child {
+    grid-column: 1 / -1;
+    transform: rotate(-1deg);
+  }
+  .journal-campus-friends .personal-photo-link {
+    aspect-ratio: 1.45;
+  }
+  .journal-campus-friends img {
+    object-position: 50% 88%;
+  }
+  .journal-grid .photo-expand {
+    width: 26px;
+    height: 26px;
+    bottom: 8px;
+    right: 8px;
+  }
+  .journal-heading h2 {
+    font-size: 52px;
+  }
+}
+@media (max-width: 360px) {
+  .journal-heading h2 {
+    font-size: 46px;
+  }
+  .journal-grid {
+    gap: 20px 12px;
+  }
+  .journal-grid figcaption {
+    font-size: 15px;
+    padding: 11px 8px;
+  }
+  .journal-grid .photo-label {
+    font-size: 6px;
+  }
+}
