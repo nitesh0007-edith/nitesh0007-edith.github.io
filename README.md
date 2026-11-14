@@ -26,6 +26,7 @@ The production site exports to `out/`. The existing GitHub Actions workflow depl
 - `public/images/hero-manga.webp`: original transparent hero illustration.
 - `docs/design-notes.md`: reference, artwork prompt, and verification notes.
 - `docs/portfolio-story.md`: current narrative, project selection and research/channel evidence.
+- `docs/community-testimonials.md`: Topmate review provenance, excerpts and free-session link.
 
 The existing `/chapters/*/` routes render the same redesigned sections. Project links such as `/chapters/projects/#project-10` continue to open the corresponding project details.
 

@@ -9,7 +9,7 @@ const links = [
   ["Experience", "experience"],
   ["Research", "research"],
   ["Projects", "projects"],
-  ["YouTube", "youtube"],
+  ["Community", "community"],
   ["Contact", "contact"],
 ];
 

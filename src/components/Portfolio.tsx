@@ -12,7 +12,7 @@ import {
   Code2,
   Database,
   TrendingUp,
-  Video,
+  Star,
   Youtube,
   FlaskConical,
   ExternalLink,
@@ -35,6 +35,9 @@ import {
   projectCategories,
   channelVideos,
   YOUTUBE,
+  TOPMATE,
+  FREE_MENTORING,
+  testimonials,
   type ProjectCategory,
   type Project,
 } from "@/lib/portfolio";
@@ -1027,19 +1030,15 @@ export function Education() {
         <aside className="mentoring-note">
           <div>
             <span className="eyebrow">MENTORING</span>
-            <h3>Talking through the next step.</h3>
+            <h3>Sharing what I’ve learned.</h3>
             <p>
-              Mentored 50+ students on UK Master’s admissions and Data
-              Engineering / GenAI careers via Topmate, with a 5/5 rating.
+              I offer free career guidance on Topmate alongside my YouTube
+              lessons. Read feedback from past sessions and find a free 1:1
+              below.
             </p>
           </div>
-          <a
-            className="sketch-button"
-            href="https://topmate.io/nitesh2039"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Book a 1:1 <ArrowUpRight size={16} />
+          <a className="sketch-button" href="/#community">
+            Mentoring & feedback <ArrowUpRight size={16} />
           </a>
         </aside>
       </div>
@@ -1048,33 +1047,39 @@ export function Education() {
 }
 
 export function YouTubeChannel() {
+  const [showAllReviews, setShowAllReviews] = useState(false);
+  const visibleReviews = showAllReviews
+    ? testimonials
+    : testimonials.filter((review) => review.featured);
+  const averageRating =
+    testimonials.reduce((total, review) => total + review.rating, 0) /
+    testimonials.length;
   return (
     <section
       id="youtube"
       className="youtube-section"
       aria-labelledby="youtube-title"
     >
-      <div className="section-shell">
+      <div id="community" className="section-shell">
         <div className="youtube-heading">
           <div>
-            <SectionLabel number="08">
-              NITESH EXPLAINS AI · YOUTUBE
-            </SectionLabel>
+            <SectionLabel number="08">TEACHING & FREE MENTORING</SectionLabel>
             <h2 id="youtube-title">
-              I TEACH WHAT
+              I SHARE WHAT
               <br />
-              <span>I’M LEARNING.</span>
+              <span>I’VE LEARNED.</span>
             </h2>
           </div>
           <div className="youtube-story">
             <p>
-              Recording a lesson makes me check every step. On my channel, I use
-              small numerical examples to connect the maths to code, from
-              vectors and PCA to gradients and backpropagation.
+              On Nitesh Explains AI, I work through the maths and code with
+              small numerical examples. On Topmate, I help people think through
+              data careers and studying in the UK.
             </p>
             <p>
-              I want someone watching to be able to work through the
-              calculation, rather than just remember the formula.
+              Both are ways to share what I’ve learned, whether that means
+              working through a calculation in a video or talking through
+              someone’s next step in a free career session.
             </p>
             <a
               className="text-link"
@@ -1118,6 +1123,133 @@ export function YouTubeChannel() {
               </div>
             </a>
           ))}
+        </div>
+        <div className="community-mentoring">
+          <div>
+            <span className="eyebrow">FREE CAREER GUIDANCE · TOPMATE</span>
+            <h3>Some questions need a conversation.</h3>
+            <p>
+              A lesson can explain a concept. A 1:1 gives us time to talk about
+              your situation: which skills to work on, how to present your
+              experience, or how to approach a UK Master’s application. I draw
+              on my own experience in data engineering and moving from India to
+              Glasgow.
+            </p>
+            <p>
+              My career strategy session on Topmate is free. If that would be
+              useful, you’re welcome to book a time.
+            </p>
+          </div>
+          <div className="mentoring-actions">
+            <a
+              className="sketch-button"
+              href={FREE_MENTORING}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Book a free career 1:1 <ArrowUpRight size={17} />
+            </a>
+            <a
+              className="text-link"
+              href={TOPMATE}
+              target="_blank"
+              rel="noreferrer"
+            >
+              My Topmate profile <ArrowUpRight size={17} />
+            </a>
+          </div>
+        </div>
+        <div className="testimonials-heading">
+          <div>
+            <span className="eyebrow">FEEDBACK FROM TOPMATE SESSIONS</span>
+            <h3>What people took away.</h3>
+          </div>
+          <a
+            className="rating-summary"
+            href={TOPMATE}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`${averageRating} out of 5 from ${testimonials.length} service ratings on Topmate`}
+          >
+            <Star size={24} fill="currentColor" aria-hidden="true" />
+            <strong>{averageRating}/5</strong>
+            <span>{testimonials.length} service ratings</span>
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </a>
+        </div>
+        <div className="testimonial-grid" id="topmate-reviews">
+          {visibleReviews.map((review) => (
+            <figure
+              className="testimonial-card"
+              key={`${review.name}-${review.date}`}
+            >
+              <div
+                className="review-rating"
+                role="img"
+                aria-label={`${review.rating} out of 5 stars`}
+              >
+                {Array.from({ length: review.rating }, (_, index) => (
+                  <Star
+                    key={index}
+                    size={15}
+                    fill="currentColor"
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+              {review.quote ? (
+                <blockquote>
+                  <p>{review.excerpt ?? review.quote}</p>
+                </blockquote>
+              ) : (
+                <p className="rating-only">
+                  5/5 rating, without written feedback.
+                </p>
+              )}
+              <figcaption>
+                <div>
+                  <strong>{review.name}</strong>
+                  <span>
+                    {review.excerpt
+                      ? "Review excerpt"
+                      : "Topmate service rating"}
+                  </span>
+                </div>
+                <time dateTime={review.date}>
+                  {new Intl.DateTimeFormat("en-GB", {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+                    timeZone: "UTC",
+                  }).format(new Date(review.date))}
+                </time>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+        <div className="testimonials-bottom">
+          <button
+            className="sketch-button"
+            onClick={() => setShowAllReviews(!showAllReviews)}
+            aria-expanded={showAllReviews}
+            aria-controls="topmate-reviews"
+          >
+            {showAllReviews
+              ? "Show selected reviews"
+              : `Read all ${testimonials.length} ratings`}
+            <ArrowDown
+              size={16}
+              className={showAllReviews ? "reviews-expanded" : ""}
+            />
+          </button>
+          <a
+            className="text-link"
+            href={TOPMATE}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Reviews on Topmate <ArrowUpRight size={17} />
+          </a>
         </div>
       </div>
     </section>

@@ -47,4 +47,6 @@ Replaced slogans with first-person descriptions of the work and the questions be
 
 ## Verification
 
+The teaching section subsequently expanded into a community story connecting YouTube with free Topmate career mentoring and supplied service feedback. See [testimonial provenance](community-testimonials.md). The selected engineering projects and PhD research sections remain the professional focus.
+
 Production build, TypeScript checks and static export passed. Chrome checked the nine selected projects and their dialogs, all four category filters, search, removed-entry absence, displayed-copy punctuation, research summary and email link, three original YouTube thumbnails and video URLs, Research/YouTube mobile navigation, and old/new project chapter hashes. Layouts passed at 320, 390, 768, 1024 and 1440 pixels, including illustration clearance above the mobile introduction. Desktop and mobile hero, research and channel screenshots were inspected. No runtime errors were recorded.

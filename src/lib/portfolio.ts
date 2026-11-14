@@ -32,6 +32,126 @@ export interface Project {
 }
 
 export const YOUTUBE = "https://www.youtube.com/@NiteshExplainsAI";
+export const TOPMATE = "https://topmate.io/nitesh2039";
+export const FREE_MENTORING = `${TOPMATE}/107348`;
+
+export const testimonials = [
+  {
+    name: "Ayushi",
+    date: "2026-03-18",
+    rating: 5,
+    featured: true,
+    quote:
+      "Nitesh was very patient in answering all the doubts and gave clarity for next steps",
+  },
+  {
+    name: "navya sri",
+    date: "2026-08-21",
+    rating: 5,
+    featured: true,
+    quote:
+      "Nitesh Ranjan has been very friendly, patient, and supportive throughout the process. He clearly explained how he cracked interviews in the UK and helped me understand what strategies could work for me. He provided valuable guidance on how to get more interview opportunities, improve my resume, use Claude AI effectively, and build a strong portfolio. His practical advice and willingness to patiently explain everything made the sessions really helpful.",
+    excerpt:
+      "He provided valuable guidance on how to get more interview opportunities, improve my resume, use Claude AI effectively, and build a strong portfolio.",
+  },
+  {
+    name: "Megha Joshi",
+    date: "2026-02-04",
+    rating: 5,
+    featured: true,
+    quote:
+      "Thank you for such a great mock interview session. It was very engaging and helped me understand my strengths and areas for improvement clearly. Your guidance has given me more confidence and direction for real interviews.",
+  },
+  {
+    name: "Preetham",
+    date: "2025-01-13",
+    rating: 5,
+    featured: true,
+    quote:
+      "Thank you, Nitesh I had an insightful 1-to-1 session , he was listening my every bit of the conversation and with his expertise and guidance I was able identify the stand points through which I was clear with the next set of process(Roadmap) , the best part of the conversation he was able to guide me on the importance of cloud focused approach in todays industry I highly recommend for anyone looking to deepen their understanding of data engineering.",
+    excerpt:
+      "the best part of the conversation he was able to guide me on the importance of cloud focused approach in todays industry I highly recommend for anyone looking to deepen their understanding of data engineering.",
+  },
+  {
+    name: "Gaurav",
+    date: "2026-10-30",
+    rating: 5,
+    featured: false,
+    quote: "It was really helpful session, all my doubts are cleared",
+  },
+  {
+    name: "Anonymous",
+    date: "2026-02-21",
+    rating: 5,
+    featured: false,
+    quote:
+      "It was truly a great experience speaking with Nitesh. I had many questions and doubts, and he addressed everything patiently, offering clear guidance that gave me confidence about my career growth.",
+  },
+  {
+    name: "Mukul Yadav",
+    date: "2025-11-21",
+    rating: 5,
+    featured: false,
+    quote:
+      "It was indeed a insightful session outlining various aspects, a in-depth career Outline",
+  },
+  {
+    name: "Anonymous",
+    date: "2025-01-25",
+    rating: 5,
+    featured: false,
+    quote:
+      "Session was brilliant Nitesh was amazing I think one of the best sessions.Helped me with resume and buliding a more good profile.",
+  },
+  {
+    name: "Maladi vinay",
+    date: "2025-01-10",
+    rating: 5,
+    featured: false,
+    quote:
+      "I had an incredible 1:1 session with Nitesh Ranjan. He helped me identify the right path to choose. Nitesh heard me patiently and jotted down my issues. He guided me through the issues and covered it all with clarity and depth. What stood out was how approachable and insightful he was—breaking down complex topics into manageable steps. By the end of the call, I had a clear roadmap and renewed confidence in my journey.",
+    excerpt:
+      "I had an incredible 1:1 session with Nitesh Ranjan. He helped me identify the right path to choose. Nitesh heard me patiently and jotted down my issues. He guided me through the issues and covered it all with clarity and depth.",
+  },
+  {
+    name: "Neeli Rekha",
+    date: "2024-03-20",
+    rating: 5,
+    featured: false,
+    quote: "Great session",
+  },
+  {
+    name: "mahesh joshi",
+    date: "2026-03-09",
+    rating: 5,
+    featured: false,
+    quote:
+      "Very honest and professional guidance perfect all confusion reset 10 out of 10 sir",
+  },
+  {
+    name: "Prashant Iyer",
+    date: "2025-09-28",
+    rating: 5,
+    featured: false,
+    quote:
+      "I had received amazing guidance from Nitesh, who had gone above and beyond assisting me in my professional journey. Will continue to seek and learn more.",
+  },
+  {
+    name: "Amit",
+    date: "2024-12-08",
+    rating: 5,
+    featured: false,
+    quote: "Great Guidance 👍🏼",
+  },
+  {
+    name: "Saurabh",
+    date: "2024-03-18",
+    rating: 5,
+    featured: false,
+    quote: null,
+  },
+];
+
 export const channelVideos = [
   {
     id: "mn7rB6-7dBo",
