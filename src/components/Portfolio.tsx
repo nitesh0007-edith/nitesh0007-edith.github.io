@@ -11,6 +11,16 @@ import {
   Check,
   Code2,
   Database,
+  Bot,
+  Calculator,
+  Dna,
+  Grid,
+  Mic,
+  RefreshCw,
+  Scan,
+  Train,
+  TrendingUp,
+  Video,
   ExternalLink,
   FileText,
   Github,
@@ -28,6 +38,8 @@ import {
   caseFiles,
   experiences,
   modules,
+  projectCategories,
+  type ProjectCategory,
   type Project,
 } from "@/lib/portfolio";
 
@@ -464,42 +476,33 @@ export function Experience() {
   );
 }
 
-const categories: Record<string, number[]> = {
-  "All work": caseFiles.map((p) => p.id),
-  "Data Engineering": [10, 4, 7, 8],
-  "Agentic AI": [10, 11, 12, 9, 1, 2, 3, 4, 8],
-  "Machine Learning": [2, 5, 6, 11],
-  Research: [6, 9],
+type ProjectFilter = "All work" | ProjectCategory;
+const categories: ProjectFilter[] = ["All work", ...projectCategories];
+const newProjectArt: Partial<
+  Record<number, { icon: typeof Code2; label: string }>
+> = {
+  13: { icon: Mic, label: "speech → context → answer" },
+  14: { icon: Video, label: "explain it. animate it." },
+  15: { icon: Train, label: "feed → stream → lakehouse" },
+  16: { icon: Scan, label: "one passage. eighteen models." },
+  17: { icon: TrendingUp, label: "reconstruct / forecast / estimate" },
+  18: { icon: Grid, label: "1,000 puzzles. every square counts." },
+  19: { icon: Bot, label: "inspect → repair → verify" },
+  20: { icon: TrendingUp, label: "data → factors → simulation" },
+  21: { icon: Calculator, label: "five modules. one research lab." },
+  22: { icon: RefreshCw, label: "experiment → measure → repeat" },
+  23: { icon: Dna, label: "harmonise → estimate → scrutinise" },
 };
-const projectTitles: Record<number, string> = {
-  10: "DataSentinel",
-  11: "LumaLearn",
-  12: "SasineSense AI",
-  9: "HyperX",
-  1: "LectureLens",
-  2: "LLM Fine-Tuning",
-  3: "AURA",
-  4: "AutoPipelineAI",
-  5: "ECG Explainability",
-  6: "Provider Fairness",
-  7: "JobFlowUK",
-  8: "PipelineSentinel",
-};
-const projectTypes: Record<number, string> = {
-  10: "DATA RELIABILITY",
-  11: "AGENTIC RECOMMENDATIONS",
-  12: "DOCUMENT INTELLIGENCE",
-  9: "AWARD-WINNING RETRIEVAL",
-  1: "HYBRID RAG COPILOT",
-  2: "FINE-TUNING & SERVING",
-  3: "MCP GATEWAY",
-  4: "SELF-SERVE ANALYTICS",
-  5: "EXPLAINABLE ML",
-  6: "MSC RESEARCH",
-  7: "WORKFLOW AUTOMATION",
-  8: "LAKEHOUSE ARCHITECTURE",
-};
-function ProjectVisual({ id }: { id: number }) {
+function projectStatusClass(status: Project["status"]) {
+  if (status === "DESIGNED") return "project-status planned";
+  if (status === "PROTOTYPE") return "project-status prototype";
+  if (status === "IN PROGRESS") return "project-status ongoing";
+  return "project-status";
+}
+function ProjectVisual({ project }: { project: Project }) {
+  const { id } = project;
+  const art = newProjectArt[id];
+  const ArtIcon = art?.icon;
   if (id === 6) {
     return (
       <div
@@ -520,8 +523,13 @@ function ProjectVisual({ id }: { id: number }) {
   return (
     <div className={`project-art art-${id}`} aria-hidden="true">
       <span className="art-grid" />
-      <span className="art-caption">{projectTypes[id]}</span>
-      {id === 10 ? (
+      <span className="art-caption">{project.discipline}</span>
+      {ArtIcon && art ? (
+        <div className="new-project-art">
+          <ArtIcon size={64} strokeWidth={1.3} />
+          <span>{art.label}</span>
+        </div>
+      ) : id === 10 ? (
         <div className="sentinel-art">
           <Database size={38} />
           <span className="signal-line" />
@@ -562,7 +570,7 @@ function ProjectVisual({ id }: { id: number }) {
 }
 
 export function Projects() {
-  const [filter, setFilter] = useState("All work");
+  const [filter, setFilter] = useState<ProjectFilter>("All work");
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<Project | null>(null);
   const [expanded, setExpanded] = useState(false);
@@ -607,7 +615,7 @@ export function Projects() {
   };
   const matching = caseFiles.filter(
     (p) =>
-      categories[filter].includes(p.id) &&
+      (filter === "All work" || p.categories.includes(filter)) &&
       `${p.title} ${p.brief} ${p.tools.join(" ")}`
         .toLowerCase()
         .includes(query.trim().toLowerCase()),
@@ -615,7 +623,7 @@ export function Projects() {
   const visible =
     expanded || filter !== "All work" || query
       ? matching
-      : matching.slice(0, 6);
+      : matching.filter((p) => p.featured);
   return (
     <section id="projects" className="projects-section">
       <div className="section-shell">
@@ -637,7 +645,7 @@ export function Projects() {
         </div>
         <div className="project-controls">
           <div className="project-filters" aria-label="Project category">
-            {Object.keys(categories).map((category) => (
+            {categories.map((category) => (
               <button
                 key={category}
                 aria-pressed={filter === category}
@@ -670,22 +678,16 @@ export function Projects() {
               onClick={() => open(project)}
               aria-label={`Explore ${project.title}`}
             >
-              <ProjectVisual id={project.id} />
+              <ProjectVisual project={project} />
               <div className="project-card-body">
                 <div className="project-card-meta">
-                  <span>{projectTypes[project.id]}</span>
-                  <span
-                    className={
-                      project.status === "DESIGNED"
-                        ? "project-status planned"
-                        : "project-status"
-                    }
-                  >
+                  <span>{project.discipline}</span>
+                  <span className={projectStatusClass(project.status)}>
                     {project.status}
                   </span>
                 </div>
                 <h3>
-                  {projectTitles[project.id]}
+                  {project.displayTitle}
                   <ArrowUpRight size={24} />
                 </h3>
                 <p>{project.brief}</p>
@@ -750,7 +752,9 @@ export function Projects() {
                 <X size={24} />
               </button>
             </div>
-            <span className="project-status">{selected.status}</span>
+            <span className={projectStatusClass(selected.status)}>
+              {selected.status}
+            </span>
             <h2 id="project-dialog-title">{selected.title}</h2>
             <p className="dialog-brief">{selected.brief}</p>
             <h3>THE APPROACH</h3>

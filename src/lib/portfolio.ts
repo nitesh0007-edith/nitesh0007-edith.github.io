@@ -3,12 +3,27 @@ export type ProjectStatus =
   | "KAGGLE 2ND PLACE"
   | "HACKATHON RUNNER-UP"
   | "IN PROGRESS"
+  | "PROTOTYPE"
   | "DESIGNED"
   | "RESEARCH COMPLETE";
+
+export const projectCategories = [
+  "Data Engineering",
+  "Agentic AI",
+  "Machine Learning",
+  "Applications",
+  "Optimisation",
+  "Research",
+] as const;
+export type ProjectCategory = (typeof projectCategories)[number];
 
 export interface Project {
   id: number;
   title: string;
+  displayTitle: string;
+  discipline: string;
+  categories: ProjectCategory[];
+  featured?: boolean;
   icon: string;
   status: ProjectStatus;
   brief: string;
@@ -22,6 +37,10 @@ export interface Project {
 export const caseFiles: Project[] = [
   {
     id: 10,
+    displayTitle: "DataSentinel",
+    discipline: "DATA RELIABILITY",
+    categories: ["Data Engineering", "Agentic AI"],
+    featured: true,
     title: "DataSentinel — Data Reliability Engineer",
     icon: "🛡️",
     status: "SHIPPED",
@@ -48,6 +67,10 @@ export const caseFiles: Project[] = [
   },
   {
     id: 11,
+    displayTitle: "LumaLearn",
+    discipline: "AGENTIC RECOMMENDATIONS",
+    categories: ["Agentic AI", "Machine Learning", "Applications"],
+    featured: true,
     title: "LumaLearn — SmartReco",
     icon: "🧠",
     status: "SHIPPED",
@@ -74,6 +97,9 @@ export const caseFiles: Project[] = [
   },
   {
     id: 12,
+    displayTitle: "SasineSense AI",
+    discipline: "DOCUMENT INTELLIGENCE",
+    categories: ["Agentic AI"],
     title: "SasineSense AI — Scottish Document Intelligence",
     icon: "📜",
     status: "SHIPPED",
@@ -92,6 +118,9 @@ export const caseFiles: Project[] = [
   },
   {
     id: 9,
+    displayTitle: "HyperX",
+    discipline: "AWARD-WINNING RETRIEVAL",
+    categories: ["Agentic AI", "Research"],
     title: "HyperX — Agentic Legal Citation Retrieval",
     icon: "⚖️",
     status: "KAGGLE 2ND PLACE",
@@ -117,6 +146,9 @@ export const caseFiles: Project[] = [
   },
   {
     id: 1,
+    displayTitle: "LectureLens",
+    discipline: "HYBRID RAG COPILOT",
+    categories: ["Agentic AI", "Applications"],
     title: "LectureLens — Hybrid RAG Learning Copilot",
     icon: "📚",
     status: "SHIPPED",
@@ -141,6 +173,9 @@ export const caseFiles: Project[] = [
   },
   {
     id: 2,
+    displayTitle: "LLM Fine-Tuning",
+    discipline: "FINE-TUNING & SERVING",
+    categories: ["Agentic AI", "Machine Learning"],
     title: "Production LLM Fine-Tuning & Serving",
     icon: "🧪",
     status: "SHIPPED",
@@ -165,6 +200,9 @@ export const caseFiles: Project[] = [
   },
   {
     id: 3,
+    displayTitle: "AURA",
+    discipline: "MCP GATEWAY",
+    categories: ["Agentic AI"],
     title: "AURA — MCP Gateway",
     icon: "🛰️",
     status: "HACKATHON RUNNER-UP",
@@ -181,6 +219,9 @@ export const caseFiles: Project[] = [
   },
   {
     id: 4,
+    displayTitle: "AutoPipelineAI",
+    discipline: "SELF-SERVE ANALYTICS",
+    categories: ["Data Engineering", "Agentic AI"],
     title: "AutoPipelineAI — NL Analytics Platform",
     icon: "🗣️",
     status: "SHIPPED",
@@ -197,6 +238,9 @@ export const caseFiles: Project[] = [
   },
   {
     id: 5,
+    displayTitle: "ECG Explainability",
+    discipline: "EXPLAINABLE ML",
+    categories: ["Machine Learning"],
     title: "ECG Arrhythmia Detection",
     icon: "🫀",
     status: "SHIPPED",
@@ -214,6 +258,9 @@ export const caseFiles: Project[] = [
   },
   {
     id: 6,
+    displayTitle: "Provider Fairness",
+    discipline: "MSC RESEARCH",
+    categories: ["Machine Learning", "Research"],
     title: "Provider Fairness in Multi-Stakeholder Recommendation",
     icon: "🔬",
     status: "RESEARCH COMPLETE",
@@ -238,6 +285,9 @@ export const caseFiles: Project[] = [
   },
   {
     id: 7,
+    displayTitle: "JobFlowUK",
+    discipline: "WORKFLOW AUTOMATION",
+    categories: ["Data Engineering", "Applications"],
     title: "JobFlowUK — Job-Search Automation",
     icon: "🤖",
     status: "SHIPPED",
@@ -254,6 +304,9 @@ export const caseFiles: Project[] = [
   },
   {
     id: 8,
+    displayTitle: "PipelineSentinel",
+    discipline: "LAKEHOUSE ARCHITECTURE",
+    categories: ["Data Engineering", "Agentic AI"],
     title: "PipelineSentinel — Self-Healing Lakehouse",
     icon: "🛡️",
     status: "DESIGNED",
@@ -273,6 +326,263 @@ export const caseFiles: Project[] = [
       "GitHub Actions",
     ],
     impact: "Architecture design with human-approved remediation",
+  },
+  {
+    id: 13,
+    displayTitle: "InterviewCue",
+    discipline: "NATIVE MACOS ASSISTANT",
+    categories: ["Applications", "Agentic AI"],
+    featured: true,
+    title: "InterviewCue — Native macOS Conversation Assistant",
+    icon: "🎙️",
+    status: "PROTOTYPE",
+    brief:
+      "A native Swift app that turns speech and session context into streamed answers, with editable transcripts, screenshot questions and local session history.",
+    approach: [
+      "ScreenCaptureKit and microphone capture feed speech-end chunking and transcription; PCM conversion handles multiple audio formats",
+      "Streamed responses use session documents, instructions and the preceding exchange to keep answers grounded in the active conversation",
+      "AppKit and SwiftUI provide a menu-bar workspace, session controls and history; API credentials are stored in Keychain",
+      "Version 1.3.0 records 30 passing standalone checks and a signed release build; real-device audio capture still needs desktop permission validation",
+    ],
+    tools: [
+      "Swift",
+      "SwiftUI",
+      "AppKit",
+      "ScreenCaptureKit",
+      "OpenAI API",
+      "Keychain",
+    ],
+    impact:
+      "Built native app with 30 recorded standalone checks; hardware capture remains permission-dependent.",
+  },
+  {
+    id: 14,
+    displayTitle: "AI from First Principles",
+    discipline: "ANIMATED LEARNING PIPELINE",
+    categories: ["Applications", "Agentic AI"],
+    featured: true,
+    title: "AI from First Principles — Animated Lesson Pipeline",
+    icon: "🎬",
+    status: "IN PROGRESS",
+    brief:
+      "A local production pipeline for narrated AI lessons: reproducible calculations become animated scenes, synchronised speech, captions and reviewable video deliverables.",
+    approach: [
+      "A staged Python CLI coordinates episode briefs, numeric examples, narration, alignment, rendering, assembly and metadata",
+      "Manim scenes and Remotion compositions turn AI concepts into visual explanations; timing data connects narration and scene transitions",
+      "Kokoro speech, ASR-assisted alignment and FFmpeg assembly produce narrated lessons with SRT/VTT captions",
+      "Automated duration, numeric-literal, loudness and subtitle checks sit alongside explicit human review gates; the course is still in development",
+    ],
+    tools: ["Python", "Manim", "Remotion", "Kokoro TTS", "FFmpeg", "Whisper"],
+    impact:
+      "Implemented local lesson pipeline with rendered artifacts, captions and automated QA; series in development.",
+  },
+  {
+    id: 15,
+    displayTitle: "Transit Analytics",
+    discipline: "STREAMING DATA ENGINEERING",
+    categories: ["Data Engineering"],
+    featured: true,
+    title: "Real-Time Public Transit Delay Analytics",
+    icon: "🚆",
+    status: "PROTOTYPE",
+    brief:
+      "A streaming lakehouse prototype that turns GTFS-Realtime transit updates into route-delay metrics, incident windows and an interactive operations dashboard.",
+    approach: [
+      "A Python/protobuf producer publishes GTFS-Realtime trip updates to Kafka",
+      "PyFlink computes five-minute tumbling, thirty-minute sliding and session-window aggregations with checkpointing",
+      "A separate Kafka consumer writes aggregates into Apache Iceberg on MinIO; Streamlit and Plotly expose delay patterns",
+      "Docker Compose, seed data and component tests support local development; an end-to-end production deployment is not claimed",
+    ],
+    tools: [
+      "Python",
+      "Apache Kafka",
+      "PyFlink",
+      "Apache Iceberg",
+      "MinIO",
+      "Streamlit",
+      "Docker",
+    ],
+    impact:
+      "Implemented ingestion, stream processing, lakehouse sink and dashboard components for local operation.",
+  },
+  {
+    id: 16,
+    displayTitle: "Name That LLM",
+    discipline: "MODEL ATTRIBUTION",
+    categories: ["Machine Learning", "Research"],
+    featured: true,
+    title: "Name That LLM — Generated-Text Attribution",
+    icon: "🔎",
+    status: "IN PROGRESS",
+    brief:
+      "Research into identifying which of 18 language models generated a passage, combining prompt-separated evaluation, text baselines and neural representations.",
+    approach: [
+      "Frozen prompt-level development and audit splits keep passages from the same prompt together",
+      "TF-IDF, logistic regression and stylometry establish baselines before frozen-Qwen probes and neural ensemble experiments",
+      "Offline notebooks, source hashes and strict ID/output contracts make inference and submission artifacts reproducible",
+      "A separately attributed reproduction of a public ensemble recipe has a saved Kaggle public score of 0.682, checked 11 November 2026; independent experiments remain ongoing",
+    ],
+    tools: ["Python", "scikit-learn", "TF-IDF", "Qwen", "PyTorch", "Kaggle"],
+    impact:
+      "Recorded public score 0.682 for a public-recipe reproduction; original research evaluated separately.",
+    link: "https://www.kaggle.com/competitions/name-that-llm",
+  },
+  {
+    id: 17,
+    displayTitle: "TrafficFlowBench",
+    discipline: "TRAFFIC FORECASTING",
+    categories: ["Machine Learning", "Research"],
+    title: "TrafficFlowBench — Traffic State & Flow Modelling",
+    icon: "🚦",
+    status: "IN PROGRESS",
+    brief:
+      "A multi-task traffic modelling pipeline for state reconstruction, queue forecasting and origin–destination flow estimation, with temporal validation and physical consistency checks.",
+    approach: [
+      "Temporal interpolation and LightGBM residual models reconstruct traffic state from sparse observations",
+      "Horizon-specific models forecast queues; prior-regularised non-negative least squares estimates origin–destination and path flows",
+      "Chronological validation, leakage audits, physics diagnostics and provenance records support experiment comparison",
+      "The saved candidate record reports a public Kaggle score of 0.81337 on 20 October 2026; it does not record a private score or final rank",
+    ],
+    tools: ["Python", "LightGBM", "NumPy", "pandas", "SciPy", "Kaggle"],
+    impact:
+      "Recorded public score 0.81337, with reproducible candidate artifacts and chronological evaluation.",
+    link: "https://www.kaggle.com/competitions/2026-ieee-big-data-traffic-flow-bench",
+  },
+  {
+    id: 18,
+    displayTitle: "Squares in Squares",
+    discipline: "GEOMETRIC OPTIMISATION",
+    categories: ["Optimisation", "Research"],
+    title: "Squares in Squares — Constructive Packing Optimisation",
+    icon: "🧩",
+    status: "IN PROGRESS",
+    brief:
+      "A reproducible geometry solver that packs rotated unit squares into small enclosing squares, with independent certification for every puzzle size from 1 to 1,000.",
+    approach: [
+      "Exact grids, diagonal channels and border/deletion transfers generate candidate packings",
+      "Public witness packings retain their attribution when merged with local constructions and repair experiments",
+      "Separating-axis penalties and local refinement propose improvements; the unchanged official interval-arithmetic validator decides admission",
+      "Saved exports validate all 1,000 puzzle sizes; unsuccessful composition experiments are retained as measured null results",
+    ],
+    tools: ["Python", "NumPy", "SciPy", "mpmath", "Computational Geometry"],
+    impact:
+      "Certified full-size packing exports and a reproducible search history with public-seed attribution.",
+    link: "https://www.kaggle.com/competitions/squares-in-squares",
+  },
+  {
+    id: 19,
+    displayTitle: "BudgetSWE-Gemma",
+    discipline: "BUDGETED CODING AGENTS",
+    categories: ["Agentic AI", "Research"],
+    title: "BudgetSWE-Gemma — Budget-Aware Software Repair",
+    icon: "🛠️",
+    status: "IN PROGRESS",
+    brief:
+      "A research harness for Gemma-based coding agents that must inspect repositories, repair software and allocate limited tool calls and inference time.",
+    approach: [
+      "Structured task records, tool traces and bounded agent policies make software-repair runs inspectable",
+      "A task sanitiser strips gold patches before inference; packaging and integration checks validate evaluation artifacts",
+      "Frozen evaluation sets and temporal-contamination filters separate post-training examples from held-out tasks",
+      "Readiness and adapter-effect checks are recorded, while several prompt-policy pilots failed their acceptance gates; no improved repair benchmark is claimed",
+    ],
+    tools: ["Python", "Gemma", "vLLM", "LoRA", "pytest", "Kaggle"],
+    impact:
+      "Implemented agent, evaluation and post-training preparation tooling; research remains in progress.",
+    link: "https://www.kaggle.com/competitions/gemma-4-developer-agent",
+  },
+  {
+    id: 20,
+    displayTitle: "Quant Research Platform",
+    discipline: "FACTOR RESEARCH & SIMULATION",
+    categories: ["Applications", "Machine Learning", "Optimisation"],
+    title: "Quant Research Platform — Factor Models & Paper Trading",
+    icon: "📈",
+    status: "PROTOTYPE",
+    brief:
+      "A local equity research platform connecting market-data storage, factor models, backtesting, portfolio risk controls and a Streamlit dashboard.",
+    approach: [
+      "Market-data ingestion and updates feed a SQLite store with reusable feature and factor calculations",
+      "PCA, momentum and regime-aware models generate signals for comparison in a common backtest runner",
+      "Portfolio, execution and ledger modules support simulated trading with risk controls",
+      "Dashboard pages inspect positions, signals and analysis; this is research and paper-trading software with no verified live-capital performance claim",
+    ],
+    tools: ["Python", "NumPy", "scikit-learn", "SQLite", "Streamlit", "Plotly"],
+    impact:
+      "Implemented local research, backtesting and paper-trading components with an interactive dashboard.",
+  },
+  {
+    id: 21,
+    displayTitle: "Quantitative Finance Lab",
+    discipline: "NUMERICAL FINANCE",
+    categories: ["Machine Learning", "Optimisation"],
+    title: "Quantitative Finance Lab — Five Implemented Modules",
+    icon: "🧮",
+    status: "PROTOTYPE",
+    brief:
+      "A public collection of implemented finance experiments covering sequence models, portfolio optimisation, options simulation, pairs trading and risk analysis.",
+    approach: [
+      "LSTM forecasting code combines engineered features with walk-forward evaluation",
+      "Portfolio optimisation includes Black–Litterman allocation; Monte Carlo simulation estimates option prices and Greeks",
+      "Cointegration-based pairs-trading code sits alongside value-at-risk and stress-testing modules",
+      "Five topic folders contain source and runnable examples; the remaining planned topics are excluded from the implementation count",
+    ],
+    tools: [
+      "Python",
+      "NumPy",
+      "TensorFlow",
+      "SciPy",
+      "Portfolio Optimisation",
+      "Monte Carlo",
+    ],
+    impact:
+      "Five source-backed modules in a public repository; educational prototypes without verified trading-return claims.",
+    repo: "https://github.com/nitesh0007-edith/Quantitative-Finance-Projects",
+  },
+  {
+    id: 22,
+    displayTitle: "Stock Autoresearch",
+    discipline: "AUTOMATED EXPERIMENTATION",
+    categories: ["Agentic AI", "Machine Learning", "Research"],
+    title: "Stock Autoresearch — Agent-Guided Prediction Experiments",
+    icon: "🔁",
+    status: "PROTOTYPE",
+    brief:
+      "A CPU-oriented experiment loop for stock-return prediction: an agent changes model code, measures validation error and records which experiments are kept or reverted.",
+    approach: [
+      "Adapts the public autoresearch pattern to a stock-return dataset with a fixed data-loading and evaluation module",
+      "Separates mutable training code from evaluation; lagged momentum, reversal and company-level features support lightweight experiments",
+      "A results ledger preserves measurements and keep/revert decisions across iterations",
+      "Repeated validation guides exploration; those adaptive results are not presented as an independent holdout benchmark or trading performance",
+    ],
+    tools: [
+      "Python",
+      "NumPy",
+      "pandas",
+      "Agent Workflows",
+      "Experiment Tracking",
+    ],
+    impact:
+      "Implemented a logged, CPU-based research loop adapted from the public autoresearch pattern.",
+  },
+  {
+    id: 23,
+    displayTitle: "Mendelian Randomisation",
+    discipline: "STATISTICAL GENETICS",
+    categories: ["Research"],
+    title: "Mendelian Randomisation — LDL & Alzheimer’s Study",
+    icon: "🧬",
+    status: "RESEARCH COMPLETE",
+    brief:
+      "An academic statistical-genetics study using summary GWAS data to examine the relationship between LDL cholesterol and Alzheimer’s disease through complementary estimators.",
+    approach: [
+      "R scripts fetch genetic association data and harmonise exposure and outcome alleles",
+      "Inverse-variance weighting, MR-Egger, weighted-median and simple-mode estimators are compared with confidence intervals",
+      "Heterogeneity, pleiotropy and leave-one-out sensitivity analyses accompany forest and funnel plots",
+      "Saved analysis tables, figures and a written report document the coursework workflow and its assumptions",
+    ],
+    tools: ["R", "TwoSampleMR", "GWAS", "ggplot2", "Sensitivity Analysis"],
+    impact:
+      "Completed academic analysis with saved result tables, sensitivity plots and a written report.",
   },
 ];
 

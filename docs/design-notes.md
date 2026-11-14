@@ -19,7 +19,7 @@ Final generation prompt:
 - TypeScript validation and production static export.
 - Chrome browser checks at widths of 320, 390, 768, 1024, and 1440 pixels, with no horizontal scrolling.
 - Career tabs, including arrow-key navigation.
-- Project categories, search, empty results, and expansion to all 12 projects.
+- Project categories, search, empty results, and expansion to all 23 projects.
 - Project dialogs, Escape dismissal, focus restoration, and direct links.
 - All six existing chapter routes.
 - Mobile navigation and reduced-motion preference.
@@ -27,3 +27,7 @@ Final generation prompt:
 ## Personal photographs
 
 The About portrait now uses a real photograph. Selected user-supplied photographs also illustrate CodeOlympics, the Glasgow university chapter, the dissertation and a personal photo journal. See [the placement analysis](photo-placement.md) for the full selection and decisions about duplicates and alternate shots.
+
+## Local project coverage
+
+The November home-directory audit added 11 source-backed projects. See [the audit](root-project-audit.md) for evidence, status decisions and exclusions. Project presentation and category metadata now live in the project records, with six explicitly featured entries and all work accessible through expansion and filtering.

@@ -1071,6 +1071,49 @@ h2 > span {
 .art-5 {
   background: #f3d1c9;
 }
+.art-13,
+.art-19,
+.art-22 {
+  background: #d8e7ff;
+}
+.art-14,
+.art-21 {
+  background: #ffe2b7;
+}
+.art-15,
+.art-17,
+.art-20 {
+  background: #d2e9dc;
+}
+.art-16,
+.art-18,
+.art-23 {
+  background: #eadff5;
+}
+.new-project-art {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 17px;
+  padding: 15px;
+  max-width: 100%;
+}
+.new-project-art svg {
+  width: 79px;
+  height: 79px;
+  padding: 14px;
+  background: #fffdf6;
+  border: 2px solid;
+  border-radius: 12px 5px 15px 5px;
+  box-shadow: 5px 5px 0;
+  transform: rotate(-6deg);
+}
+.new-project-art > span {
+  font-family: var(--font-courier-prime), monospace;
+  font-size: 11px;
+  text-align: center;
+}
 .generic-art {
   position: relative;
   display: flex;
@@ -1113,6 +1156,14 @@ h2 > span {
 .project-status.planned {
   background: #eee5f6;
   color: #684985;
+}
+.project-status.prototype {
+  background: #fff0d1;
+  color: #795000;
+}
+.project-status.ongoing {
+  background: #e4edff;
+  color: #244c85;
 }
 .project-card h3 {
   display: flex;
