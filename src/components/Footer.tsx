@@ -4,7 +4,7 @@ export default function Footer() {
     <footer className="site-footer">
       <div>
         <span>© {new Date().getFullYear()} NITESH RANJAN SINGH</span>
-        <span>Built with curiosity. Based in Glasgow.</span>
+        <span>Glasgow · Data engineering · LLM evaluation</span>
         <Link href="/#hero">BACK TO TOP ↑</Link>
       </div>
     </footer>

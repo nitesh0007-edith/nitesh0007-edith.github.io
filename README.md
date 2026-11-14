@@ -1,6 +1,6 @@
 # Nitesh Ranjan Singh — Portfolio
 
-A bold, illustrated Data & AI Engineering portfolio built with Next.js 15 and Tailwind CSS 4. Orange display typography, an original manga hero, pastel sections, and sketch-style details frame real projects and experience.
+A portfolio for Nitesh's data engineering work, current LLM evaluation research and YouTube teaching. Built with Next.js 15 and Tailwind CSS 4, with nine selected projects and clear routes for employers and prospective PhD supervisors.
 
 ## Development
 
@@ -25,6 +25,7 @@ The production site exports to `out/`. The existing GitHub Actions workflow depl
 - `src/app/globals.css`: visual styles and responsive layouts.
 - `public/images/hero-manga.webp`: original transparent hero illustration.
 - `docs/design-notes.md`: reference, artwork prompt, and verification notes.
+- `docs/portfolio-story.md`: current narrative, project selection and research/channel evidence.
 
 The existing `/chapters/*/` routes render the same redesigned sections. Project links such as `/chapters/projects/#project-10` continue to open the corresponding project details.
 

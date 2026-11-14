@@ -11,16 +11,10 @@ import {
   Check,
   Code2,
   Database,
-  Bot,
-  Calculator,
-  Dna,
-  Grid,
-  Mic,
-  RefreshCw,
-  Scan,
-  Train,
   TrendingUp,
   Video,
+  Youtube,
+  FlaskConical,
   ExternalLink,
   FileText,
   Github,
@@ -39,6 +33,8 @@ import {
   experiences,
   modules,
   projectCategories,
+  channelVideos,
+  YOUTUBE,
   type ProjectCategory,
   type Project,
 } from "@/lib/portfolio";
@@ -80,6 +76,14 @@ function SocialLinks({ dark = false }: { dark?: boolean }) {
       >
         <Github size={22} />
       </a>
+      <a
+        href={YOUTUBE}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Nitesh Explains AI on YouTube"
+      >
+        <Youtube size={22} />
+      </a>
       <a href={`mailto:${EMAIL}`} aria-label="Email Nitesh">
         <Mail size={22} />
       </a>
@@ -94,24 +98,27 @@ export function Hero() {
         <span>
           <i /> GLASGOW, SCOTLAND
         </span>
-        <span>DATA. CODE. A LITTLE CURIOSITY.</span>
+        <span>OPEN TO WORK · SEEKING A PHD</span>
         <span>PORTFOLIO / 2026</span>
       </div>
       <div className="hero-title-wrap">
         <div className="hero-disciplines">
-          <span>DATA ENGINEER</span>
-          <span>AI BUILDER</span>
-          <span>PROBLEM SOLVER</span>
+          <span>DATA ENGINEERING</span>
+          <span>LLM EVALUATION</span>
+          <span>PHD APPLICANT</span>
         </div>
         <h1>
           NITESH
-          <span className="sr-only"> Ranjan Singh — Data & AI Engineer</span>
+          <span className="sr-only">
+            {" "}
+            Ranjan Singh, Data Engineer and PhD Applicant
+          </span>
         </h1>
       </div>
       <div className="hero-scribble" aria-hidden="true">
-        Always building
+        From data pipelines
         <br />
-        something new.
+        to research questions.
         <ArrowDownRight size={46} strokeWidth={1.4} />
       </div>
       <div className="hero-character">
@@ -127,21 +134,23 @@ export function Hero() {
       <a href="#about" className="hero-bubble">
         Hey, I’m Nitesh.
         <br />
-        Welcome to my corner
+        Data engineer.
         <br />
-        of the internet. <span>✦</span>
+        Looking for a PhD.
       </a>
       <div className="hero-bottom">
         <div className="hero-intro">
           <span className="eyebrow">NITESH RANJAN SINGH</span>
           <p>
-            I turn messy data into
-            <br />
-            systems that <em>make sense.</em>
+            I build data systems.
+            <br />I study how we <em>evaluate AI.</em>
           </p>
           <div className="hero-actions">
             <a className="sketch-button orange" href="#projects">
-              Explore my work <ArrowUpRight size={17} />
+              My work <ArrowUpRight size={17} />
+            </a>
+            <a className="text-link" href="#research">
+              PhD research <ArrowUpRight size={17} />
             </a>
             <SocialLinks />
           </div>
@@ -161,50 +170,53 @@ export function About() {
       <div className="section-shell about-grid">
         <div className="about-visual">
           <span className="about-word" aria-hidden="true">
-            CURIOUS
+            INDIA TO
             <br />
-            BY DESIGN.
+            GLASGOW.
           </span>
           <div className="portrait-frame">
             <PersonalPhoto
               photo="portrait"
               sizes="(max-width: 700px) 85vw, 38vw"
             />
-            <span className="photo-caption">Me, between ideas. ↗</span>
+            <span className="photo-caption">Nitesh, at the laptop. ↗</span>
           </div>
           <span className="portrait-sticker">
-            <Sparkles size={18} /> BUILT ON CURIOSITY
+            <MapPin size={18} /> GLASGOW · DATA SCIENCE
           </span>
         </div>
         <div className="about-copy">
-          <SectionLabel number="01">
-            THE PERSON BEHIND THE PIPELINES
-          </SectionLabel>
+          <SectionLabel number="01">ABOUT ME</SectionLabel>
           <h2>
-            Serious about data.
+            An engineer,
             <br />
             <span>
-              Playful about <br />
-              possibilities.
+              with research
+              <br />
+              questions.
             </span>
           </h2>
           <p className="lead">
-            Hi, I’m Nitesh — a Data & AI Engineer who likes making complicated
-            things useful.
+            I’m Nitesh. I’m a data engineer in Glasgow, looking for my next role
+            and a funded PhD in machine learning or information retrieval.
           </p>
           <p>
-            I spent 3+ years at IQVIA and Axtria building data platforms for
-            global pharma. Think 10M-record pipelines, reliable analytics, and
-            tools that teams actually use.
+            At IQVIA and Axtria, I spent more than three years building data
+            platforms for pharmaceutical teams. That work taught me to check the
+            data behind a result, not just whether a pipeline finished.
           </p>
           <p>
-            That curiosity brought me to the University of Glasgow for an MSc in
-            Data Science. Now I’m exploring grounded AI: hybrid retrieval,
-            fine-tuned LLMs, and agents with evidence behind their answers.
+            My MSc at the University of Glasgow took that question into
+            research. I studied provider fairness in recommendation. Now I’m
+            running pilots on LLM judges: what their scores mean, where they
+            disagree with people, and how much human evaluation they can
+            replace.
           </p>
           <div className="about-footnote">
             <MapPin size={17} />
-            <span>Based in Glasgow · Open to opportunities across the UK</span>
+            <span>
+              Glasgow · Open to engineering roles and funded PhD positions
+            </span>
           </div>
           <a
             className="text-link"
@@ -212,7 +224,7 @@ export function About() {
             target="_blank"
             rel="noreferrer"
           >
-            The full story, on paper <ArrowUpRight size={18} />
+            Download my CV <ArrowUpRight size={18} />
           </a>
         </div>
       </div>
@@ -229,21 +241,21 @@ export function Recognition() {
     >
       <div className="section-shell">
         <div className="recognition-heading">
-          <SectionLabel number="02">A FEW HIGHLIGHTS</SectionLabel>
+          <SectionLabel number="02">COMPETITIONS & AWARDS</SectionLabel>
           <h2 id="recognition-title">
-            Good work.
+            Work I’m
             <br />
-            <span>Great company.</span>
+            <span>proud of.</span>
           </h2>
           <p>
-            Building, competing, and learning with people who push me further.
+            Some of my best learning has happened in a team, under a deadline.
           </p>
         </div>
         <div className="recognition-layout">
           <PhotoFrame
             photo="codeolympics"
             label="CODEOLYMPICS / 2026"
-            caption="A good day, shared with good company."
+            caption="With my teammates at CodeOlympics 2026."
             sizes="(max-width: 800px) 90vw, 55vw"
             className="medal-photo"
           />
@@ -300,7 +312,7 @@ const toolGroups = [
     ],
   },
   {
-    title: "BUILD & SHIP",
+    title: "SOFTWARE",
     icon: Code2,
     tools: [
       "FastAPI",
@@ -318,15 +330,15 @@ export function Toolkit() {
       <div className="section-shell">
         <div className="toolkit-heading">
           <div>
-            <SectionLabel number="03">TOOLS OF THE TRADE</SectionLabel>
+            <SectionLabel number="03">WHAT I WORK WITH</SectionLabel>
             <h2>
               THE STACK<span>_</span>
             </h2>
           </div>
           <p>
-            From the first SQL query
+            Tools I’ve used in industry,
             <br />
-            to the last deployment.
+            independent projects and research.
           </p>
         </div>
         <div className="tool-groups">
@@ -357,17 +369,17 @@ export function Experience() {
       <div className="section-shell">
         <div className="section-heading">
           <div>
-            <SectionLabel number="04">LEARNING BY DOING</SectionLabel>
+            <SectionLabel number="04">INDUSTRY EXPERIENCE</SectionLabel>
             <h2>
-              REAL WORK.
+              WHERE I’VE
               <br />
-              <span>REAL IMPACT.</span>
+              <span>WORKED.</span>
             </h2>
           </div>
           <p>
-            From regulated pharma data
+            Three years in pharmaceutical data,
             <br />
-            to a new chapter in Scotland.
+            before my MSc in Glasgow.
           </p>
         </div>
         <div className="experience-layout">
@@ -476,27 +488,114 @@ export function Experience() {
   );
 }
 
+export function Research() {
+  return (
+    <section
+      id="research"
+      className="research-section"
+      aria-labelledby="research-title"
+    >
+      <div className="section-shell">
+        <div className="research-heading">
+          <div>
+            <SectionLabel number="05">
+              CURRENT RESEARCH · PHD APPLICANT
+            </SectionLabel>
+            <h2 id="research-title">
+              WHEN CAN WE
+              <br />
+              <span>TRUST THE SCORE?</span>
+            </h2>
+          </div>
+          <p>
+            My MSc started with fairness in recommendation. My current work asks
+            how we should evaluate language models when both judges and human
+            labels are imperfect.
+          </p>
+        </div>
+        <div className="research-directions">
+          <article>
+            <span className="eyebrow">01 / LEAD PROPOSAL</span>
+            <h3>How many human labels can an LLM judge replace?</h3>
+            <p>
+              I’m testing how disagreement between human raters limits the
+              labelling effort a judge can save. I compare calibration methods
+              and stopping rules, including cases where a judge adds little
+              benefit.
+            </p>
+            <div className="research-observation">
+              <span>PILOT OBSERVATION</span>
+              <p>
+                On MultiPref, the estimated ceiling was about{" "}
+                <strong>21%</strong> under a one-vote-per-item setup, with a 95%
+                interval of 19–22%. A high agreement score alone does not tell
+                us the saving.
+              </p>
+            </div>
+            <p className="research-methods">
+              Pilots: MT-Bench, MultiPref, ChaosNLI and a TREC DL 2023
+              judged-pool experiment.
+            </p>
+          </article>
+          <article>
+            <span className="eyebrow">02 / SECOND PROPOSAL</span>
+            <h3>Whose preferences does a judge inherit?</h3>
+            <p>
+              I started by expecting related models to favour each other.
+              Weight-interpolation tests did not support that explanation. I’m
+              now examining self-preference, preference for strong models and
+              what survives judge training.
+            </p>
+            <div className="research-observation">
+              <span>WHAT CHANGED MY THINKING</span>
+              <p>
+                Weight proximity did not explain favouritism in this pilot. Some
+                base-model preferences survived LoRA, but the pattern depended
+                on the model and training recipe.
+              </p>
+            </div>
+            <p className="research-methods">
+              Methods: weight interpolation, frozen heads, LoRA, full
+              fine-tuning and bootstrap uncertainty.
+            </p>
+          </article>
+        </div>
+        <div className="research-next">
+          <p>
+            Independent pilot work, November 2026. The proposals are still
+            developing; larger studies and further validation are next.
+          </p>
+          <div>
+            <a className="text-link" href="/#project-24">
+              Read the pilot summary <ArrowUpRight size={17} />
+            </a>
+            <a
+              className="sketch-button"
+              href={`mailto:${EMAIL}?subject=PhD%20research%20conversation`}
+            >
+              Discuss a PhD opportunity <ArrowUpRight size={17} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 type ProjectFilter = "All work" | ProjectCategory;
 const categories: ProjectFilter[] = ["All work", ...projectCategories];
 const newProjectArt: Partial<
   Record<number, { icon: typeof Code2; label: string }>
 > = {
-  13: { icon: Mic, label: "speech → context → answer" },
-  14: { icon: Video, label: "explain it. animate it." },
-  15: { icon: Train, label: "feed → stream → lakehouse" },
-  16: { icon: Scan, label: "one passage. eighteen models." },
-  17: { icon: TrendingUp, label: "reconstruct / forecast / estimate" },
-  18: { icon: Grid, label: "1,000 puzzles. every square counts." },
-  19: { icon: Bot, label: "inspect → repair → verify" },
-  20: { icon: TrendingUp, label: "data → factors → simulation" },
-  21: { icon: Calculator, label: "five modules. one research lab." },
-  22: { icon: RefreshCw, label: "experiment → measure → repeat" },
-  23: { icon: Dna, label: "harmonise → estimate → scrutinise" },
+  17: { icon: TrendingUp, label: "traffic state / queues / flows" },
+  24: {
+    icon: FlaskConical,
+    label: "human labels / judge scores / uncertainty",
+  },
 };
 function projectStatusClass(status: Project["status"]) {
-  if (status === "DESIGNED") return "project-status planned";
-  if (status === "PROTOTYPE") return "project-status prototype";
   if (status === "IN PROGRESS") return "project-status ongoing";
+  if (status === "PILOT COMPLETE") return "project-status pilot";
   return "project-status";
 }
 function ProjectVisual({ project }: { project: Project }) {
@@ -629,7 +728,7 @@ export function Projects() {
       <div className="section-shell">
         <div className="section-heading">
           <div>
-            <SectionLabel number="05">LESS TALK. MORE BUILDING.</SectionLabel>
+            <SectionLabel number="06">ENGINEERING & RESEARCH</SectionLabel>
             <h2>
               SELECTED
               <br />
@@ -637,9 +736,9 @@ export function Projects() {
             </h2>
           </div>
           <div className="projects-note">
-            Ideas made real.
+            A selection of my work.
             <br />
-            <span>Click a project to go deeper.</span>
+            <span>Open a project for methods and results.</span>
             <ArrowDownRight size={32} />
           </div>
         </div>
@@ -757,13 +856,13 @@ export function Projects() {
             </span>
             <h2 id="project-dialog-title">{selected.title}</h2>
             <p className="dialog-brief">{selected.brief}</p>
-            <h3>THE APPROACH</h3>
+            <h3>WHAT I WORKED ON</h3>
             <ol>
               {selected.approach.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ol>
-            <h3>BUILT WITH</h3>
+            <h3>TOOLS & METHODS</h3>
             <div className="project-tags">
               {selected.tools.map((tool) => (
                 <span key={tool}>{tool}</span>
@@ -813,13 +912,13 @@ export function Education() {
   return (
     <section id="education" className="education-section">
       <div className="section-shell">
-        <SectionLabel number="06">NEVER DONE LEARNING</SectionLabel>
+        <SectionLabel number="07">EDUCATION</SectionLabel>
         <div className="education-grid">
           <div>
             <h2>
-              STAY
+              MY TIME
               <br />
-              <span>CURIOUS.</span>
+              <span>AT GLASGOW.</span>
             </h2>
             <div className="degree">
               <GraduationCap size={28} />
@@ -830,9 +929,9 @@ export function Education() {
               </div>
             </div>
             <p className="education-description">
-              Researching provider fairness in multi-stakeholder recommendation:
-              fairness-aware training, exposure-aware re-ranking, and grounded
-              explanations.
+              My dissertation compared fairness-aware training with
+              exposure-aware re-ranking. It is where I began asking whether the
+              metrics we optimise capture the outcomes we care about.
             </p>
             <div className="project-tags">
               {modules.map((module) => (
@@ -845,7 +944,7 @@ export function Education() {
               target="_blank"
               rel="noreferrer"
             >
-              Notes from the journey <ArrowUpRight size={17} />
+              MSc coursework and notes <ArrowUpRight size={17} />
             </a>
             <div className="previous-degree">
               <h3>B.Tech Computer Science Engineering</h3>
@@ -858,7 +957,7 @@ export function Education() {
           </div>
           <div className="award-list">
             <h3>
-              THE TROPHY SHELF <Trophy size={20} />
+              AWARDS & SCHOLARSHIPS <Trophy size={20} />
             </h3>
             {awards.map((award) => (
               <div key={award.title}>
@@ -880,16 +979,16 @@ export function Education() {
           <PhotoFrame
             photo="dissertation"
             label="RESEARCH / SEPTEMBER 2026"
-            caption="From experiments to a finished dissertation."
+            caption="My dissertation, submitted in September 2026."
             sizes="(max-width: 650px) 90vw, 40vw"
             className="dissertation-photo"
           />
           <div>
-            <span className="eyebrow">THE WORK, OFF-SCREEN</span>
+            <span className="eyebrow">MY MSC DISSERTATION</span>
             <h3>
-              A question worth
+              Who gets seen
               <br />
-              staying curious about.
+              in a recommendation?
             </h3>
             <p>
               Where should provider fairness sit in a recommendation pipeline?
@@ -906,20 +1005,20 @@ export function Education() {
           <div className="memory-heading">
             <span className="eyebrow">THE GLASGOW CHAPTER</span>
             <h3>More than the coursework.</h3>
-            <p>Shared milestones. New people. A place to keep learning.</p>
+            <p>The scholarship reception, friends and the people I met here.</p>
           </div>
           <div className="university-photos">
             <PhotoFrame
               photo="scholarship-reception"
               label="UNIVERSITY / SCHOLARSHIP RECEPTION"
-              caption="A milestone worth celebrating."
+              caption="At the postgraduate scholarship reception."
               sizes="(max-width: 650px) 90vw, 32vw"
               className="scholarship-photo"
             />
             <PhotoFrame
               photo="glasgow-community"
               label="UNIVERSITY / COMMUNITY"
-              caption="A bigger picture of life at Glasgow."
+              caption="With the university community in Glasgow."
               sizes="(max-width: 650px) 90vw, 60vw"
               className="community-photo"
             />
@@ -927,8 +1026,8 @@ export function Education() {
         </div>
         <aside className="mentoring-note">
           <div>
-            <span className="eyebrow">PASSING IT FORWARD</span>
-            <h3>Good advice can change a chapter.</h3>
+            <span className="eyebrow">MENTORING</span>
+            <h3>Talking through the next step.</h3>
             <p>
               Mentored 50+ students on UK Master’s admissions and Data
               Engineering / GenAI careers via Topmate, with a 5/5 rating.
@@ -948,32 +1047,109 @@ export function Education() {
   );
 }
 
+export function YouTubeChannel() {
+  return (
+    <section
+      id="youtube"
+      className="youtube-section"
+      aria-labelledby="youtube-title"
+    >
+      <div className="section-shell">
+        <div className="youtube-heading">
+          <div>
+            <SectionLabel number="08">
+              NITESH EXPLAINS AI · YOUTUBE
+            </SectionLabel>
+            <h2 id="youtube-title">
+              I TEACH WHAT
+              <br />
+              <span>I’M LEARNING.</span>
+            </h2>
+          </div>
+          <div className="youtube-story">
+            <p>
+              Recording a lesson makes me check every step. On my channel, I use
+              small numerical examples to connect the maths to code, from
+              vectors and PCA to gradients and backpropagation.
+            </p>
+            <p>
+              I want someone watching to be able to work through the
+              calculation, rather than just remember the formula.
+            </p>
+            <a
+              className="text-link"
+              href={YOUTUBE}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Youtube size={20} /> Visit Nitesh Explains AI{" "}
+              <ArrowUpRight size={17} />
+            </a>
+          </div>
+        </div>
+        <div className="video-grid">
+          {channelVideos.map((video) => (
+            <a
+              className="channel-video"
+              key={video.id}
+              href={`https://www.youtube.com/watch?v=${video.id}`}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`Watch ${video.title} on YouTube`}
+            >
+              <div className="video-thumbnail">
+                <Image
+                  src={`/images/youtube/${video.image}.jpg`}
+                  alt={`Lesson thumbnail: ${video.title}`}
+                  width={1280}
+                  height={720}
+                  sizes="(max-width: 700px) 90vw, 30vw"
+                />
+                <span aria-hidden="true">
+                  <Youtube size={27} />
+                </span>
+              </div>
+              <div className="video-description">
+                <h3>
+                  {video.title}
+                  <ArrowUpRight size={20} />
+                </h3>
+                <p>{video.detail}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function PhotoJournal() {
   const moments = [
     {
       photo: "city-walks" as const,
       label: "01 / CITY WALKS",
-      caption: "Taking the scenic route.",
+      caption: "A walk through the city.",
     },
     {
       photo: "coastal-detour" as const,
       label: "02 / COASTAL DETOURS",
-      caption: "A little room to breathe.",
+      caption: "A day by the coast.",
     },
     {
       photo: "winter-hike" as const,
       label: "03 / WINTER PATHS",
-      caption: "A different kind of challenge.",
+      caption: "Out on a winter hike.",
     },
     {
       photo: "london-after-dark" as const,
       label: "04 / LONDON AFTER DARK",
-      caption: "A change of scenery.",
+      caption: "An evening by the Thames.",
     },
     {
       photo: "campus-friends" as const,
       label: "05 / CAMPUS DAYS",
-      caption: "Better with good company.",
+      caption: "With friends at Glasgow.",
     },
   ];
   return (
@@ -985,17 +1161,16 @@ export function PhotoJournal() {
       <div className="section-shell">
         <div className="journal-heading">
           <div>
-            <SectionLabel number="07">AWAY FROM THE KEYBOARD</SectionLabel>
+            <SectionLabel number="09">OUTSIDE WORK</SectionLabel>
             <h2 id="journal-title">
-              A FEW OTHER
+              LIFE IN
               <br />
-              <span>CHAPTERS.</span>
+              <span>A FEW PHOTOS.</span>
             </h2>
           </div>
           <p>
-            City walks, coastal detours, snowy paths.
-            <br />
-            And good company along the way.
+            Walks, a few trips and time with friends.
+            <br />A little of my life outside work.
           </p>
         </div>
         <div className="journal-grid">
@@ -1040,31 +1215,32 @@ export function Contact() {
   return (
     <section id="contact" className="contact-section">
       <div className="section-shell">
-        <SectionLabel number="08">LET’S MAKE SOMETHING USEFUL</SectionLabel>
+        <SectionLabel number="10">WORK & PHD OPPORTUNITIES</SectionLabel>
         <div className="contact-grid">
           <div>
             <h2>
-              HAVE A<br />
-              GOOD <span>PROBLEM?</span>
+              LOOKING FOR
+              <br />
+              MY NEXT <span>STEP.</span>
             </h2>
             <p>
-              I’d love to help solve it. I’m open to Data & AI Engineering
-              roles, interesting collaborations, and a good conversation.
+              I’m looking for a Data Engineer or AI Engineer role where I can
+              build and evaluate systems. I’m also seeking a funded PhD in LLM
+              evaluation, information retrieval or responsible machine learning.
             </p>
             <div className="contact-location">
               <i />
-              <span>Glasgow, Scotland · Open to UK opportunities</span>
+              <span>Based in Glasgow · Open to work and PhD opportunities</span>
             </div>
             <SocialLinks dark />
           </div>
           <div className="contact-note">
-            <span className="note-kicker">YOUR NEXT DATA PERSON?</span>
+            <span className="note-kicker">HIRING OR SUPERVISING?</span>
             <Mail size={36} strokeWidth={1.4} />
             <h3>Let’s talk.</h3>
             <p>
-              A role, an idea, a question.
-              <br />
-              My inbox is open.
+              If my experience fits your team or research group, I’d like to
+              hear from you. I can share my CV and current proposal.
             </p>
             <a className="sketch-button yellow" href={`mailto:${EMAIL}`}>
               Say hello <ArrowUpRight size={19} />

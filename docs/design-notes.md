@@ -19,7 +19,7 @@ Final generation prompt:
 - TypeScript validation and production static export.
 - Chrome browser checks at widths of 320, 390, 768, 1024, and 1440 pixels, with no horizontal scrolling.
 - Career tabs, including arrow-key navigation.
-- Project categories, search, empty results, and expansion to all 23 projects.
+- Project categories, search, empty results, and expansion to the current nine selected projects.
 - Project dialogs, Escape dismissal, focus restoration, and direct links.
 - All six existing chapter routes.
 - Mobile navigation and reduced-motion preference.
@@ -31,3 +31,5 @@ The About portrait now uses a real photograph. Selected user-supplied photograph
 ## Local project coverage
 
 The November home-directory audit added 11 source-backed projects. See [the audit](root-project-audit.md) for evidence, status decisions and exclusions. Project presentation and category metadata now live in the project records, with six explicitly featured entries and all work accessible through expansion and filtering.
+
+The subsequent [editorial curation](portfolio-story.md) reduced the list to nine projects and added dedicated current-research and YouTube sections. Copy now introduces Nitesh as a data engineer seeking work and a funded PhD.

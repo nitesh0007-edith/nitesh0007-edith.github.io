@@ -27,9 +27,9 @@ const courierPrime = Courier_Prime({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nitesh0007-edith.github.io"),
-  title: "Nitesh Ranjan Singh | Data & AI Engineer",
+  title: "Nitesh Ranjan Singh | Data Engineer & PhD Applicant",
   description:
-    "Data & AI Engineer in Glasgow. Explore production data platforms, grounded AI systems, award-winning retrieval research and selected work by Nitesh Ranjan Singh.",
+    "I’m Nitesh, a data engineer in Glasgow seeking engineering roles and a funded PhD. My work spans data platforms, information retrieval and LLM evaluation. I also teach on Nitesh Explains AI.",
   keywords: [
     "Data Engineering",
     "GenAI",
@@ -40,12 +40,15 @@ export const metadata: Metadata = {
     "LLM Fine-Tuning",
     "MCP",
     "Machine Learning",
+    "PhD Applicant",
+    "LLM Evaluation",
+    "Information Retrieval",
   ],
   authors: [{ name: "Nitesh Ranjan Singh" }],
   openGraph: {
-    title: "Nitesh Ranjan Singh | Data & AI Engineer",
+    title: "Nitesh Ranjan Singh | Data Engineer & PhD Applicant",
     description:
-      "Production data platforms and GenAI systems — from 10M-record pipelines for global pharma to fine-tuned LLMs served at scale.",
+      "Data engineer in Glasgow, open to work and seeking a funded PhD. Selected engineering projects, LLM evaluation pilots and lessons from Nitesh Explains AI.",
     type: "website",
   },
 };

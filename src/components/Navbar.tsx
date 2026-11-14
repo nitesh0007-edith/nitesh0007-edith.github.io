@@ -5,11 +5,11 @@ import Link from "next/link";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 
 const links = [
-  ["Home", "hero"],
   ["About", "about"],
   ["Experience", "experience"],
+  ["Research", "research"],
   ["Projects", "projects"],
-  ["Life", "life"],
+  ["YouTube", "youtube"],
   ["Contact", "contact"],
 ];
 
@@ -26,10 +26,10 @@ export default function Navbar() {
     <header className="site-header">
       <nav className="nav-inner" aria-label="Main navigation">
         <Link href="/#hero" className="brand" onClick={() => setOpen(false)}>
-          Portfolio
+          Nitesh
           <span className="availability">
             <i />
-            Open to work
+            Open to work & PhD
           </span>
         </Link>
         <div className="desktop-nav">

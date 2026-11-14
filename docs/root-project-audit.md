@@ -1,5 +1,7 @@
 # Local project audit — 14 November 2026
 
+Historical discovery audit. The user subsequently requested a smaller selection and a research-led story. See [the current curation](portfolio-story.md) for the nine projects now displayed.
+
 Compared project directories in the user's home folder with the 12 existing portfolio entries. Added 11 substantive projects, preserving existing project IDs and links. The six featured cards are DataSentinel, LumaLearn, InterviewCue, AI from First Principles, Transit Analytics and Name That LLM. All 23 entries are available through expansion, search, categories and direct links.
 
 ## Additions and evidence
